@@ -5,7 +5,7 @@ import { Reveal } from "./reveal"
 import { useState } from "react"
 
 export function FinalCta({
-  calendlyUrl = "https://calendly.com/your-team/ai-assessment",
+  calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/matt-tier4/tier-4-ai-catch-up-call",
 }: {
   calendlyUrl?: string
 }) {
@@ -28,7 +28,7 @@ export function FinalCta({
         <Reveal delay={0.15}>
           <div className="mx-auto mt-8 w-full overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
             <iframe
-              title="Schedule your AI Opportunity Assessment"
+              title="Schedule your Tier 4 AI Discovery Call"
               src={`${calendlyUrl}?hide_event_type_details=1&hide_gdpr_banner=1`}
               className="h-[720px] w-full"
               loading="lazy"
