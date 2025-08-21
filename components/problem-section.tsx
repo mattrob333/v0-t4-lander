@@ -10,31 +10,36 @@ export function ProblemSection() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-4 max-w-3xl text-black/70 dark:text-white/80">
-            Organizations are inundated with hype and conflicting advice. Internal teams debate feasibility while competitors
-            quietly capture value. You need rigorous, fast validation to focus on what works — not another deck of buzzwords.
+            Organizations are inundated with hype and conflicting advice. Internal teams debate feasibility while
+            competitors quietly capture value. You need rigorous, fast validation to focus on what works — not another
+            deck of buzzwords.
           </p>
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
               <Image
-                src={"/placeholder.svg?height=360&width=560&query=AI%20noise%20hype%20cloud%20with%20buzzwords"}
-                alt="Word cloud of AI hype terms labeled 'AI Noise'"
+                src="/images/ai-noise-buzzwords.png"
+                alt="AI in glowing green letters surrounded by a cloud of buzzwords like disruption, blockchain, synergy, and big data representing the overwhelming noise in the AI space"
                 width={560}
                 height={360}
                 className="h-auto w-full rounded"
               />
-              <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">“AI Noise” cloud of hype words</p>
+              <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
+                "AI Noise" cloud of hype words
+              </p>
             </div>
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
               <Image
-                src={"/placeholder.svg?height=360&width=560&query=single%20clear%20arrow%20validated%20AI%20blueprint"}
-                alt="A single clear arrow labeled 'Validated AI Blueprint' cutting through noise"
+                src="/images/ai-blueprint-clarity.png"
+                alt="Clean technical blueprint diagram with geometric shapes and clear labels for Efficiency, ROI, and Scalability representing a structured validated AI approach"
                 width={560}
                 height={360}
                 className="h-auto w-full rounded"
               />
-              <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">A clear “Validated AI Blueprint” cutting through</p>
+              <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
+                A clear "Validated AI Blueprint" cutting through
+              </p>
             </div>
           </div>
         </Reveal>

@@ -11,8 +11,9 @@ export function FractionalCao() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-black/70 dark:text-white/80">
-              As your Fractional Chief Automation Officer, Tier 4 drives long-term AI success — governance, change management,
-              iterative releases, and continuous ROI tracking. We ensure your automation roadmap compounds value over time.
+              As your Fractional Chief Automation Officer, Tier 4 drives long-term AI success — governance, change
+              management, iterative releases, and continuous ROI tracking. We ensure your automation roadmap compounds
+              value over time.
             </p>
           </Reveal>
         </div>
@@ -20,8 +21,8 @@ export function FractionalCao() {
           <div className="relative">
             <div className="absolute -inset-5 -z-10 rounded-xl bg-white/60 dark:bg-white/10" aria-hidden="true" />
             <Image
-              src={"/placeholder.svg?height=420&width=560&query=executive%20silhouette%20overlay%20with%20workflow%20diagram"}
-              alt="Executive silhouette with workflow overlay"
+              src="/images/strategic-roadmap-executive.png"
+              alt="Executive in business suit reviewing strategic roadmap documents with pen in hand, showing professional strategic planning and AI leadership"
               width={560}
               height={420}
               className="h-auto w-full rounded-xl border border-black/10 dark:border-white/10"

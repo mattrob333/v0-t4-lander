@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScheduleDialog } from "./schedule-dialog"
 import { ThemeToggle } from "./theme-toggle"
+import { useTheme } from "next-themes"
 
 const SECTIONS = ["process", "analysis", "cases", "contact"] as const
 
@@ -15,6 +16,10 @@ export function Header() {
   const [open, setOpen] = useState(false)
   const [showDialog, setShowDialog] = useState(false)
   const [active, setActive] = useState<(typeof SECTIONS)[number] | null>(null)
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -49,6 +54,10 @@ export function Header() {
       active === id ? "font-semibold text-black dark:text-white underline" : undefined,
     )
 
+  // Use light logo by default until mounted to avoid hydration mismatch
+  const logoSrc =
+    mounted && resolvedTheme === "dark" ? "/images/tier4-logo-horizontal-dark.png" : "/images/tier4-logo-horizontal.png"
+
   return (
     <header
       className={cn(
@@ -63,7 +72,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
         <Link href="#" className="flex items-center gap-2" aria-label="Tier 4 Intelligence - Home">
           <img
-            src="/images/tier4-logo-horizontal.png"
+            src={logoSrc || "/placeholder.svg"}
             alt="Tier 4 Intelligence"
             width={280}
             height={64}

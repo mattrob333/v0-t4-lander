@@ -19,7 +19,9 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
         <div>
           <Reveal>
-            <h1 className={`${mont.className} text-3xl font-extrabold tracking-tight md:text-5xl`}>
+            <h1
+              className={`${mont.className} text-3xl font-extrabold tracking-tight leading-tight md:text-5xl md:leading-tight`}
+            >
               Rapid AI Clarity in Days. Strategic AI Leadership for Years.
             </h1>
           </Reveal>
@@ -99,8 +101,8 @@ export function Hero() {
               aria-hidden="true"
             />
             <Image
-              src="/images/tier4-hero.png"
-              alt="Abstract data visualization with flowing green elements representing AI strategy and business transformation"
+              src="/images/tier4-hero-dna-circuit.jpeg"
+              alt="DNA double helix pattern integrated into illuminated circuit board pathways, representing the fusion of biological intelligence and AI technology"
               width={720}
               height={520}
               priority
