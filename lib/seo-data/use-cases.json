@@ -1,0 +1,194 @@
+{
+  "automation": {
+    "name": "Automation",
+    "description": "Streamline operations and reduce manual tasks",
+    "keywords": [
+      "process automation",
+      "workflow optimization",
+      "robotic process automation",
+      "intelligent automation"
+    ],
+    "benefits": [
+      "Reduce operational costs by 30-50%",
+      "Eliminate human error",
+      "Improve processing speed",
+      "Enable 24/7 operations"
+    ]
+  },
+  "prediction": {
+    "name": "Predictive Analytics",
+    "description": "Forecast trends and anticipate future outcomes",
+    "keywords": [
+      "predictive modeling",
+      "forecasting",
+      "trend analysis",
+      "predictive insights"
+    ],
+    "benefits": [
+      "Improve decision-making accuracy",
+      "Reduce unexpected downtime",
+      "Optimize resource allocation",
+      "Anticipate market changes"
+    ]
+  },
+  "optimization": {
+    "name": "Optimization",
+    "description": "Maximize efficiency and resource utilization",
+    "keywords": [
+      "resource optimization",
+      "performance optimization",
+      "efficiency improvement",
+      "cost optimization"
+    ],
+    "benefits": [
+      "Increase operational efficiency by 25-40%",
+      "Reduce waste and costs",
+      "Improve resource utilization",
+      "Enhance performance metrics"
+    ]
+  },
+  "personalization": {
+    "name": "Personalization",
+    "description": "Deliver tailored experiences and recommendations",
+    "keywords": [
+      "customer personalization",
+      "recommendation systems",
+      "targeted experiences",
+      "individualized services"
+    ],
+    "benefits": [
+      "Increase customer engagement",
+      "Improve conversion rates",
+      "Enhance customer satisfaction",
+      "Boost revenue per customer"
+    ]
+  },
+  "fraud-detection": {
+    "name": "Fraud Detection",
+    "description": "Identify and prevent fraudulent activities",
+    "keywords": [
+      "fraud prevention",
+      "anomaly detection",
+      "risk monitoring",
+      "security analytics"
+    ],
+    "benefits": [
+      "Reduce fraud losses by 60-80%",
+      "Improve detection accuracy",
+      "Minimize false positives",
+      "Protect customer trust"
+    ]
+  },
+  "classification": {
+    "name": "Classification",
+    "description": "Automatically categorize and organize data",
+    "keywords": [
+      "data classification",
+      "automated categorization",
+      "content classification",
+      "intelligent sorting"
+    ],
+    "benefits": [
+      "Improve data organization",
+      "Reduce manual classification time",
+      "Enhance searchability",
+      "Ensure consistent categorization"
+    ]
+  },
+  "content-generation": {
+    "name": "Content Generation",
+    "description": "Create and optimize content automatically",
+    "keywords": [
+      "automated content creation",
+      "content optimization",
+      "text generation",
+      "creative automation"
+    ],
+    "benefits": [
+      "Scale content production",
+      "Maintain consistency",
+      "Reduce content creation costs",
+      "Improve content quality"
+    ]
+  },
+  "data-extraction": {
+    "name": "Data Extraction",
+    "description": "Extract insights from unstructured data",
+    "keywords": [
+      "information extraction",
+      "document processing",
+      "data mining",
+      "intelligent data capture"
+    ],
+    "benefits": [
+      "Unlock hidden insights",
+      "Automate data entry",
+      "Improve data accuracy",
+      "Accelerate information processing"
+    ]
+  },
+  "recommendation": {
+    "name": "Recommendation Systems",
+    "description": "Provide intelligent suggestions and recommendations",
+    "keywords": [
+      "recommendation engines",
+      "intelligent suggestions",
+      "personalized recommendations",
+      "collaborative filtering"
+    ],
+    "benefits": [
+      "Increase sales and engagement",
+      "Improve user experience",
+      "Reduce choice overload",
+      "Enhance customer retention"
+    ]
+  },
+  "forecasting": {
+    "name": "Forecasting",
+    "description": "Predict future demand and trends",
+    "keywords": [
+      "demand forecasting",
+      "sales forecasting",
+      "trend prediction",
+      "market forecasting"
+    ],
+    "benefits": [
+      "Improve inventory management",
+      "Reduce stockouts and overstock",
+      "Optimize production planning",
+      "Enhance financial planning"
+    ]
+  },
+  "quality-control": {
+    "name": "Quality Control",
+    "description": "Ensure consistent quality and standards",
+    "keywords": [
+      "quality assurance",
+      "defect detection",
+      "quality monitoring",
+      "automated inspection"
+    ],
+    "benefits": [
+      "Reduce defect rates",
+      "Improve product consistency",
+      "Lower quality costs",
+      "Enhance customer satisfaction"
+    ]
+  },
+  "risk-assessment": {
+    "name": "Risk Assessment",
+    "description": "Evaluate and mitigate potential risks",
+    "keywords": [
+      "risk analysis",
+      "risk modeling",
+      "threat assessment",
+      "risk management"
+    ],
+    "benefits": [
+      "Improve risk visibility",
+      "Reduce unexpected losses",
+      "Enhance decision-making",
+      "Ensure regulatory compliance"
+    ]
+  }
+}

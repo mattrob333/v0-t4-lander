@@ -6,8 +6,157 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  
+  // Experimental features for better performance
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+  },
+  
+  // Bundle optimization
+  webpack: (config, { dev, isServer }) => {
+    // Production optimizations
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+            priority: 10,
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 5,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
+          ui: {
+            test: /[\\/]components[\\/]ui[\\/]/,
+            name: 'ui',
+            chunks: 'all',
+            priority: 8,
+          },
+        },
+      };
+    }
+    
+    // Bundle analyzer in development
+    if (process.env.ANALYZE === 'true') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          openAnalyzer: true,
+        })
+      );
+    }
+    
+    return config;
+  },
+  
   images: {
-    unoptimized: true,
+    // Enable Next.js image optimization
+    unoptimized: false,
+    // Define image formats for Next.js optimization
+    formats: ['image/webp', 'image/avif'],
+    // Define responsive breakpoints
+    deviceSizes: [320, 420, 768, 1024, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Optimize image loading
+    minimumCacheTTL: 31536000, // 1 year
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Configure domains for external images (if needed)
+    domains: [],
+    // Configure remote patterns for external images (if needed)
+    remotePatterns: [],
+  },
+  
+  // Configure headers for optimal caching and security
+  async headers() {
+    return [
+      {
+        source: '/images/optimized/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/:path*.(webp|jpg|jpeg|png|gif|svg|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()',
+          },
+        ],
+      },
+    ];
   },
 }
 

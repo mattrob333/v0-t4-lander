@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <url>
+    <loc>https://tier4intelligence.com/services/5-day-poc/</loc>
+    <lastmod>2025-08-21T12:11:40.550Z</lastmod>
+    <image:image>
+      <image:loc>https://tier4intelligence.com/images/optimized/tier4-hero-1024w.webp</image:loc>
+      <image:caption>Tier 4 Intelligence AI Consulting Hero Image</image:caption>
+      <image:title>5-Day AI POC Implementation</image:title>
+      <image:license>https://tier4intelligence.com/image-license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tier4intelligence.com/methodology/</loc>
+    <lastmod>2025-08-21T12:11:40.550Z</lastmod>
+    <image:image>
+      <image:loc>https://tier4intelligence.com/images/optimized/ai-blueprint-clarity-1024w.webp</image:loc>
+      <image:caption>AI Blueprint Clarity Visualization</image:caption>
+      <image:title>Clear AI Implementation Strategy</image:title>
+      <image:license>https://tier4intelligence.com/image-license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tier4intelligence.com/services/executive-briefing/</loc>
+    <lastmod>2025-08-21T12:11:40.550Z</lastmod>
+    <image:image>
+      <image:loc>https://tier4intelligence.com/images/optimized/strategic-roadmap-executive-1024w.webp</image:loc>
+      <image:caption>Strategic AI Roadmap for Executives</image:caption>
+      <image:title>Executive AI Strategy Framework</image:title>
+      <image:license>https://tier4intelligence.com/image-license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tier4intelligence.com/about/</loc>
+    <lastmod>2025-08-21T12:11:40.550Z</lastmod>
+    <image:image>
+      <image:loc>https://tier4intelligence.com/images/optimized/with-tier4-roadmap-1024w.webp</image:loc>
+      <image:caption>Organized AI Implementation with Tier 4</image:caption>
+      <image:title>Structured AI Development Process</image:title>
+      <image:license>https://tier4intelligence.com/image-license</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tier4intelligence.com/case-studies/</loc>
+    <lastmod>2025-08-21T12:11:40.550Z</lastmod>
+    <image:image>
+      <image:loc>https://tier4intelligence.com/images/optimized/without-tier4-chaos-1024w.webp</image:loc>
+      <image:caption>Chaotic AI Implementation Without Structure</image:caption>
+      <image:title>Unstructured AI Development Problems</image:title>
+      <image:license>https://tier4intelligence.com/image-license</image:license>
+    </image:image>
+  </url>
+</urlset>

@@ -1,5 +1,5 @@
-import Image from "next/image"
 import { Reveal } from "./reveal"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 
 export function ProblemSection() {
   return (
@@ -18,24 +18,26 @@ export function ProblemSection() {
         <Reveal delay={0.15}>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
-              <Image
-                src="/images/ai-noise-buzzwords.png"
+              <OptimizedImage
+                src="ai-noise-buzzwords"
                 alt="AI in glowing green letters surrounded by a cloud of buzzwords like disruption, blockchain, synergy, and big data representing the overwhelming noise in the AI space"
                 width={560}
-                height={360}
+                height={560}
                 className="h-auto w-full rounded"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 600px, 700px"
               />
               <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
                 "AI Noise" cloud of hype words
               </p>
             </div>
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
-              <Image
-                src="/images/ai-blueprint-clarity.png"
+              <OptimizedImage
+                src="ai-blueprint-clarity"
                 alt="Clean technical blueprint diagram with geometric shapes and clear labels for Efficiency, ROI, and Scalability representing a structured validated AI approach"
                 width={560}
-                height={360}
+                height={560}
                 className="h-auto w-full rounded"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 600px, 700px"
               />
               <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
                 A clear "Validated AI Blueprint" cutting through

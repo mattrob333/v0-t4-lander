@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <url>
+    <loc>https://tier4intelligence.com/services/5-day-poc/</loc>
+    <lastmod>2025-08-21T12:11:40.551Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tier4intelligence.com/images/video-thumbnails/5-day-poc-overview.jpg</video:thumbnail_loc>
+      <video:title>5-Day AI POC Process Overview</video:title>
+      <video:description>Complete walkthrough of our rapid AI implementation process</video:description>
+      <video:content_loc>https://tier4intelligence.com/videos/5-day-poc-process.mp4</video:content_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2025-08-21T12:11:40.551Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://tier4intelligence.com/case-studies/</loc>
+    <lastmod>2025-08-21T12:11:40.551Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://tier4intelligence.com/images/video-thumbnails/roi-case-study.jpg</video:thumbnail_loc>
+      <video:title>AI ROI Validation Case Study</video:title>
+      <video:description>Real example of achieving 3-4x ROI with AI implementation</video:description>
+      <video:content_loc>https://tier4intelligence.com/videos/roi-validation-case-study.mp4</video:content_loc>
+      <video:duration>240</video:duration>
+      <video:publication_date>2025-08-21T12:11:40.551Z</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+    </video:video>
+  </url>
+</urlset>

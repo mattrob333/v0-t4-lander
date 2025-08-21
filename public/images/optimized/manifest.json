@@ -1,0 +1,189 @@
+{
+  "ai-blueprint-clarity": {
+    "webp": {
+      "320": "/images/optimized/ai-blueprint-clarity-320w.webp",
+      "640": "/images/optimized/ai-blueprint-clarity-640w.webp",
+      "1024": "/images/optimized/ai-blueprint-clarity-1024w.webp",
+      "full": "/images/optimized/ai-blueprint-clarity.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/ai-blueprint-clarity-320w.jpg",
+      "640": "/images/optimized/ai-blueprint-clarity-640w.jpg",
+      "1024": "/images/optimized/ai-blueprint-clarity-1024w.jpg",
+      "full": "/images/optimized/ai-blueprint-clarity.jpg"
+    },
+    "placeholder": "/images/optimized/ai-blueprint-clarity-placeholder.jpg"
+  },
+  "ai-noise-buzzwords": {
+    "webp": {
+      "320": "/images/optimized/ai-noise-buzzwords-320w.webp",
+      "640": "/images/optimized/ai-noise-buzzwords-640w.webp",
+      "1024": "/images/optimized/ai-noise-buzzwords-1024w.webp",
+      "full": "/images/optimized/ai-noise-buzzwords.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/ai-noise-buzzwords-320w.jpg",
+      "640": "/images/optimized/ai-noise-buzzwords-640w.jpg",
+      "1024": "/images/optimized/ai-noise-buzzwords-1024w.jpg",
+      "full": "/images/optimized/ai-noise-buzzwords.jpg"
+    },
+    "placeholder": "/images/optimized/ai-noise-buzzwords-placeholder.jpg"
+  },
+  "ai-noise-hype": {
+    "webp": {
+      "320": "/images/optimized/ai-noise-hype-320w.webp",
+      "640": "/images/optimized/ai-noise-hype-640w.webp",
+      "1024": "/images/optimized/ai-noise-hype-1024w.webp",
+      "full": "/images/optimized/ai-noise-hype.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/ai-noise-hype-320w.jpg",
+      "640": "/images/optimized/ai-noise-hype-640w.jpg",
+      "1024": "/images/optimized/ai-noise-hype-1024w.jpg",
+      "full": "/images/optimized/ai-noise-hype.jpg"
+    },
+    "placeholder": "/images/optimized/ai-noise-hype-placeholder.jpg"
+  },
+  "ai-validated-blueprint": {
+    "webp": {
+      "320": "/images/optimized/ai-validated-blueprint-320w.webp",
+      "640": "/images/optimized/ai-validated-blueprint-640w.webp",
+      "1024": "/images/optimized/ai-validated-blueprint-1024w.webp",
+      "full": "/images/optimized/ai-validated-blueprint.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/ai-validated-blueprint-320w.jpg",
+      "640": "/images/optimized/ai-validated-blueprint-640w.jpg",
+      "1024": "/images/optimized/ai-validated-blueprint-1024w.jpg",
+      "full": "/images/optimized/ai-validated-blueprint.jpg"
+    },
+    "placeholder": "/images/optimized/ai-validated-blueprint-placeholder.jpg"
+  },
+  "hero-ai-blueprint": {
+    "webp": {
+      "320": "/images/optimized/hero-ai-blueprint-320w.webp",
+      "640": "/images/optimized/hero-ai-blueprint-640w.webp",
+      "1024": "/images/optimized/hero-ai-blueprint-1024w.webp",
+      "full": "/images/optimized/hero-ai-blueprint.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/hero-ai-blueprint-320w.jpg",
+      "640": "/images/optimized/hero-ai-blueprint-640w.jpg",
+      "1024": "/images/optimized/hero-ai-blueprint-1024w.jpg",
+      "full": "/images/optimized/hero-ai-blueprint.jpg"
+    },
+    "placeholder": "/images/optimized/hero-ai-blueprint-placeholder.jpg"
+  },
+  "manifest": {
+    "webp": {},
+    "jpg": {},
+    "placeholder": null
+  },
+  "strategic-roadmap-executive": {
+    "webp": {
+      "320": "/images/optimized/strategic-roadmap-executive-320w.webp",
+      "640": "/images/optimized/strategic-roadmap-executive-640w.webp",
+      "1024": "/images/optimized/strategic-roadmap-executive-1024w.webp",
+      "full": "/images/optimized/strategic-roadmap-executive.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/strategic-roadmap-executive-320w.jpg",
+      "640": "/images/optimized/strategic-roadmap-executive-640w.jpg",
+      "1024": "/images/optimized/strategic-roadmap-executive-1024w.jpg",
+      "full": "/images/optimized/strategic-roadmap-executive.jpg"
+    },
+    "placeholder": "/images/optimized/strategic-roadmap-executive-placeholder.jpg"
+  },
+  "tier4-hero": {
+    "webp": {
+      "320": "/images/optimized/tier4-hero-320w.webp",
+      "640": "/images/optimized/tier4-hero-640w.webp",
+      "1024": "/images/optimized/tier4-hero-1024w.webp",
+      "full": "/images/optimized/tier4-hero.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/tier4-hero-320w.jpg",
+      "640": "/images/optimized/tier4-hero-640w.jpg",
+      "1024": "/images/optimized/tier4-hero-1024w.jpg",
+      "full": "/images/optimized/tier4-hero.jpg"
+    },
+    "placeholder": "/images/optimized/tier4-hero-placeholder.jpg"
+  },
+  "tier4-hero-dna-circuit": {
+    "webp": {
+      "320": "/images/optimized/tier4-hero-dna-circuit-320w.webp",
+      "640": "/images/optimized/tier4-hero-dna-circuit-640w.webp",
+      "1024": "/images/optimized/tier4-hero-dna-circuit-1024w.webp",
+      "1920": "/images/optimized/tier4-hero-dna-circuit-1920w.webp",
+      "full": "/images/optimized/tier4-hero-dna-circuit.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/tier4-hero-dna-circuit-320w.jpg",
+      "640": "/images/optimized/tier4-hero-dna-circuit-640w.jpg",
+      "1024": "/images/optimized/tier4-hero-dna-circuit-1024w.jpg",
+      "1920": "/images/optimized/tier4-hero-dna-circuit-1920w.jpg",
+      "full": "/images/optimized/tier4-hero-dna-circuit.jpg"
+    },
+    "placeholder": "/images/optimized/tier4-hero-dna-circuit-placeholder.jpg"
+  },
+  "tier4-logo-horizontal": {
+    "webp": {
+      "320": "/images/optimized/tier4-logo-horizontal-320w.webp",
+      "640": "/images/optimized/tier4-logo-horizontal-640w.webp",
+      "1024": "/images/optimized/tier4-logo-horizontal-1024w.webp",
+      "full": "/images/optimized/tier4-logo-horizontal.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/tier4-logo-horizontal-320w.jpg",
+      "640": "/images/optimized/tier4-logo-horizontal-640w.jpg",
+      "1024": "/images/optimized/tier4-logo-horizontal-1024w.jpg",
+      "full": "/images/optimized/tier4-logo-horizontal.jpg"
+    },
+    "placeholder": "/images/optimized/tier4-logo-horizontal-placeholder.jpg"
+  },
+  "tier4-logo-horizontal-dark": {
+    "webp": {
+      "320": "/images/optimized/tier4-logo-horizontal-dark-320w.webp",
+      "640": "/images/optimized/tier4-logo-horizontal-dark-640w.webp",
+      "1024": "/images/optimized/tier4-logo-horizontal-dark-1024w.webp",
+      "full": "/images/optimized/tier4-logo-horizontal-dark.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/tier4-logo-horizontal-dark-320w.jpg",
+      "640": "/images/optimized/tier4-logo-horizontal-dark-640w.jpg",
+      "1024": "/images/optimized/tier4-logo-horizontal-dark-1024w.jpg",
+      "full": "/images/optimized/tier4-logo-horizontal-dark.jpg"
+    },
+    "placeholder": "/images/optimized/tier4-logo-horizontal-dark-placeholder.jpg"
+  },
+  "with-tier4-roadmap": {
+    "webp": {
+      "320": "/images/optimized/with-tier4-roadmap-320w.webp",
+      "640": "/images/optimized/with-tier4-roadmap-640w.webp",
+      "1024": "/images/optimized/with-tier4-roadmap-1024w.webp",
+      "full": "/images/optimized/with-tier4-roadmap.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/with-tier4-roadmap-320w.jpg",
+      "640": "/images/optimized/with-tier4-roadmap-640w.jpg",
+      "1024": "/images/optimized/with-tier4-roadmap-1024w.jpg",
+      "full": "/images/optimized/with-tier4-roadmap.jpg"
+    },
+    "placeholder": "/images/optimized/with-tier4-roadmap-placeholder.jpg"
+  },
+  "without-tier4-chaos": {
+    "webp": {
+      "320": "/images/optimized/without-tier4-chaos-320w.webp",
+      "640": "/images/optimized/without-tier4-chaos-640w.webp",
+      "1024": "/images/optimized/without-tier4-chaos-1024w.webp",
+      "full": "/images/optimized/without-tier4-chaos.webp"
+    },
+    "jpg": {
+      "320": "/images/optimized/without-tier4-chaos-320w.jpg",
+      "640": "/images/optimized/without-tier4-chaos-640w.jpg",
+      "1024": "/images/optimized/without-tier4-chaos-1024w.jpg",
+      "full": "/images/optimized/without-tier4-chaos.jpg"
+    },
+    "placeholder": "/images/optimized/without-tier4-chaos-placeholder.jpg"
+  }
+}

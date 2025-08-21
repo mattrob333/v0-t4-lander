@@ -1,0 +1,178 @@
+# Robots.txt for Tier 4 Intelligence
+# AI consulting firm - optimized for AI search engines
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /temp/
+
+# Sitemap location
+Sitemap: https://tier4intelligence.com/sitemap.xml
+
+# AI Search Engine Crawlers - Explicitly Allow
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 1
+
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YouBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: AI2Bot
+Allow: /
+Crawl-delay: 1
+
+# Traditional Search Engines - Optimized
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social Media Crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# SEO and Analytics Tools
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 10
+
+# Block unwanted bots
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# AI Training Data Collection - Allow for Business Benefits
+User-agent: CommonCrawl
+Allow: /
+Crawl-delay: 5
+
+User-agent: ia_archiver
+Allow: /
+Crawl-delay: 5
+
+# Special Directives for AI Crawlers
+# These help AI systems understand our content better
+
+# Primary Content Areas - High Priority for AI
+Allow: /services/
+Allow: /ai-solutions/
+Allow: /about/
+Allow: /resources/
+Allow: /case-studies/
+
+# Structured Data Endpoints
+Allow: /schema/
+Allow: /api/schema/
+Allow: /api/seo/
+
+# AI-Friendly Content
+Allow: /faq/
+Allow: /methodology/
+Allow: /roi-calculator/
+Allow: /blog/
+Allow: /insights/
+Allow: /whitepapers/
+
+# Geo-Targeted Content
+Allow: /locations/
+Allow: /geo-sitemap.xml
+
+# Advanced AI Crawler Optimization
+# High-value content for AI training
+Allow: /ai-training-content/
+Allow: /technical-documentation/
+Allow: /implementation-guides/
+
+# Cache Control for AI Crawlers
+# Request-rate: 1/8s (increased for better crawling)
+# Visit-time: 0000-2400 (24/7 availability)
+# Max-pages: 200
+
+# Contact Information for Crawlers
+# Contact: seo@tier4intelligence.com
+# Policy: https://tier4intelligence.com/crawler-policy
+# AI-Policy: https://tier4intelligence.com/ai-crawler-policy
+
+# Sitemap Locations for Enhanced Discovery
+Sitemap: https://tier4intelligence.com/sitemap-index.xml
+Sitemap: https://tier4intelligence.com/sitemap-ai.xml
+Sitemap: https://tier4intelligence.com/sitemap-geo.xml
+Sitemap: https://tier4intelligence.com/sitemap-images.xml
+Sitemap: https://tier4intelligence.com/sitemap-video.xml
+
+# Advanced Meta Directives
+# Host: tier4intelligence.com

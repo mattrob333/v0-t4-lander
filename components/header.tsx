@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { OptimizedImage } from "@/components/ui/optimized-image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
@@ -54,9 +55,8 @@ export function Header() {
       active === id ? "font-semibold text-black dark:text-white underline" : undefined,
     )
 
-  // Use light logo by default until mounted to avoid hydration mismatch
-  const logoSrc =
-    mounted && resolvedTheme === "dark" ? "/images/tier4-logo-horizontal-dark.png" : "/images/tier4-logo-horizontal.png"
+  // Determine which logo to use based on theme
+  const logoSrc = mounted && resolvedTheme === "dark" ? "tier4-logo-horizontal-dark" : "tier4-logo-horizontal"
 
   return (
     <header
@@ -71,13 +71,14 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
         <Link href="#" className="flex items-center gap-2" aria-label="Tier 4 Intelligence - Home">
-          <img
-            src={logoSrc || "/placeholder.svg"}
+          <OptimizedImage
+            src={logoSrc}
             alt="Tier 4 Intelligence"
             width={280}
             height={64}
             className="h-12 w-auto md:h-14"
-            loading="eager"
+            priority
+            sizes="280px"
           />
         </Link>
 

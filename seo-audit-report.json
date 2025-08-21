@@ -1,0 +1,118 @@
+{
+  "timestamp": "2025-08-21T03:28:45.500Z",
+  "overallScore": 78,
+  "components": {
+    "robotsTxt": {
+      "score": 100,
+      "checks": {
+        "hasUserAgent": true,
+        "hasSitemap": true,
+        "hasAiCrawlers": true,
+        "hasDisallowRules": true,
+        "hasAllowRules": true
+      },
+      "passed": true,
+      "recommendations": []
+    },
+    "sitemaps": {
+      "score": 100,
+      "checks": {
+        "allSitemapsExist": true,
+        "validXml": true,
+        "hasUrls": true,
+        "properFormat": true,
+        "indexExists": true,
+        "totalUrls": 373
+      },
+      "passed": true,
+      "recommendations": []
+    },
+    "canonicalUrls": {
+      "score": 100,
+      "validCanonicals": 6,
+      "totalUrls": 6,
+      "passed": true,
+      "recommendations": []
+    },
+    "redirects": {
+      "score": 100,
+      "passedTests": 3,
+      "totalTests": 3,
+      "passed": true,
+      "recommendations": []
+    },
+    "structuredData": {
+      "score": 0,
+      "totalSchemas": 0,
+      "validSchemas": 0,
+      "invalidSchemas": 0,
+      "passed": false,
+      "recommendations": [
+        "Overall schema score is low. Focus on adding required properties."
+      ]
+    },
+    "searchEngineSubmissions": {
+      "score": 25,
+      "successfulSubmissions": 6,
+      "failedSubmissions": 18,
+      "indexedUrls": 12,
+      "passed": false,
+      "recommendations": [
+        "Regular sitemap submissions",
+        "Monitor indexing status",
+        "Use IndexNow for urgent updates"
+      ]
+    },
+    "internalLinking": {
+      "score": 85,
+      "implementationExists": true,
+      "passed": true,
+      "recommendations": [
+        "Optimize linking rules",
+        "Monitor link distribution"
+      ]
+    },
+    "metaTags": {
+      "score": 90,
+      "implementationExists": true,
+      "passed": true,
+      "recommendations": [
+        "Ensure all pages use advanced meta tags"
+      ]
+    },
+    "aiOptimization": {
+      "score": 100,
+      "supportedCrawlers": 6,
+      "totalCrawlers": 6,
+      "passed": true,
+      "recommendations": []
+    }
+  },
+  "recommendations": [
+    "Focus on critical SEO components to reach 80+ score",
+    "Regular SEO audits recommended (monthly)",
+    "Monitor search engine submission results",
+    "Keep structured data and meta tags updated"
+  ],
+  "criticalIssues": [],
+  "warnings": [
+    "structured data optimization needed",
+    "search engine submission optimization needed"
+  ],
+  "passed": [
+    "robots.txt configuration",
+    "sitemap configuration",
+    "canonical URL structure",
+    "redirect configuration",
+    "internal linking strategy",
+    "meta tags optimization",
+    "AI optimization"
+  ],
+  "metrics": {
+    "totalComponents": 9,
+    "passedComponents": 7,
+    "criticalIssues": 0,
+    "warnings": 2,
+    "implementationComplete": false
+  }
+}

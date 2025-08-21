@@ -1,0 +1,425 @@
+{
+  "keywords": {
+    "5-day POC": "/services/5-day-poc/",
+    "AI assessment": "/services/ai-opportunity-assessment/",
+    "executive briefing": "/services/executive-briefing/",
+    "vendor-neutral": "/about/vendor-neutral-approach/",
+    "ROI validation": "/resources/roi-calculator/",
+    "rapid implementation": "/methodology/rapid-ai-implementation/",
+    "AI consulting": "/",
+    "proof of concept": "/services/5-day-poc/",
+    "AI strategy": "/services/ai-strategy-consulting/"
+  },
+  "industryLinks": {
+    "healthcare": [
+      {
+        "url": "/ai-solutions/healthcare/automation",
+        "title": "Automation AI for Healthcare",
+        "description": "Transform healthcare with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/healthcare/prediction",
+        "title": "Predictive Analytics AI for Healthcare",
+        "description": "Transform healthcare with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/healthcare/optimization",
+        "title": "Optimization AI for Healthcare",
+        "description": "Transform healthcare with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      }
+    ],
+    "finance": [
+      {
+        "url": "/ai-solutions/finance/automation",
+        "title": "Automation AI for Financial Services",
+        "description": "Transform financial services with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/prediction",
+        "title": "Predictive Analytics AI for Financial Services",
+        "description": "Transform financial services with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/optimization",
+        "title": "Optimization AI for Financial Services",
+        "description": "Transform financial services with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      }
+    ],
+    "retail": [
+      {
+        "url": "/ai-solutions/retail/automation",
+        "title": "Automation AI for Retail",
+        "description": "Transform retail with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/prediction",
+        "title": "Predictive Analytics AI for Retail",
+        "description": "Transform retail with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/optimization",
+        "title": "Optimization AI for Retail",
+        "description": "Transform retail with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "manufacturing": [
+      {
+        "url": "/ai-solutions/manufacturing/automation",
+        "title": "Automation AI for Manufacturing",
+        "description": "Transform manufacturing with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. ISO 9001, ISO 14001, OSHA compliant."
+      },
+      {
+        "url": "/ai-solutions/manufacturing/prediction",
+        "title": "Predictive Analytics AI for Manufacturing",
+        "description": "Transform manufacturing with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. ISO 9001, ISO 14001, OSHA compliant."
+      },
+      {
+        "url": "/ai-solutions/manufacturing/optimization",
+        "title": "Optimization AI for Manufacturing",
+        "description": "Transform manufacturing with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. ISO 9001, ISO 14001, OSHA compliant."
+      }
+    ],
+    "logistics": [
+      {
+        "url": "/ai-solutions/logistics/automation",
+        "title": "Automation AI for Logistics",
+        "description": "Transform logistics with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. DOT, FMCSA, IATA, customs regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/logistics/prediction",
+        "title": "Predictive Analytics AI for Logistics",
+        "description": "Transform logistics with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. DOT, FMCSA, IATA, customs regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/logistics/optimization",
+        "title": "Optimization AI for Logistics",
+        "description": "Transform logistics with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. DOT, FMCSA, IATA, customs regulations compliant."
+      }
+    ],
+    "insurance": [
+      {
+        "url": "/ai-solutions/insurance/automation",
+        "title": "Automation AI for Insurance",
+        "description": "Transform insurance with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. Solvency II, NAIC, state insurance regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/insurance/prediction",
+        "title": "Predictive Analytics AI for Insurance",
+        "description": "Transform insurance with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. Solvency II, NAIC, state insurance regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/insurance/optimization",
+        "title": "Optimization AI for Insurance",
+        "description": "Transform insurance with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. Solvency II, NAIC, state insurance regulations compliant."
+      }
+    ],
+    "real-estate": [
+      {
+        "url": "/ai-solutions/real-estate/automation",
+        "title": "Automation AI for Real Estate",
+        "description": "Transform real estate with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. Fair Housing Act, ADA, local zoning laws compliant."
+      },
+      {
+        "url": "/ai-solutions/real-estate/prediction",
+        "title": "Predictive Analytics AI for Real Estate",
+        "description": "Transform real estate with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. Fair Housing Act, ADA, local zoning laws compliant."
+      },
+      {
+        "url": "/ai-solutions/real-estate/optimization",
+        "title": "Optimization AI for Real Estate",
+        "description": "Transform real estate with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. Fair Housing Act, ADA, local zoning laws compliant."
+      }
+    ],
+    "education": [
+      {
+        "url": "/ai-solutions/education/automation",
+        "title": "Automation AI for Education",
+        "description": "Transform education with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. FERPA, ADA, Title IX, state education standards compliant."
+      },
+      {
+        "url": "/ai-solutions/education/prediction",
+        "title": "Predictive Analytics AI for Education",
+        "description": "Transform education with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. FERPA, ADA, Title IX, state education standards compliant."
+      },
+      {
+        "url": "/ai-solutions/education/optimization",
+        "title": "Optimization AI for Education",
+        "description": "Transform education with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. FERPA, ADA, Title IX, state education standards compliant."
+      }
+    ],
+    "legal": [
+      {
+        "url": "/ai-solutions/legal/automation",
+        "title": "Automation AI for Legal Services",
+        "description": "Transform legal services with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. Attorney-client privilege, bar regulations, ethical guidelines compliant."
+      },
+      {
+        "url": "/ai-solutions/legal/prediction",
+        "title": "Predictive Analytics AI for Legal Services",
+        "description": "Transform legal services with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. Attorney-client privilege, bar regulations, ethical guidelines compliant."
+      },
+      {
+        "url": "/ai-solutions/legal/optimization",
+        "title": "Optimization AI for Legal Services",
+        "description": "Transform legal services with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. Attorney-client privilege, bar regulations, ethical guidelines compliant."
+      }
+    ],
+    "hospitality": [
+      {
+        "url": "/ai-solutions/hospitality/automation",
+        "title": "Automation AI for Hospitality",
+        "description": "Transform hospitality with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. ADA, health and safety regulations, local hospitality laws compliant."
+      },
+      {
+        "url": "/ai-solutions/hospitality/prediction",
+        "title": "Predictive Analytics AI for Hospitality",
+        "description": "Transform hospitality with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. ADA, health and safety regulations, local hospitality laws compliant."
+      },
+      {
+        "url": "/ai-solutions/hospitality/optimization",
+        "title": "Optimization AI for Hospitality",
+        "description": "Transform hospitality with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. ADA, health and safety regulations, local hospitality laws compliant."
+      }
+    ],
+    "technology": [
+      {
+        "url": "/ai-solutions/technology/automation",
+        "title": "Automation AI for Technology",
+        "description": "Transform technology with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. SOC 2, ISO 27001, GDPR, industry-specific regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/technology/prediction",
+        "title": "Predictive Analytics AI for Technology",
+        "description": "Transform technology with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. SOC 2, ISO 27001, GDPR, industry-specific regulations compliant."
+      },
+      {
+        "url": "/ai-solutions/technology/optimization",
+        "title": "Optimization AI for Technology",
+        "description": "Transform technology with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. SOC 2, ISO 27001, GDPR, industry-specific regulations compliant."
+      }
+    ],
+    "energy": [
+      {
+        "url": "/ai-solutions/energy/automation",
+        "title": "Automation AI for Energy",
+        "description": "Transform energy with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. NERC, EPA regulations, state utility commissions compliant."
+      },
+      {
+        "url": "/ai-solutions/energy/prediction",
+        "title": "Predictive Analytics AI for Energy",
+        "description": "Transform energy with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. NERC, EPA regulations, state utility commissions compliant."
+      },
+      {
+        "url": "/ai-solutions/energy/optimization",
+        "title": "Optimization AI for Energy",
+        "description": "Transform energy with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. NERC, EPA regulations, state utility commissions compliant."
+      }
+    ]
+  },
+  "useCaseLinks": {
+    "automation": [
+      {
+        "url": "/ai-solutions/healthcare/automation",
+        "title": "Automation AI for Healthcare",
+        "description": "Transform healthcare with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/automation",
+        "title": "Automation AI for Financial Services",
+        "description": "Transform financial services with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/automation",
+        "title": "Automation AI for Retail",
+        "description": "Transform retail with AI-powered automation. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "prediction": [
+      {
+        "url": "/ai-solutions/healthcare/prediction",
+        "title": "Predictive Analytics AI for Healthcare",
+        "description": "Transform healthcare with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/prediction",
+        "title": "Predictive Analytics AI for Financial Services",
+        "description": "Transform financial services with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/prediction",
+        "title": "Predictive Analytics AI for Retail",
+        "description": "Transform retail with AI-powered predictive analytics. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "optimization": [
+      {
+        "url": "/ai-solutions/healthcare/optimization",
+        "title": "Optimization AI for Healthcare",
+        "description": "Transform healthcare with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/optimization",
+        "title": "Optimization AI for Financial Services",
+        "description": "Transform financial services with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/optimization",
+        "title": "Optimization AI for Retail",
+        "description": "Transform retail with AI-powered optimization. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "personalization": [
+      {
+        "url": "/ai-solutions/healthcare/personalization",
+        "title": "Personalization AI for Healthcare",
+        "description": "Transform healthcare with AI-powered personalization. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/personalization",
+        "title": "Personalization AI for Financial Services",
+        "description": "Transform financial services with AI-powered personalization. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/personalization",
+        "title": "Personalization AI for Retail",
+        "description": "Transform retail with AI-powered personalization. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "fraud-detection": [
+      {
+        "url": "/ai-solutions/healthcare/fraud-detection",
+        "title": "Fraud Detection AI for Healthcare",
+        "description": "Transform healthcare with AI-powered fraud detection. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/fraud-detection",
+        "title": "Fraud Detection AI for Financial Services",
+        "description": "Transform financial services with AI-powered fraud detection. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/fraud-detection",
+        "title": "Fraud Detection AI for Retail",
+        "description": "Transform retail with AI-powered fraud detection. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "classification": [
+      {
+        "url": "/ai-solutions/healthcare/classification",
+        "title": "Classification AI for Healthcare",
+        "description": "Transform healthcare with AI-powered classification. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/classification",
+        "title": "Classification AI for Financial Services",
+        "description": "Transform financial services with AI-powered classification. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/classification",
+        "title": "Classification AI for Retail",
+        "description": "Transform retail with AI-powered classification. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "content-generation": [
+      {
+        "url": "/ai-solutions/healthcare/content-generation",
+        "title": "Content Generation AI for Healthcare",
+        "description": "Transform healthcare with AI-powered content generation. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/content-generation",
+        "title": "Content Generation AI for Financial Services",
+        "description": "Transform financial services with AI-powered content generation. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/content-generation",
+        "title": "Content Generation AI for Retail",
+        "description": "Transform retail with AI-powered content generation. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "data-extraction": [
+      {
+        "url": "/ai-solutions/healthcare/data-extraction",
+        "title": "Data Extraction AI for Healthcare",
+        "description": "Transform healthcare with AI-powered data extraction. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/data-extraction",
+        "title": "Data Extraction AI for Financial Services",
+        "description": "Transform financial services with AI-powered data extraction. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/data-extraction",
+        "title": "Data Extraction AI for Retail",
+        "description": "Transform retail with AI-powered data extraction. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "recommendation": [
+      {
+        "url": "/ai-solutions/healthcare/recommendation",
+        "title": "Recommendation Systems AI for Healthcare",
+        "description": "Transform healthcare with AI-powered recommendation systems. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/recommendation",
+        "title": "Recommendation Systems AI for Financial Services",
+        "description": "Transform financial services with AI-powered recommendation systems. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/recommendation",
+        "title": "Recommendation Systems AI for Retail",
+        "description": "Transform retail with AI-powered recommendation systems. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "forecasting": [
+      {
+        "url": "/ai-solutions/healthcare/forecasting",
+        "title": "Forecasting AI for Healthcare",
+        "description": "Transform healthcare with AI-powered forecasting. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/forecasting",
+        "title": "Forecasting AI for Financial Services",
+        "description": "Transform financial services with AI-powered forecasting. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/forecasting",
+        "title": "Forecasting AI for Retail",
+        "description": "Transform retail with AI-powered forecasting. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "quality-control": [
+      {
+        "url": "/ai-solutions/healthcare/quality-control",
+        "title": "Quality Control AI for Healthcare",
+        "description": "Transform healthcare with AI-powered quality control. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/quality-control",
+        "title": "Quality Control AI for Financial Services",
+        "description": "Transform financial services with AI-powered quality control. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/quality-control",
+        "title": "Quality Control AI for Retail",
+        "description": "Transform retail with AI-powered quality control. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ],
+    "risk-assessment": [
+      {
+        "url": "/ai-solutions/healthcare/risk-assessment",
+        "title": "Risk Assessment AI for Healthcare",
+        "description": "Transform healthcare with AI-powered risk assessment. 5-day proof of concept with validated 3-4x ROI. HIPAA, FDA, HITECH compliant."
+      },
+      {
+        "url": "/ai-solutions/finance/risk-assessment",
+        "title": "Risk Assessment AI for Financial Services",
+        "description": "Transform financial services with AI-powered risk assessment. 5-day proof of concept with validated 3-4x ROI. SOX, PCI DSS, Basel III, MiFID II compliant."
+      },
+      {
+        "url": "/ai-solutions/retail/risk-assessment",
+        "title": "Risk Assessment AI for Retail",
+        "description": "Transform retail with AI-powered risk assessment. 5-day proof of concept with validated 3-4x ROI. PCI DSS, GDPR, CCPA compliant."
+      }
+    ]
+  }
+}

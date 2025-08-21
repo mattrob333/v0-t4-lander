@@ -1,0 +1,380 @@
+{
+  "healthcare": {
+    "name": "Healthcare",
+    "terminology": [
+      "patient care",
+      "clinical workflows",
+      "EHR systems",
+      "HIPAA compliance",
+      "patient outcomes",
+      "care coordination",
+      "medical records",
+      "telehealth"
+    ],
+    "painPoints": [
+      "Rising operational costs",
+      "Patient safety concerns",
+      "Regulatory compliance challenges",
+      "Staff burnout",
+      "Inefficient workflows",
+      "Data silos"
+    ],
+    "metrics": [
+      "patient satisfaction scores",
+      "readmission rates",
+      "clinical efficiency",
+      "cost per patient"
+    ],
+    "trends": [
+      "value-based care",
+      "digital health transformation",
+      "AI-powered diagnostics",
+      "remote patient monitoring"
+    ],
+    "compliance": "HIPAA, FDA, HITECH"
+  },
+  "finance": {
+    "name": "Financial Services",
+    "terminology": [
+      "risk management",
+      "compliance",
+      "portfolio optimization",
+      "algorithmic trading",
+      "credit scoring",
+      "anti-money laundering",
+      "KYC"
+    ],
+    "painPoints": [
+      "Regulatory pressures",
+      "Cybersecurity threats",
+      "Legacy system integration",
+      "Market volatility",
+      "Customer acquisition costs"
+    ],
+    "metrics": [
+      "risk-adjusted returns",
+      "compliance scores",
+      "processing times",
+      "fraud detection rates"
+    ],
+    "trends": [
+      "open banking",
+      "digital transformation",
+      "RegTech",
+      "decentralized finance"
+    ],
+    "compliance": "SOX, PCI DSS, Basel III, MiFID II"
+  },
+  "retail": {
+    "name": "Retail",
+    "terminology": [
+      "inventory management",
+      "customer experience",
+      "omnichannel",
+      "supply chain",
+      "point of sale",
+      "merchandising",
+      "demand forecasting"
+    ],
+    "painPoints": [
+      "Inventory optimization",
+      "Customer retention",
+      "Supply chain disruptions",
+      "Price competition",
+      "Seasonal demand fluctuations"
+    ],
+    "metrics": [
+      "inventory turnover",
+      "customer lifetime value",
+      "conversion rates",
+      "profit margins"
+    ],
+    "trends": [
+      "personalization",
+      "social commerce",
+      "sustainable retail",
+      "augmented reality shopping"
+    ],
+    "compliance": "PCI DSS, GDPR, CCPA"
+  },
+  "manufacturing": {
+    "name": "Manufacturing",
+    "terminology": [
+      "production efficiency",
+      "quality control",
+      "predictive maintenance",
+      "supply chain",
+      "lean manufacturing",
+      "OEE",
+      "throughput"
+    ],
+    "painPoints": [
+      "Equipment downtime",
+      "Quality consistency",
+      "Supply chain disruptions",
+      "Rising material costs",
+      "Skilled labor shortage"
+    ],
+    "metrics": [
+      "overall equipment effectiveness",
+      "defect rates",
+      "production throughput",
+      "maintenance costs"
+    ],
+    "trends": [
+      "Industry 4.0",
+      "smart manufacturing",
+      "digital twins",
+      "sustainable production"
+    ],
+    "compliance": "ISO 9001, ISO 14001, OSHA"
+  },
+  "logistics": {
+    "name": "Logistics",
+    "terminology": [
+      "fleet management",
+      "route optimization",
+      "warehouse operations",
+      "last-mile delivery",
+      "supply chain visibility",
+      "cargo tracking"
+    ],
+    "painPoints": [
+      "Rising fuel costs",
+      "Driver shortages",
+      "Delivery delays",
+      "Inventory visibility",
+      "Customer expectations"
+    ],
+    "metrics": [
+      "on-time delivery rates",
+      "cost per mile",
+      "warehouse efficiency",
+      "customer satisfaction"
+    ],
+    "trends": [
+      "autonomous vehicles",
+      "drone delivery",
+      "green logistics",
+      "real-time tracking"
+    ],
+    "compliance": "DOT, FMCSA, IATA, customs regulations"
+  },
+  "insurance": {
+    "name": "Insurance",
+    "terminology": [
+      "underwriting",
+      "claims processing",
+      "risk assessment",
+      "actuarial analysis",
+      "policy administration",
+      "reinsurance"
+    ],
+    "painPoints": [
+      "Claims fraud",
+      "Underwriting accuracy",
+      "Customer acquisition",
+      "Regulatory changes",
+      "Legacy system modernization"
+    ],
+    "metrics": [
+      "loss ratios",
+      "claims processing time",
+      "customer retention",
+      "underwriting profitability"
+    ],
+    "trends": [
+      "parametric insurance",
+      "usage-based insurance",
+      "InsurTech",
+      "climate risk modeling"
+    ],
+    "compliance": "Solvency II, NAIC, state insurance regulations"
+  },
+  "real-estate": {
+    "name": "Real Estate",
+    "terminology": [
+      "property valuation",
+      "market analysis",
+      "tenant screening",
+      "property management",
+      "investment analysis",
+      "due diligence"
+    ],
+    "painPoints": [
+      "Market volatility",
+      "Property maintenance",
+      "Tenant management",
+      "Regulatory compliance",
+      "Investment timing"
+    ],
+    "metrics": [
+      "cap rates",
+      "occupancy rates",
+      "property appreciation",
+      "rental yields"
+    ],
+    "trends": [
+      "PropTech",
+      "smart buildings",
+      "virtual tours",
+      "blockchain transactions"
+    ],
+    "compliance": "Fair Housing Act, ADA, local zoning laws"
+  },
+  "education": {
+    "name": "Education",
+    "terminology": [
+      "student outcomes",
+      "curriculum development",
+      "learning analytics",
+      "educational technology",
+      "assessment",
+      "student engagement"
+    ],
+    "painPoints": [
+      "Budget constraints",
+      "Student achievement gaps",
+      "Teacher retention",
+      "Technology adoption",
+      "Compliance requirements"
+    ],
+    "metrics": [
+      "graduation rates",
+      "test scores",
+      "student engagement",
+      "cost per student"
+    ],
+    "trends": [
+      "personalized learning",
+      "online education",
+      "competency-based assessment",
+      "EdTech integration"
+    ],
+    "compliance": "FERPA, ADA, Title IX, state education standards"
+  },
+  "legal": {
+    "name": "Legal Services",
+    "terminology": [
+      "case management",
+      "legal research",
+      "document review",
+      "compliance monitoring",
+      "contract analysis",
+      "litigation support"
+    ],
+    "painPoints": [
+      "Billable hour pressures",
+      "Document management",
+      "Client expectations",
+      "Regulatory changes",
+      "Case complexity"
+    ],
+    "metrics": [
+      "case resolution time",
+      "client satisfaction",
+      "billable hour efficiency",
+      "win rates"
+    ],
+    "trends": [
+      "legal technology",
+      "alternative legal services",
+      "AI-powered research",
+      "virtual law practices"
+    ],
+    "compliance": "Attorney-client privilege, bar regulations, ethical guidelines"
+  },
+  "hospitality": {
+    "name": "Hospitality",
+    "terminology": [
+      "guest experience",
+      "revenue management",
+      "occupancy rates",
+      "customer service",
+      "property management",
+      "booking systems"
+    ],
+    "painPoints": [
+      "Seasonal demand",
+      "Staff turnover",
+      "Online reputation",
+      "Operational costs",
+      "Guest expectations"
+    ],
+    "metrics": [
+      "average daily rate",
+      "revenue per available room",
+      "guest satisfaction scores",
+      "occupancy rates"
+    ],
+    "trends": [
+      "contactless service",
+      "personalized experiences",
+      "sustainable hospitality",
+      "mobile-first booking"
+    ],
+    "compliance": "ADA, health and safety regulations, local hospitality laws"
+  },
+  "technology": {
+    "name": "Technology",
+    "terminology": [
+      "software development",
+      "system integration",
+      "data architecture",
+      "cloud migration",
+      "cybersecurity",
+      "digital transformation"
+    ],
+    "painPoints": [
+      "Technical debt",
+      "Scalability challenges",
+      "Security threats",
+      "Talent acquisition",
+      "Rapid technology changes"
+    ],
+    "metrics": [
+      "system uptime",
+      "development velocity",
+      "security incidents",
+      "user adoption rates"
+    ],
+    "trends": [
+      "cloud-native development",
+      "AI/ML integration",
+      "edge computing",
+      "zero-trust security"
+    ],
+    "compliance": "SOC 2, ISO 27001, GDPR, industry-specific regulations"
+  },
+  "energy": {
+    "name": "Energy",
+    "terminology": [
+      "grid optimization",
+      "renewable integration",
+      "energy efficiency",
+      "demand forecasting",
+      "asset management",
+      "sustainability"
+    ],
+    "painPoints": [
+      "Grid stability",
+      "Renewable intermittency",
+      "Infrastructure aging",
+      "Regulatory changes",
+      "Environmental compliance"
+    ],
+    "metrics": [
+      "energy efficiency ratios",
+      "grid reliability",
+      "carbon footprint",
+      "operational costs"
+    ],
+    "trends": [
+      "smart grid technology",
+      "energy storage",
+      "distributed energy resources",
+      "carbon neutrality"
+    ],
+    "compliance": "NERC, EPA regulations, state utility commissions"
+  }
+}
