@@ -1,0 +1,34 @@
+import Image from "next/image"
+import { Reveal } from "./reveal"
+
+export function FractionalCao() {
+  return (
+    <section className="bg-emerald-50 py-20 dark:bg-emerald-900/10">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-2">
+        <div>
+          <Reveal>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Beyond the MVP: Strategic AI Leadership.</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-4 text-black/70 dark:text-white/80">
+              As your Fractional Chief Automation Officer, Tier 4 drives long-term AI success — governance, change management,
+              iterative releases, and continuous ROI tracking. We ensure your automation roadmap compounds value over time.
+            </p>
+          </Reveal>
+        </div>
+        <Reveal>
+          <div className="relative">
+            <div className="absolute -inset-5 -z-10 rounded-xl bg-white/60 dark:bg-white/10" aria-hidden="true" />
+            <Image
+              src={"/placeholder.svg?height=420&width=560&query=executive%20silhouette%20overlay%20with%20workflow%20diagram"}
+              alt="Executive silhouette with workflow overlay"
+              width={560}
+              height={420}
+              className="h-auto w-full rounded-xl border border-black/10 dark:border-white/10"
+            />
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
