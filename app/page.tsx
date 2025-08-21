@@ -7,6 +7,10 @@ import { SolutionSection } from "@/components/solution-section"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { AnalysisEngine } from "@/components/analysis-engine"
 import { Differentiators } from "@/components/differentiators"
+import { FractionalCao } from "@/components/fractional-cao"
+import { FaqSection } from "@/components/faq-section"
+import { FinalCta } from "@/components/final-cta"
+import { ChatWidget } from "@/components/chat-widget"
 import { StructuredData } from "@/components/schema/structured-data"
 import { OrganizationSchema } from "@/components/schema/organization-schema"
 import { WebSiteSchema } from "@/components/schema/website-schema"
@@ -100,6 +104,22 @@ export default function Page() {
       <Suspense>
         <Differentiators />
       </Suspense>
+
+      <Suspense>
+        <FractionalCao />
+      </Suspense>
+
+      <section id="faq" aria-label="Frequently Asked Questions">
+        <Suspense>
+          <FaqSection />
+        </Suspense>
+      </section>
+
+      <Suspense>
+        <FinalCta />
+      </Suspense>
+
+      <ChatWidget />
 
     </main>
   )
