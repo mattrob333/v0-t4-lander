@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 import { Montserrat } from "next/font/google"
 import { BarChart3, Clock3, Rocket } from "lucide-react"
 
@@ -100,14 +100,13 @@ export function Hero() {
               className="absolute -inset-6 -z-10 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20"
               aria-hidden="true"
             />
-            <OptimizedImage
+            <SimpleImage
               src="tier4-hero-dna-circuit"
               alt="DNA double helix pattern integrated into illuminated circuit board pathways, representing the fusion of biological intelligence and AI technology"
               width={720}
               height={520}
               priority
               className="h-auto w-full rounded-xl border border-black/10 dark:border-white/10 shadow-sm"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 800px"
             />
           </div>
         </Reveal>

@@ -1,5 +1,5 @@
 import { Reveal } from "./reveal"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 
 export function ProblemSection() {
   return (
@@ -18,7 +18,7 @@ export function ProblemSection() {
         <Reveal delay={0.15}>
           <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
-              <OptimizedImage
+              <SimpleImage
                 src="ai-noise-buzzwords"
                 alt="AI in glowing green letters surrounded by a cloud of buzzwords like disruption, blockchain, synergy, and big data representing the overwhelming noise in the AI space"
                 width={560}
@@ -31,7 +31,7 @@ export function ProblemSection() {
               </p>
             </div>
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
-              <OptimizedImage
+              <SimpleImage
                 src="ai-blueprint-clarity"
                 alt="Clean technical blueprint diagram with geometric shapes and clear labels for Efficiency, ROI, and Scalability representing a structured validated AI approach"
                 width={560}

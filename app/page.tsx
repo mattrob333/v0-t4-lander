@@ -7,17 +7,11 @@ import { SolutionSection } from "@/components/solution-section"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { AnalysisEngine } from "@/components/analysis-engine"
 import { Differentiators } from "@/components/differentiators"
-import { FractionalCao } from "@/components/fractional-cao"
-import { CaseStudies } from "@/components/case-studies"
-import { FaqSection } from "@/components/faq-section"
-import { FinalCta } from "@/components/final-cta"
-import { ChatWidget } from "@/components/chat-widget"
 import { StructuredData } from "@/components/schema/structured-data"
 import { OrganizationSchema } from "@/components/schema/organization-schema"
 import { WebSiteSchema } from "@/components/schema/website-schema"
 import { ServiceSchema } from "@/components/schema/service-schema"
 import { FAQSchema } from "@/components/schema/faq-schema"
-import { ConversionOptimizationSuite } from "@/components/conversion-optimization-suite"
 
 export const metadata = {
   title: "5-Day AI POC | 3-4x ROI Validation | Tier 4 Intelligence",
@@ -63,7 +57,6 @@ export const metadata = {
   }
 }
 
-
 export default function Page() {
   return (
     <main className="min-h-dvh bg-white text-black dark:bg-neutral-950 dark:text-white">
@@ -108,29 +101,6 @@ export default function Page() {
         <Differentiators />
       </Suspense>
 
-      <Suspense>
-        <FractionalCao />
-      </Suspense>
-
-      <Suspense>
-        <CaseStudies />
-      </Suspense>
-
-      <Suspense>
-        <FaqSection />
-      </Suspense>
-
-      <FinalCta />
-
-      <ChatWidget />
-
-      {/* Comprehensive Conversion Rate Optimization Suite */}
-      <ConversionOptimizationSuite 
-        variant="full" 
-        enableABTesting={true}
-        enableAnalytics={true}
-        showDashboards={process.env.NODE_ENV === 'development'}
-      />
     </main>
   )
 }

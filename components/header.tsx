@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
@@ -71,7 +71,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
         <Link href="#" className="flex items-center gap-2" aria-label="Tier 4 Intelligence - Home">
-          <OptimizedImage
+          <SimpleImage
             src={logoSrc}
             alt="Tier 4 Intelligence"
             width={280}

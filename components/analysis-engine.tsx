@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 import { Reveal } from "./reveal"
 
 export function AnalysisEngine() {
@@ -29,7 +29,7 @@ export function AnalysisEngine() {
             <div className="rounded-xl border border-white/10 bg-neutral-800/50 p-6">
               <h3 className="text-xl font-bold text-red-400">Without Tier 4</h3>
               <div className="mt-4">
-                <OptimizedImage
+                <SimpleImage
                   src="without-tier4-chaos"
                   alt="Chaotic scene with tangled arrows, multiple clocks, warning triangle, hourglass, and calendar showing 'MONTHS' representing the confusion and delays of traditional AI approaches"
                   width={400}
@@ -48,7 +48,7 @@ export function AnalysisEngine() {
             <div className="rounded-xl border border-[#00A878]/30 bg-neutral-800/50 p-6">
               <h3 className="text-xl font-bold text-[#00A878]">With Tier 4</h3>
               <div className="mt-4">
-                <OptimizedImage
+                <SimpleImage
                   src="with-tier4-roadmap"
                   alt="Clean green path with checkmark leading to clear outcomes: ROADMAP, ROI, PLAN displayed prominently, representing Tier 4's structured approach"
                   width={400}

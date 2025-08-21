@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Card } from "@/components/ui/card"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 import { Star, Quote, TrendingUp, Users, CheckCircle, Award, Building } from "lucide-react"
 
 // Real-time activity notifications

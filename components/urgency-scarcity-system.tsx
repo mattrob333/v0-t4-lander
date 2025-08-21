@@ -428,60 +428,72 @@ export function UrgencyScarcitySystem({
 
   if (variant === 'seasonal-only') {
     return (
-      <div className="space-y-6">
-        <SeasonalUrgency seasonType="year-end" onCTA={onCTAClick} />
-      </div>
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <SeasonalUrgency seasonType="year-end" onCTA={onCTAClick} />
+        </div>
+      </section>
     )
   }
 
   if (variant === 'compact') {
     return (
-      <div className="space-y-4">
-        <AvailabilityIndicator 
-          totalSpots={12} 
-          spotsLeft={3} 
-          type="assessment-slots"
-        />
-        <SocialUrgency recentActivity={recentActivity} variant="banner" />
-      </div>
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 space-y-6">
+          <AvailabilityIndicator 
+            totalSpots={12} 
+            spotsLeft={3} 
+            type="assessment-slots"
+          />
+          <SocialUrgency recentActivity={recentActivity} variant="banner" />
+        </div>
+      </section>
     )
   }
 
   return (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <AvailabilityIndicator 
-          totalSpots={12} 
-          spotsLeft={3} 
-          type="assessment-slots"
-        />
-        <AvailabilityIndicator 
-          totalSpots={8} 
-          spotsLeft={2} 
-          type="poc-capacity"
-        />
-        <AvailabilityIndicator 
-          totalSpots={15} 
-          spotsLeft={7} 
-          type="consultation-spots"
-        />
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <AvailabilityIndicator 
+              totalSpots={12} 
+              spotsLeft={3} 
+              type="assessment-slots"
+            />
+            <AvailabilityIndicator 
+              totalSpots={8} 
+              spotsLeft={2} 
+              type="poc-capacity"
+            />
+            <AvailabilityIndicator 
+              totalSpots={15} 
+              spotsLeft={7} 
+              type="consultation-spots"
+            />
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <LimitedTimeOffer
+              title="Executive AI Strategy Session"
+              description="Get personalized AI roadmap for your industry"
+              offer="Complimentary 60-minute session (normally $500)"
+              originalPrice="$500"
+              salePrice="FREE"
+              expiresAt={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)} // 7 days from now
+              spotsLeft={5}
+              onCTA={onCTAClick}
+              ctaText="Book My Free Session"
+            />
+          </div>
+
+          <SocialUrgency recentActivity={recentActivity} />
+
+          <div className="max-w-4xl mx-auto">
+            <SeasonalUrgency seasonType="year-end" onCTA={onCTAClick} />
+          </div>
+        </div>
       </div>
-
-      <LimitedTimeOffer
-        title="Executive AI Strategy Session"
-        description="Get personalized AI roadmap for your industry"
-        offer="Complimentary 60-minute session (normally $500)"
-        originalPrice="$500"
-        salePrice="FREE"
-        expiresAt={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)} // 7 days from now
-        spotsLeft={5}
-        onCTA={onCTAClick}
-        ctaText="Book My Free Session"
-      />
-
-      <SocialUrgency recentActivity={recentActivity} />
-
-      <SeasonalUrgency seasonType="year-end" onCTA={onCTAClick} />
-    </div>
+    </section>
   )
 }

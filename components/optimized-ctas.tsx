@@ -431,29 +431,31 @@ export function OptimizedCTA({
 
   // Default section/inline rendering
   return (
-    <div className={`text-center ${className}`}>
-      {getUrgencyIndicator()}
-      {config.copy.headline && (
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{config.copy.headline}</h2>
-      )}
-      {config.copy.subheadline && (
-        <p className="text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">{config.copy.subheadline}</p>
-      )}
-      
-      <Button 
-        onClick={handleClick}
-        className={getButtonStyles()}
-      >
-        {config.styling.icon && <config.styling.icon className="w-5 h-5" />}
-        {config.copy.buttonText}
-      </Button>
-      
-      {config.copy.supportingText && (
-        <p className="text-sm text-gray-600 mt-3">{config.copy.supportingText}</p>
-      )}
-      
-      {showSupportingElements && getSocialProof()}
-    </div>
+    <section className={`py-16 ${className}`}>
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        {getUrgencyIndicator()}
+        {config.copy.headline && (
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{config.copy.headline}</h2>
+        )}
+        {config.copy.subheadline && (
+          <p className="text-gray-700 mb-6 max-w-2xl mx-auto leading-relaxed">{config.copy.subheadline}</p>
+        )}
+        
+        <Button 
+          onClick={handleClick}
+          className={getButtonStyles()}
+        >
+          {config.styling.icon && <config.styling.icon className="w-5 h-5" />}
+          {config.copy.buttonText}
+        </Button>
+        
+        {config.copy.supportingText && (
+          <p className="text-sm text-gray-600 mt-3">{config.copy.supportingText}</p>
+        )}
+        
+        {showSupportingElements && getSocialProof()}
+      </div>
+    </section>
   )
 }
 
@@ -468,21 +470,21 @@ export function HeroSecondaryCTA({ onClick }: { onClick?: () => void }) {
 
 export function ValuePropCTA({ onClick }: { onClick?: () => void }) {
   return (
-    <section className="py-16 bg-gradient-to-br from-[#00A878]/5 to-emerald-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <OptimizedCTA config={CTA_CONFIGS['value-prop-cta']} onClick={onClick} />
-      </div>
-    </section>
+    <OptimizedCTA 
+      config={CTA_CONFIGS['value-prop-cta']} 
+      onClick={onClick} 
+      className="bg-gradient-to-br from-[#00A878]/5 to-emerald-50"
+    />
   )
 }
 
 export function RiskFreeCTA({ onClick }: { onClick?: () => void }) {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-4xl mx-auto px-4">
-        <OptimizedCTA config={CTA_CONFIGS['risk-free-cta']} onClick={onClick} />
-      </div>
-    </section>
+    <OptimizedCTA 
+      config={CTA_CONFIGS['risk-free-cta']} 
+      onClick={onClick} 
+      className="bg-white"
+    />
   )
 }
 
@@ -500,11 +502,11 @@ export function DownloadLeadMagnet({ onClick }: { onClick?: () => void }) {
 
 export function SocialProofCTA({ onClick }: { onClick?: () => void }) {
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4">
-        <OptimizedCTA config={CTA_CONFIGS['social-proof-cta']} onClick={onClick} />
-      </div>
-    </section>
+    <OptimizedCTA 
+      config={CTA_CONFIGS['social-proof-cta']} 
+      onClick={onClick} 
+      className="bg-gray-50"
+    />
   )
 }
 

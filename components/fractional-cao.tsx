@@ -1,5 +1,5 @@
 import { Reveal } from "./reveal"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import { SimpleImage } from "@/components/ui/simple-image"
 
 export function FractionalCao() {
   return (
@@ -20,7 +20,7 @@ export function FractionalCao() {
         <Reveal>
           <div className="relative">
             <div className="absolute -inset-5 -z-10 rounded-xl bg-white/60 dark:bg-white/10" aria-hidden="true" />
-            <OptimizedImage
+            <SimpleImage
               src="strategic-roadmap-executive"
               alt="Executive in business suit reviewing strategic roadmap documents with pen in hand, showing professional strategic planning and AI leadership"
               width={560}
