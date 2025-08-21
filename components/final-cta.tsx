@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function FinalCta({
   calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/matt-tier4/tier-4-ai-catch-up-call",
@@ -10,6 +10,27 @@ export function FinalCta({
   calendlyUrl?: string
 }) {
   const [showForm, setShowForm] = useState(false)
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false)
+
+  useEffect(() => {
+    // Load Calendly popup script
+    if (!calendlyLoaded) {
+      const script = document.createElement('script')
+      script.src = 'https://assets.calendly.com/assets/external/widget.js'
+      script.async = true
+      script.onload = () => setCalendlyLoaded(true)
+      document.head.appendChild(script)
+    }
+  }, [calendlyLoaded])
+
+  const openCalendlyPopup = () => {
+    if (typeof window !== 'undefined' && (window as any).Calendly) {
+      (window as any).Calendly.initPopupWidget({ url: calendlyUrl })
+    } else {
+      // Fallback to opening in new tab
+      window.open(calendlyUrl, '_blank', 'noopener,noreferrer')
+    }
+  }
 
   return (
     <section id="contact" className="border-t border-black/10 bg-white py-20 dark:border-white/10 dark:bg-neutral-950">
@@ -24,15 +45,19 @@ export function FinalCta({
           </p>
         </Reveal>
 
-        {/* Inline Calendly/Cal.com Embed */}
+        {/* Calendly Popup Integration */}
         <Reveal delay={0.15}>
-          <div className="mx-auto mt-8 w-full overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
-            <iframe
-              title="Schedule your Tier 4 AI Discovery Call"
-              src={`${calendlyUrl}?hide_event_type_details=1&hide_gdpr_banner=1`}
-              className="h-[720px] w-full"
-              loading="lazy"
-            />
+          <div className="mx-auto mt-8 max-w-md">
+            <Button
+              className="w-full h-14 text-lg bg-[#00A878] hover:bg-[#00936B] text-white rounded-xl"
+              onClick={openCalendlyPopup}
+              aria-label="Schedule your Tier 4 AI Discovery Call"
+            >
+              📅 Schedule Your AI Discovery Call
+            </Button>
+            <p className="mt-2 text-sm text-black/60 dark:text-white/70">
+              Opens calendar in popup
+            </p>
           </div>
         </Reveal>
 
