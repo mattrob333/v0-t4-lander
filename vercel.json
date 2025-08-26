@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -122,10 +113,12 @@
   ],
   "functions": {
     "app/**/*.tsx": {
-      "maxDuration": 10
+      "maxDuration": 10,
+      "memory": 1024
     },
     "app/**/*.ts": {
-      "maxDuration": 10
+      "maxDuration": 10,
+      "memory": 1024
     }
   },
   "crons": [
