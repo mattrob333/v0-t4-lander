@@ -195,7 +195,7 @@ export function StructuredData({
       "@type": "WebPage",
       "@id": "https://tier4intelligence.com/solutions#webpage",
       "url": "https://tier4intelligence.com/solutions",
-      "name": "AI Solutions & Services | Tier 4 Intelligence",
+      "name": "AI Solutions and Services | Tier 4 Intelligence",
       "description": "Explore our comprehensive AI solutions: customer self-service, agent copilots, analytics intelligence, automation, platforms, and advisory services.",
       "isPartOf": {"@id": "https://tier4intelligence.com/#website"},
       "about": {"@id": "https://tier4intelligence.com/#organization"},

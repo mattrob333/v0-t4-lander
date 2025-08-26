@@ -138,7 +138,7 @@ export function OrganizationSchema() {
     "founder": {
       "@type": "Person",
       "name": "AI Strategy Expert",
-      "jobTitle": "Founder & Chief AI Officer"
+      "jobTitle": "Founder and Chief AI Officer"
     },
     "employee": {
       "@type": "Person",
