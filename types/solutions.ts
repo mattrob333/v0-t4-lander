@@ -1,3 +1,4 @@
+
 // Solutions System TypeScript Interfaces
 // Based on Airtable schema architecture
 
