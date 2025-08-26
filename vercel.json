@@ -36,7 +36,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(css|js|woff|woff2|ttf|otf|eot|svg|webp|avif|jpg|jpeg|png|gif|ico))$",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(html|htm))$",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "source": "/sitemap(.*).xml$",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
