@@ -1,0 +1,52 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next:*)",
+      "Bash(find:*)",
+      "Bash(sed:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "Bash(git commit:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pnpm dev:*)",
+      "mcp__firecrawl__firecrawl_scrape",
+      "Bash(taskkill:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_close",
+      "mcp__airtable__list_bases",
+      "mcp__airtable__create_table",
+      "mcp__airtable__create_record",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_console_messages",
+      "Bash(npm run:*)",
+      "mcp__playwright__browser_network_requests",
+      "mcp__airtable__list_tables",
+      "mcp__airtable__describe_table",
+      "mcp__airtable__list_records",
+      "mcp__playwright__browser_evaluate",
+      "WebSearch",
+      "Bash(npm test:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(node:*)",
+      "Bash(powershell:*)",
+      "Bash(git remote get-url:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(git config:*)",
+      "Bash(git init:*)",
+      "Bash(git fetch:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "C:\\c\\Users\\mrobe\\Projects\\t4-lander-v0-8.21"
+    ]
+  }
+}

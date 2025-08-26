@@ -1,0 +1,184 @@
+/* Solutions System CSS Variables and Custom Styles */
+
+:root {
+  /* T4I Color System */
+  --t4i-green: #10b981;
+  --t4i-green-light: #34d399;
+  --t4i-green-dark: #059669;
+  --t4i-black: #111827;
+  --t4i-white: #ffffff;
+  
+  /* Extended color palette for solutions */
+  --t4i-gray-50: #f9fafb;
+  --t4i-gray-100: #f3f4f6;
+  --t4i-gray-200: #e5e7eb;
+  --t4i-gray-300: #d1d5db;
+  --t4i-gray-400: #9ca3af;
+  --t4i-gray-500: #6b7280;
+  --t4i-gray-600: #4b5563;
+  --t4i-gray-700: #374151;
+  --t4i-gray-800: #1f2937;
+  --t4i-gray-900: #0f172a;
+}
+
+/* Dark mode color adjustments */
+[data-theme="dark"], .dark {
+  --t4i-gray-50: #1f2937;
+  --t4i-gray-100: #374151;
+  --t4i-gray-200: #4b5563;
+  --t4i-gray-300: #6b7280;
+  --t4i-gray-400: #9ca3af;
+  --t4i-gray-500: #d1d5db;
+  --t4i-gray-600: #e5e7eb;
+  --t4i-gray-700: #f3f4f6;
+  --t4i-gray-800: #f9fafb;
+  --t4i-gray-900: #ffffff;
+}
+
+/* Solutions-specific utilities */
+.solutions-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.solutions-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04);
+}
+
+.solutions-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--t4i-gray-50) 0%,
+    var(--t4i-gray-100) 100%
+  );
+}
+
+.dark .solutions-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--t4i-gray-900) 0%,
+    var(--t4i-gray-800) 100%
+  );
+}
+
+/* Mega menu animations */
+.mega-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: megaMenuEnter 0.2s ease-out forwards;
+}
+
+@keyframes megaMenuEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mega-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+  animation: megaMenuExit 0.15s ease-in forwards;
+}
+
+@keyframes megaMenuExit {
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* Custom scrollbar for mega menu if needed */
+.solutions-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.solutions-scrollbar::-webkit-scrollbar-track {
+  background: var(--t4i-gray-100);
+  border-radius: 3px;
+}
+
+.solutions-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--t4i-green);
+  border-radius: 3px;
+}
+
+.solutions-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--t4i-green-dark);
+}
+
+/* Focus styles for accessibility */
+.solutions-focus-ring:focus-visible {
+  outline: 2px solid var(--t4i-green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Text gradient utility */
+.text-gradient-green {
+  background: linear-gradient(135deg, var(--t4i-green) 0%, var(--t4i-green-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Shimmer animation for buttons */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.8s ease-in-out;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .solutions-mobile-spacing {
+    padding: 1rem;
+  }
+  
+  .solutions-mobile-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .solutions-no-print {
+    display: none !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .solutions-card-hover,
+  .mega-menu-enter,
+  .mega-menu-exit,
+  .btn-shimmer::before {
+    animation: none;
+    transition: none;
+  }
+  
+  .solutions-card-hover:hover {
+    transform: none;
+  }
+}
