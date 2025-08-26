@@ -3,8 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
 import { SimpleImage } from "@/components/ui/simple-image"
+import { ScheduleDialog } from "./schedule-dialog"
 import { Montserrat } from "next/font/google"
 import { BarChart3, Clock3, Rocket } from "lucide-react"
+import { useState } from "react"
 
 const mont = Montserrat({ subsets: ["latin"], weight: ["700", "800"] })
 
@@ -14,6 +16,8 @@ function scrollToId(id: string) {
 }
 
 export function Hero() {
+  const [showScheduleDialog, setShowScheduleDialog] = useState(false)
+
   return (
     <section className="relative">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
@@ -34,19 +38,11 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <Button className="h-12 rounded-full bg-[#00A878] px-6 text-white hover:bg-[#00936B]" asChild>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const el = document.querySelector(
-                      'header button[aria-label="Schedule Your Assessment"]',
-                    ) as HTMLButtonElement | null
-                    el?.click()
-                  }}
-                >
-                  Schedule Your AI Opportunity Assessment
-                </a>
+              <Button 
+                className="h-12 rounded-full bg-[#00A878] px-6 text-white hover:bg-[#00936B]"
+                onClick={() => setShowScheduleDialog(true)}
+              >
+                Schedule Your AI Opportunity Assessment
               </Button>
               <Button
                 variant="ghost"
@@ -103,14 +99,15 @@ export function Hero() {
             <SimpleImage
               src="tier4-hero-dna-circuit"
               alt="DNA double helix pattern integrated into illuminated circuit board pathways, representing the fusion of biological intelligence and AI technology"
-              width={720}
-              height={520}
+              width={648}
+              height={468}
               priority
               className="h-auto w-full rounded-xl border border-black/10 dark:border-white/10 shadow-sm"
             />
           </div>
         </Reveal>
       </div>
+      <ScheduleDialog open={showScheduleDialog} onOpenChange={setShowScheduleDialog} />
     </section>
   )
 }

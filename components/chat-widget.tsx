@@ -19,21 +19,67 @@ export function ChatWidget() {
     endRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [msgs, open])
 
-  function onSend() {
+  async function onSend() {
     const text = input.trim()
     if (!text) return
-    setMsgs((m) => [...m, { role: "user", text }])
+    
+    const userMessage = { role: "user" as const, text }
+    setMsgs((m) => [...m, userMessage])
     setInput("")
-    setTimeout(() => {
-      setMsgs((m) => [
-        ...m,
-        {
-          role: "agent",
-          text:
-            "Thanks for reaching out. We’ll route this to a strategist and follow up shortly. For urgent requests, click Schedule.",
+    
+    try {
+      const response = await fetch('/api/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ])
-    }, 800)
+        body: JSON.stringify({
+          message: text,
+          conversationHistory: msgs
+        })
+      })
+      
+      if (!response.ok) {
+        throw new Error('Failed to get AI response')
+      }
+      
+      const data = await response.json()
+      
+      const agentMessage = { role: "agent" as const, text: data.response }
+      setMsgs((m) => [...m, agentMessage])
+      
+      // Save conversation to Airtable (if it contains meaningful interaction)
+      if (msgs.length > 2) { // Only save after a few exchanges
+        saveChatToAirtable(text, data.response)
+      }
+      
+    } catch (error) {
+      console.error('Chat error:', error)
+      setMsgs((m) => [...m, { 
+        role: "agent", 
+        text: "I apologize, but I'm having trouble connecting right now. Please try scheduling a call directly or contact us via email." 
+      }])
+    }
+  }
+  
+  async function saveChatToAirtable(userMessage: string, agentResponse: string) {
+    try {
+      await fetch('/api/airtable/create-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: 'Chatbot User',
+          email: 'chatbot@tier4intelligence.com',
+          company: 'Unknown',
+          notes: `User: ${userMessage}\n\nAgent: ${agentResponse}`,
+          source: 'Chatbot'
+        })
+      })
+    } catch (error) {
+      console.error('Failed to save chat to Airtable:', error)
+    }
   }
 
   return (

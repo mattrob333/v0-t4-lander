@@ -2,15 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { SimpleImage } from "@/components/ui/simple-image"
+import { InteractiveSolutionsMegaMenu } from "@/components/solutions/InteractiveSolutionsMegaMenu"
+import { CATEGORIES, getFeaturedSolutions } from "@/content/solutions"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScheduleDialog } from "./schedule-dialog"
 import { ThemeToggle } from "./theme-toggle"
-import { useTheme } from "next-themes"
 
-const SECTIONS = ["process", "analysis", "cases", "contact"] as const
+const SECTIONS = ["process", "analysis", "contact"] as const
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -18,7 +19,67 @@ export function Header() {
   const [showDialog, setShowDialog] = useState(false)
   const [active, setActive] = useState<(typeof SECTIONS)[number] | null>(null)
   const [mounted, setMounted] = useState(false)
-  const { resolvedTheme } = useTheme()
+
+  // Prepare solutions data for mega menu
+  const solutionCategories = CATEGORIES.map(cat => ({
+    id: cat.slug,
+    name: cat.title,
+    slug: cat.slug,
+    tagline: cat.tagline,
+    description: cat.description || cat.tagline,
+    iconName: cat.icon,
+    featured: cat.displayConfig.showInNav,
+    sortOrder: cat.displayConfig.sortOrder,
+    solutions: cat.solutions?.map(sol => ({
+      id: sol.slug,
+      title: sol.title,
+      summary: sol.summary,
+      description: sol.description,
+      category: {
+        id: cat.slug,
+        name: cat.title,
+        slug: cat.slug,
+        tagline: cat.tagline,
+        iconName: cat.icon,
+        featured: cat.displayConfig.showInNav,
+        sortOrder: cat.displayConfig.sortOrder,
+        createdAt: '',
+        updatedAt: ''
+      },
+      tags: sol.tags,
+      featured: sol.flags.featured,
+      iconName: sol.icon,
+      createdAt: '',
+      updatedAt: ''
+    })) || [],
+    createdAt: '',
+    updatedAt: ''
+  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder)
+
+  const featuredSolutions = CATEGORIES.flatMap(cat => 
+    getFeaturedSolutions(cat, 2).map(sol => ({
+      id: sol.slug,
+      title: sol.title,
+      summary: sol.summary,
+      description: sol.description,
+      category: {
+        id: cat.slug,
+        name: cat.title,
+        slug: cat.slug,
+        tagline: cat.tagline,
+        iconName: cat.icon,
+        featured: cat.displayConfig.showInNav,
+        sortOrder: cat.displayConfig.sortOrder,
+        createdAt: '',
+        updatedAt: ''
+      },
+      tags: sol.tags,
+      featured: sol.flags.featured,
+      iconName: sol.icon,
+      createdAt: '',
+      updatedAt: ''
+    }))
+  ).slice(0, 4)
 
   useEffect(() => setMounted(true), [])
 
@@ -55,8 +116,6 @@ export function Header() {
       active === id ? "font-semibold text-black dark:text-white underline" : undefined,
     )
 
-  // Determine which logo to use based on theme
-  const logoSrc = mounted && resolvedTheme === "dark" ? "tier4-logo-horizontal-dark" : "tier4-logo-horizontal"
 
   return (
     <header
@@ -70,27 +129,37 @@ export function Header() {
       role="banner"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
-        <Link href="#" className="flex items-center gap-2" aria-label="Tier 4 Intelligence - Home">
+        <Link href="/" className="flex items-center gap-2" aria-label="Tier 4 Intelligence - Home">
           <SimpleImage
-            src={logoSrc}
+            src="tier4-logo-horizontal"
             alt="Tier 4 Intelligence"
             width={280}
             height={64}
-            className="h-12 w-auto md:h-14"
+            className="h-12 w-auto md:h-14 block dark:hidden"
+            priority
+            sizes="280px"
+          />
+          <SimpleImage
+            src="tier4-logo-horizontal-dark"
+            alt="Tier 4 Intelligence"
+            width={280}
+            height={64}
+            className="h-12 w-auto md:h-14 hidden dark:block"
             priority
             sizes="280px"
           />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+          <InteractiveSolutionsMegaMenu
+            categories={solutionCategories}
+            featuredSolutions={featuredSolutions}
+          />
           <a href="#process" className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
             Process
           </a>
           <a href="#analysis" className={linkCls("analysis")} aria-current={active === "analysis" ? "page" : undefined}>
             Analysis Engine
-          </a>
-          <a href="#cases" className={linkCls("cases")} aria-current={active === "cases" ? "page" : undefined}>
-            Case Studies
           </a>
           <a href="#contact" className={linkCls("contact")} aria-current={active === "contact" ? "page" : undefined}>
             Contact
@@ -123,14 +192,14 @@ export function Header() {
       {open && (
         <div className="border-t border-black/10 bg-white dark:border-white/10 dark:bg-neutral-950 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3">
+            <Link href="/solutions" className="py-1 text-sm text-black/80 dark:text-white/80 hover:text-[#00A878]">
+              Solutions
+            </Link>
             <a href="#process" className="py-1 text-sm text-black/80 dark:text-white/80">
               Process
             </a>
             <a href="#analysis" className="py-1 text-sm text-black/80 dark:text-white/80">
               Analysis Engine
-            </a>
-            <a href="#cases" className="py-1 text-sm text-black/80 dark:text-white/80">
-              Case Studies
             </a>
             <a href="#contact" className="py-1 text-sm text-black/80 dark:text-white/80">
               Contact

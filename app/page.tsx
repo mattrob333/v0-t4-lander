@@ -4,6 +4,8 @@ import { Hero } from "@/components/hero"
 import { TrustBar } from "@/components/trust-bar"
 import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
+import { InteractiveSolutionsTileGrid } from "@/components/solutions/InteractiveSolutionsTileGrid"
+import { Button } from "@/components/ui/button"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { AnalysisEngine } from "@/components/analysis-engine"
 import { Differentiators } from "@/components/differentiators"
@@ -16,6 +18,9 @@ import { OrganizationSchema } from "@/components/schema/organization-schema"
 import { WebSiteSchema } from "@/components/schema/website-schema"
 import { ServiceSchema } from "@/components/schema/service-schema"
 import { FAQSchema } from "@/components/schema/faq-schema"
+import { CATEGORIES, SOLUTIONS_CONFIG } from "@/content/solutions"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export const metadata = {
   title: "5-Day AI POC | 3-4x ROI Validation | Tier 4 Intelligence",
@@ -61,6 +66,59 @@ export const metadata = {
   }
 }
 
+function ExpertiseSection() {
+  // Convert solutions data to component-expected format
+  const solutionCategories = CATEGORIES.map(cat => ({
+    id: cat.slug,
+    name: cat.title,
+    slug: cat.slug,
+    tagline: cat.tagline,
+    description: cat.description || cat.tagline,
+    iconName: cat.icon,
+    featured: cat.displayConfig.showInNav,
+    sortOrder: cat.displayConfig.sortOrder,
+    solutions: cat.solutions || [],
+    createdAt: '',
+    updatedAt: ''
+  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder)
+
+  return (
+    <section className="py-20 bg-gray-50 dark:bg-neutral-900" id="expertise">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
+            {SOLUTIONS_CONFIG.homePage.sectionTitle}
+          </h2>
+          {SOLUTIONS_CONFIG.homePage.sectionSubtitle && (
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-black/70 dark:text-white/70">
+              {SOLUTIONS_CONFIG.homePage.sectionSubtitle}
+            </p>
+          )}
+        </div>
+
+        <InteractiveSolutionsTileGrid
+          categories={solutionCategories}
+          variant="home"
+          className="mb-12"
+        />
+
+        <div className="text-center">
+          <Button
+            asChild
+            size="lg"
+            className="rounded-full bg-[#00A878] px-8 py-3 text-white hover:bg-[#00936B]"
+          >
+            <Link href="/solutions">
+              {SOLUTIONS_CONFIG.ctas.secondary?.text}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function Page() {
   return (
     <main className="min-h-dvh bg-white text-black dark:bg-neutral-950 dark:text-white">
@@ -89,6 +147,10 @@ export default function Page() {
 
       <Suspense>
         <SolutionSection />
+      </Suspense>
+
+      <Suspense>
+        <ExpertiseSection />
       </Suspense>
 
       <section id="process" aria-label="How It Works">

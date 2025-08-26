@@ -1,17 +1,19 @@
 import Script from 'next/script'
 
 interface StructuredDataProps {
-  pageType?: 'homepage' | 'service' | 'about' | 'contact' | 'programmatic'
+  pageType?: 'homepage' | 'service' | 'about' | 'contact' | 'programmatic' | 'solutions' | 'category'
   serviceName?: string
   industry?: string
   useCase?: string
+  category?: any
 }
 
 export function StructuredData({ 
   pageType = 'homepage',
   serviceName,
   industry,
-  useCase 
+  useCase,
+  category
 }: StructuredDataProps) {
   
   // Base organization schema
@@ -185,6 +187,72 @@ export function StructuredData({
         "priceRange": "$15000-$25000"
       })
     }
+  }
+
+  // Solutions page schema
+  if (pageType === 'solutions') {
+    schemaGraph.push({
+      "@type": "WebPage",
+      "@id": "https://tier4intelligence.com/solutions#webpage",
+      "url": "https://tier4intelligence.com/solutions",
+      "name": "AI Solutions & Services | Tier 4 Intelligence",
+      "description": "Explore our comprehensive AI solutions: customer self-service, agent copilots, analytics intelligence, automation, platforms, and advisory services.",
+      "isPartOf": {"@id": "https://tier4intelligence.com/#website"},
+      "about": {"@id": "https://tier4intelligence.com/#organization"},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tier4intelligence.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Solutions",
+            "item": "https://tier4intelligence.com/solutions"
+          }
+        ]
+      }
+    })
+  }
+
+  // Category page schema
+  if (pageType === 'category' && category) {
+    schemaGraph.push({
+      "@type": "WebPage",
+      "@id": `https://tier4intelligence.com/solutions/${category.slug}#webpage`,
+      "url": `https://tier4intelligence.com/solutions/${category.slug}`,
+      "name": category.seo.title,
+      "description": category.seo.description,
+      "isPartOf": {"@id": "https://tier4intelligence.com/#website"},
+      "about": {"@id": "https://tier4intelligence.com/#organization"},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tier4intelligence.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Solutions",
+            "item": "https://tier4intelligence.com/solutions"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": category.title,
+            "item": `https://tier4intelligence.com/solutions/${category.slug}`
+          }
+        ]
+      }
+    })
   }
 
   const structuredDataSchema = {
