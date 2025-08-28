@@ -41,12 +41,18 @@
       "WebFetch(domain:github.com)",
       "Bash(git config:*)",
       "Bash(git init:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(mv:*)",
+      "Bash(claude auth login)"
     ],
     "deny": [],
     "ask": [],
     "additionalDirectories": [
       "C:\\c\\Users\\mrobe\\Projects\\t4-lander-v0-8.21"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
 }

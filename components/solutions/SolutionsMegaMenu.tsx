@@ -151,8 +151,8 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           className={cn(
             'absolute top-full left-0 z-50 mt-2',
             'w-screen max-w-4xl min-w-[800px]',
-            'bg-white dark:bg-[var(--t4i-black)]',
-            'border border-gray-200 dark:border-gray-800',
+            'bg-white dark:bg-black',
+            'border border-gray-200 dark:border-white/20',
             'shadow-xl rounded-lg overflow-hidden',
             // Position adjustments
             '-translate-x-1/4'
@@ -163,8 +163,8 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
         >
           <div className="flex">
             {/* Left Panel - Categories Grid */}
-            <div className="flex-1 p-6 border-r border-gray-200 dark:border-gray-800">
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-[var(--t4i-white)] mb-4 uppercase tracking-wide">
+            <div className="flex-1 p-6 border-r border-gray-200 dark:border-white/20 dark:bg-black">
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
                 Browse by Category
               </h3>
               
@@ -178,7 +178,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                       key={category.id}
                       className={cn(
                         'group cursor-pointer transition-all duration-200',
-                        'border-gray-100 dark:border-gray-800 hover:border-[var(--t4i-green)]',
+                        'border border-gray-200 dark:border-white/20 hover:border-[var(--t4i-green)] dark:hover:border-[var(--t4i-green)]',
                         'hover:shadow-md hover:shadow-[var(--t4i-green)]/10',
                         isFocused && 'border-[var(--t4i-green)] ring-1 ring-[var(--t4i-green)]',
                         hoveredCategory === category.id && 'border-[var(--t4i-green)] bg-[var(--t4i-green)]/5'
@@ -195,7 +195,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                         <div className="flex items-center space-x-3">
                           <div className={cn(
                             'p-2 rounded-lg',
-                            'bg-gray-50 dark:bg-gray-800',
+                            'bg-gray-50 dark:bg-gray-900',
                             'group-hover:bg-[var(--t4i-green)]/10',
                             'transition-colors duration-200'
                           )}>
@@ -208,13 +208,20 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                           
                           <div className="flex-1 min-w-0">
                             <h4 className={cn(
-                              'font-medium text-gray-900 dark:text-[var(--t4i-white)]',
-                              'group-hover:text-[var(--t4i-green)] transition-colors duration-200',
+                              'font-medium text-gray-900 dark:text-white',
+                              'group-hover:text-[var(--t4i-green)] dark:group-hover:text-[var(--t4i-green)]',
+                              'transition-colors duration-200',
                               'text-sm leading-tight'
                             )}>
-                              {category.name}
+                              {category.name === 'Customer Self-Service' ? (
+                                <>
+                                  Customer<br />Self-Service
+                                </>
+                              ) : (
+                                category.name
+                              )}
                             </h4>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
+                            <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
                               {category.tagline}
                             </p>
                           </div>
@@ -227,9 +234,9 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
             </div>
 
             {/* Right Panel - Featured Solutions */}
-            <div className="w-80 p-6 bg-gray-50 dark:bg-gray-900/50">
+            <div className="w-80 p-6 bg-gray-50 dark:bg-black">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-semibold text-gray-900 dark:text-[var(--t4i-white)] uppercase tracking-wide">
+                <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   {hoveredCategory 
                     ? `${categories.find(cat => cat.id === hoveredCategory)?.name} Solutions`
                     : 'Featured Solutions'
@@ -261,8 +268,8 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                     key={solution.id}
                     className={cn(
                       'group cursor-pointer p-3 rounded-lg',
-                      'hover:bg-white dark:hover:bg-[var(--t4i-black)]',
-                      'border border-transparent hover:border-gray-200 dark:hover:border-gray-700',
+                      'hover:bg-white dark:hover:bg-gray-800',
+                      'border border-transparent hover:border-gray-200 dark:hover:border-white/20',
                       'transition-all duration-200'
                     )}
                     onClick={() => {
@@ -274,12 +281,13 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
                         <h4 className={cn(
-                          'font-medium text-gray-900 dark:text-[var(--t4i-white)] text-sm',
-                          'group-hover:text-[var(--t4i-green)] transition-colors duration-200'
+                          'font-medium text-gray-900 dark:text-white text-sm',
+                          'group-hover:text-[var(--t4i-green)] dark:group-hover:text-[var(--t4i-green)]',
+                          'transition-colors duration-200'
                         )}>
                           {solution.title}
                         </h4>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
                           {solution.summary}
                         </p>
                       </div>
