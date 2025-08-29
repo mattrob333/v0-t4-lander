@@ -84,13 +84,17 @@ export function Header() {
   useEffect(() => setMounted(true), [])
 
   useEffect(() => {
+    if (!mounted) return // Don't run until after hydration
+    
     const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+  }, [mounted])
 
   useEffect(() => {
+    if (!mounted) return // Don't run until after hydration
+    
     const observers: IntersectionObserver[] = []
     SECTIONS.forEach((id) => {
       const el = document.getElementById(id)
@@ -107,7 +111,7 @@ export function Header() {
       observers.push(ob)
     })
     return () => observers.forEach((o) => o.disconnect())
-  }, [])
+  }, [mounted])
 
   const linkCls = (id: string) =>
     cn(
@@ -115,6 +119,10 @@ export function Header() {
       "text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white",
       active === id ? "font-semibold text-black dark:text-white underline" : undefined,
     )
+  
+  // Always use /#section to avoid hydration mismatch
+  // This works from any page and avoids SSR/CSR differences
+  const getHref = (section: string) => `/#${section}`
 
 
   return (
@@ -137,7 +145,6 @@ export function Header() {
             height={64}
             className="h-12 w-auto md:h-14 block dark:hidden"
             priority
-            sizes="280px"
           />
           <SimpleImage
             src="tier4-logo-horizontal-dark"
@@ -146,7 +153,6 @@ export function Header() {
             height={64}
             className="h-12 w-auto md:h-14 hidden dark:block"
             priority
-            sizes="280px"
           />
         </Link>
 
@@ -155,13 +161,13 @@ export function Header() {
             categories={solutionCategories}
             featuredSolutions={featuredSolutions}
           />
-          <a href="#process" className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
+          <a href={getHref("process")} className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
             Process
           </a>
-          <a href="#analysis" className={linkCls("analysis")} aria-current={active === "analysis" ? "page" : undefined}>
+          <a href={getHref("analysis")} className={linkCls("analysis")} aria-current={active === "analysis" ? "page" : undefined}>
             Analysis Engine
           </a>
-          <a href="#contact" className={linkCls("contact")} aria-current={active === "contact" ? "page" : undefined}>
+          <a href={getHref("contact")} className={linkCls("contact")} aria-current={active === "contact" ? "page" : undefined}>
             Contact
           </a>
         </nav>
@@ -195,13 +201,13 @@ export function Header() {
             <Link href="/solutions" className="py-1 text-sm text-black/80 dark:text-white/80 hover:text-[#00A878]">
               Solutions
             </Link>
-            <a href="#process" className="py-1 text-sm text-black/80 dark:text-white/80">
+            <a href={getHref("process")} className="py-1 text-sm text-black/80 dark:text-white/80">
               Process
             </a>
-            <a href="#analysis" className="py-1 text-sm text-black/80 dark:text-white/80">
+            <a href={getHref("analysis")} className="py-1 text-sm text-black/80 dark:text-white/80">
               Analysis Engine
             </a>
-            <a href="#contact" className="py-1 text-sm text-black/80 dark:text-white/80">
+            <a href={getHref("contact")} className="py-1 text-sm text-black/80 dark:text-white/80">
               Contact
             </a>
             <Button

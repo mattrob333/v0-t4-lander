@@ -58,7 +58,7 @@ export function AnalysisEngine() {
                 />
               </div>
               <p className="mt-4 text-sm text-white/70">
-                A clear AI roadmap, ROI model, and execution plan delivered in days — not months.
+                A clear AI roadmap, ROI model, and execution plan delivered in days, not months.
               </p>
             </div>
           </Reveal>

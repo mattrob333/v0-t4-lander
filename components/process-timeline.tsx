@@ -13,21 +13,21 @@ const STEPS = [
   },
   {
     title: "Expert Validation",
-    time: "Days 1–2",
+    time: "Days 1-2",
     icon: Briefcase,
-    desc: "Executive working session; confirm feasibility and success criteria.",
+    desc: "Executive working session to confirm feasibility and success criteria.",
   },
   {
     title: "Proof-of-Concept Delivery",
-    time: "Days 2–5",
+    time: "Days 2-5",
     icon: MonitorSmartphone,
-    desc: "A tangible MVP to validate approach and stakeholder buy-in.",
+    desc: "Tangible MVP to validate the approach and gain stakeholder buy-in.",
   },
   {
     title: "Detailed Scoping & Quotes",
     time: "Within Week 1",
     icon: FileText,
-    desc: "PRDs, acceptance criteria, and verified development quotes.",
+    desc: "Product requirements documents, acceptance criteria, and verified development quotes.",
   },
   {
     title: "Strategic Automation Partnership",
@@ -86,7 +86,7 @@ export function ProcessTimeline() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-20">
       <Reveal>
-        <h2 className="text-2xl font-bold tracking-tight md:text-3xl">How It Works — 5-Stage Engagement Model</h2>
+        <h2 className="text-2xl font-bold tracking-tight md:text-3xl">How It Works: 5-Stage Engagement Model</h2>
       </Reveal>
 
       {/* Mobile: horizontal scroll-snap with uniform header layout */}

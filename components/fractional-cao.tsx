@@ -7,11 +7,11 @@ export function FractionalCao() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-2">
         <div>
           <Reveal>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Beyond the MVP: Strategic AI Leadership.</h2>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Beyond the MVP: Strategic AI Leadership</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-black/70 dark:text-white/80">
-              As your Fractional Chief Automation Officer, Tier 4 drives long-term AI success — governance, change
+              As your Fractional Chief Automation Officer, Tier 4 drives long-term AI success: governance, change
               management, iterative releases, and continuous ROI tracking. We ensure your automation roadmap compounds
               value over time.
             </p>

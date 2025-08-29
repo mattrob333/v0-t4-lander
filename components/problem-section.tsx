@@ -6,12 +6,12 @@ export function ProblemSection() {
     <section className="border-t border-black/10 bg-white py-20 dark:border-white/10 dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">The Noise of AI is Slowing You Down.</h2>
+          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">AI Noise Is Slowing You Down</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-4 max-w-3xl text-black/70 dark:text-white/80">
             Organizations are inundated with hype and conflicting advice. Internal teams debate feasibility while
-            competitors quietly capture value. You need rigorous, fast validation to focus on what works — not another
+            competitors quietly capture value. You need rigorous, fast validation to focus on what works, not another
             deck of buzzwords.
           </p>
         </Reveal>
@@ -27,7 +27,7 @@ export function ProblemSection() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 600px, 700px"
               />
               <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
-                "AI Noise" cloud of hype words
+                AI noise: cloud of hype words
               </p>
             </div>
             <div className="rounded-lg border border-black/10 p-4 dark:border-white/10">
@@ -40,7 +40,7 @@ export function ProblemSection() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 600px, 700px"
               />
               <p className="mt-2 text-center text-sm text-black/60 dark:text-white/60">
-                A clear "Validated AI Blueprint" cutting through
+                Clear validated AI blueprint cutting through the noise
               </p>
             </div>
           </div>

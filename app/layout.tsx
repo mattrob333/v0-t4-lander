@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { Header } from "@/components/header"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -15,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "5-Day AI POC | 3-4x ROI Validation | Tier 4 Intelligence",
   description: "Get AI clarity in days, not months. Vendor-neutral AI consulting delivering rapid POCs with proven ROI. No buzzwords, just results for San Francisco enterprises.",
-  keywords: "AI consulting, 5-day POC, rapid AI implementation, vendor-neutral AI, AI proof of concept, AI ROI validation, executive AI strategy, San Francisco AI consulting",
+  keywords: "AI consulting, 5-day POC, rapid AI implementation, vendor-neutral AI, AI proof-of-concept, AI ROI validation, executive AI strategy, San Francisco AI consulting",
   authors: [{ name: "Tier 4 Intelligence" }],
   creator: "Tier 4 Intelligence",
   publisher: "Tier 4 Intelligence",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "5-Day AI POC with 3-4x ROI | Tier 4 Intelligence",
-    description: "Rapid AI implementation without the buzzwords. Get working proof of concept in 5 days with validated ROI for your enterprise.",
+    description: "Rapid AI implementation without the buzzwords. Get a working proof-of-concept in 5 days with validated ROI for your enterprise.",
     url: "https://tier4intelligence.com",
     siteName: "Tier 4 Intelligence",
     images: [
@@ -211,6 +212,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Header />
           {children}
           <Toaster />
         </ThemeProvider>

@@ -11,7 +11,7 @@ export function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [input, setInput] = useState("")
   const [msgs, setMsgs] = useState<ChatMsg[]>([
-    { role: "agent", text: "Hi — Ask a Tier 4 Strategist anything. We’ll reply ASAP." },
+    { role: "agent", text: "Hi! Ask a Tier 4 Strategist anything. We'll reply ASAP." },
   ])
   const endRef = useRef<HTMLDivElement | null>(null)
 

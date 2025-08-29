@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   Bot, 
   UserRoundCog, 
@@ -37,8 +38,14 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number>(-1);
+  const [isMounted, setIsMounted] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const router = useRouter();
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Get filtered solutions for hovered category
   const getFilteredSolutions = () => {
@@ -132,6 +139,12 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
         )}
         onMouseEnter={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}
+        onClick={(e) => {
+          e.preventDefault();
+          if (isMounted) {
+            router.push('/solutions');
+          }
+        }}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="Solutions menu"
@@ -151,7 +164,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
           className={cn(
             'absolute top-full left-0 z-50 mt-2',
             'w-screen max-w-4xl min-w-[800px]',
-            'bg-white dark:bg-black',
+            'bg-white dark:bg-gray-900',
             'border border-gray-200 dark:border-white/20',
             'shadow-xl rounded-lg overflow-hidden',
             // Position adjustments
@@ -163,7 +176,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
         >
           <div className="flex">
             {/* Left Panel - Categories Grid */}
-            <div className="flex-1 p-6 border-r border-gray-200 dark:border-white/20 dark:bg-black">
+            <div className="flex-1 p-6 border-r border-gray-200 dark:border-white/20 dark:bg-gray-900">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
                 Browse by Category
               </h3>
@@ -234,7 +247,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
             </div>
 
             {/* Right Panel - Featured Solutions */}
-            <div className="w-80 p-6 bg-gray-50 dark:bg-black">
+            <div className="w-80 p-6 bg-gray-50 dark:bg-gray-800">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   {hoveredCategory 

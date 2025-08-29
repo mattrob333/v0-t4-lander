@@ -1,6 +1,5 @@
 import { Suspense } from "react"
 import { Metadata } from "next"
-import { Header } from "@/components/header"
 import { InteractiveSolutionsTileGrid } from "@/components/solutions/InteractiveSolutionsTileGrid"
 import { InteractiveFeaturedProducts } from "@/components/solutions/InteractiveFeaturedProducts"
 import { Button } from "@/components/ui/button"
@@ -257,8 +256,6 @@ export default function SolutionsPage() {
           __html: JSON.stringify(enhancedStructuredData, null, 0)
         }}
       />
-      
-      <Header />
       
       <Suspense>
         <SolutionsHero />

@@ -31,9 +31,9 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-[0.92rem] leading-7 text-black/70 dark:text-white/80 md:text-[1.03rem] md:leading-8">
-              Stop debating the potential of AI and start seeing it. We identify your highest-impact automation
-              opportunities, deliver actionable Proof-of-Concepts, and provide precise development quotes within the
-              first week. Then, we partner with you long-term to implement and scale your success.
+              Stop debating AI's potential and start seeing results. We identify your highest-impact automation
+              opportunities, deliver actionable proof-of-concepts, and provide precise development quotes within
+              the first week. Then we partner with you long-term to implement and scale your success.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -68,21 +68,21 @@ export function Hero() {
               <div className="flex items-center gap-3 rounded-lg border border-black/10 bg-white/60 p-3 dark:border-white/10 dark:bg-white/5">
                 <Rocket className="h-5 w-5 text-[#00A878]" />
                 <div>
-                  <p className="text-sm font-semibold">PoC in 5 Days</p>
-                  <p className="text-xs text-black/60 dark:text-white/70">Exec-ready demo fast</p>
+                  <p className="text-sm font-semibold">POC in 5 Days</p>
+                  <p className="text-xs text-black/60 dark:text-white/70">Executive-ready demo</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-lg border border-black/10 bg-white/60 p-3 dark:border-white/10 dark:bg-white/5">
                 <Clock3 className="h-5 w-5 text-[#00A878]" />
                 <div>
-                  <p className="text-sm font-semibold">&lt;60-min Exec Time</p>
-                  <p className="text-xs text-black/60 dark:text-white/70">Decide with confidence</p>
+                  <p className="text-sm font-semibold">&lt;60-Minute Executive Time</p>
+                  <p className="text-xs text-black/60 dark:text-white/70">Make confident decisions</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-lg border border-black/10 bg-white/60 p-3 dark:border-white/10 dark:bg-white/5">
                 <BarChart3 className="h-5 w-5 text-[#00A878]" />
                 <div>
-                  <p className="text-sm font-semibold">3–5x ROI in Pilots</p>
+                  <p className="text-sm font-semibold">3-5x ROI in Pilots</p>
                   <p className="text-xs text-black/60 dark:text-white/70">Modeled and measured</p>
                 </div>
               </div>

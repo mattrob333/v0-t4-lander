@@ -29,7 +29,7 @@ export const TIER4_ORGANIZATION_SCHEMA = {
     "height": 120
   },
   "description": "AI consulting and automation solutions that deliver measurable ROI in weeks, not months. We specialize in customer service AI, business process automation, and intelligent systems integration.",
-  "slogan": "AI that proves ROI—fast.",
+  "slogan": "AI that proves ROI fast.",
   "foundingDate": "2024",
   "areaServed": [
     {

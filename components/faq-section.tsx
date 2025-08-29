@@ -3,15 +3,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQS = [
   {
     q: "How do you handle security and data?",
-    a: "We operate NDA-first and align to SOC 2 controls. We minimize data movement, use secure environments, and scope clear data retention policies.",
+    a: "We operate NDA-first and align with SOC 2 controls. We minimize data movement, use secure environments, and establish clear data retention policies.",
   },
   {
     q: "Are you vendor-neutral?",
-    a: "Yes. We evaluate options across cloud and model providers. Our goal is fit-for-purpose solutions with clear tradeoffs and exit options.",
+    a: "Yes. We evaluate options across cloud and model providers. Our goal is fit-for-purpose solutions with clear trade-offs and exit options.",
   },
   {
     q: "What’s the typical timeline?",
-    a: "Week 1: Assessment, PoC, and verified quotes. Weeks 2–6: MVP and pilot. Ongoing: Iterative rollouts with governance.",
+    a: "Week 1: Assessment, POC, and verified quotes. Weeks 2-6: MVP and pilot. Ongoing: Iterative rollouts with governance.",
   },
   {
     q: "How do you price?",
@@ -19,7 +19,7 @@ const FAQS = [
   },
   {
     q: "What access do you need?",
-    a: "Initial analysis uses public and provided documentation. Secure access is requested only when needed for PoC or implementation.",
+    a: "Initial analysis uses public and provided documentation. Secure access is requested only when needed for POC or implementation.",
   },
 ]
 
@@ -29,7 +29,7 @@ export function FaqSection() {
       <div className="mx-auto max-w-3xl px-4">
         <h2 className="text-2xl font-bold tracking-tight md:text-3xl">FAQs</h2>
         <p className="mt-2 text-sm text-black/60 dark:text-white/70">
-          Security, neutrality, and speed — the most common questions answered.
+          Security, neutrality, and speed: the most common questions answered.
         </p>
         <div className="mt-6">
           <Accordion type="single" collapsible>

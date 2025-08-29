@@ -1,19 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink, Star, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { FeaturedProductsProps } from '@/types/solutions';
+import { ScheduleDialog } from '@/components/schedule-dialog';
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
   products,
   className,
   onProductClick
 }) => {
+  const [showScheduleDialog, setShowScheduleDialog] = useState(false);
+  
+  // Products that are coming soon
+  const comingSoonProducts = ['Business DNA Map™', 'OrgArchitect', 'PromptMart™'];
+  
+  const isComingSoon = (productTitle: string) => {
+    return comingSoonProducts.includes(productTitle);
+  };
+  
   const handleProductClick = (product: typeof products[0]) => {
+    // Don't allow clicks on coming soon products
+    if (isComingSoon(product.title)) {
+      return;
+    }
+    
     if (onProductClick) {
       onProductClick(product);
     } else if (product.ctaUrl) {
@@ -53,11 +68,13 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
           <Card
             key={product.id}
             className={cn(
-              'group cursor-pointer transition-all duration-300',
-              'hover:shadow-lg hover:-translate-y-0.5',
-              'border-gray-200 hover:border-[var(--t4i-green)]/50',
+              'group transition-all duration-300 relative',
+              !isComingSoon(product.title) && 'cursor-pointer hover:shadow-lg hover:-translate-y-0.5',
+              'border-gray-200',
+              !isComingSoon(product.title) && 'hover:border-[var(--t4i-green)]/50',
               'bg-white dark:bg-neutral-900 dark:border-neutral-700',
-              'overflow-hidden'
+              'overflow-hidden',
+              isComingSoon(product.title) && 'opacity-75'
             )}
             onClick={() => handleProductClick(product)}
             style={{ borderRadius: '12px' }}
@@ -89,6 +106,14 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
             </CardHeader>
 
             <CardContent className="pt-0 space-y-4">
+              {/* Coming Soon Overlay */}
+              {isComingSoon(product.title) && (
+                <div className="absolute inset-0 bg-black/50 dark:bg-black/60 flex items-center justify-center z-10">
+                  <div className="bg-white dark:bg-gray-900 px-6 py-3 rounded-lg shadow-lg">
+                    <span className="text-lg font-semibold text-gray-900 dark:text-white">Coming Soon</span>
+                  </div>
+                </div>
+              )}
               {/* Product Image (if available) */}
               {product.imageUrl && (
                 <div className="relative overflow-hidden rounded-lg">
@@ -117,19 +142,24 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               <Button
                 variant="outline"
                 size="sm"
+                disabled={isComingSoon(product.title)}
                 className={cn(
-                  'w-full border-[var(--t4i-green)]/30 text-[var(--t4i-green)]',
-                  'hover:bg-[var(--t4i-green)] hover:text-white hover:border-[var(--t4i-green)]',
+                  'w-full',
+                  isComingSoon(product.title) 
+                    ? 'border-gray-300 text-gray-400 cursor-not-allowed'
+                    : 'border-[var(--t4i-green)]/30 text-[var(--t4i-green)] hover:bg-[var(--t4i-green)] hover:text-white hover:border-[var(--t4i-green)]',
                   'transition-all duration-300 group/btn'
                 )}
                 style={{ borderRadius: '8px' }}
               >
                 <span className="flex items-center justify-center">
-                  {product.ctaText}
-                  <ArrowRight className={cn(
-                    'ml-2 h-4 w-4 transition-transform duration-300',
-                    'group-hover/btn:translate-x-1'
-                  )} />
+                  {isComingSoon(product.title) ? 'Coming Soon' : product.ctaText}
+                  {!isComingSoon(product.title) && (
+                    <ArrowRight className={cn(
+                      'ml-2 h-4 w-4 transition-transform duration-300',
+                      'group-hover/btn:translate-x-1'
+                    )} />
+                  )}
                 </span>
               </Button>
             </CardContent>
@@ -183,11 +213,14 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
               'transition-all duration-300 hover:shadow-md'
             )}
             style={{ borderRadius: '8px' }}
+            onClick={() => setShowScheduleDialog(true)}
           >
             Get Started
           </Button>
         </CardContent>
       </Card>
+      
+      <ScheduleDialog open={showScheduleDialog} onOpenChange={setShowScheduleDialog} />
     </aside>
   );
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { SolutionsTileGrid } from './SolutionsTileGrid';
 
 interface InteractiveSolutionsTileGridProps {
@@ -13,12 +14,14 @@ export function InteractiveSolutionsTileGrid({
   variant = 'landing', 
   className 
 }: InteractiveSolutionsTileGridProps) {
+  const router = useRouter();
+  
   return (
     <SolutionsTileGrid
       categories={categories}
       variant={variant}
       onCategoryClick={(category) => {
-        window.location.href = `/solutions/${category.slug}`
+        router.push(`/solutions/${category.slug}`)
       }}
       className={className}
     />

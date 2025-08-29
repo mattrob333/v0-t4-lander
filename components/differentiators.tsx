@@ -12,13 +12,13 @@ const ITEMS = [
     title: "Tangible MVPs, Not Just Ideas",
     icon: Rocket,
     body:
-      "Stakeholders align around working Proof-of-Concepts in days, not months, reducing risk and ambiguity.",
+      "Stakeholders align around working proof-of-concepts in days, not months, reducing risk and ambiguity.",
   },
   {
     title: "Accelerated Time-to-Value",
     icon: CheckCircle2,
     body:
-      "We scope precisely and deliver verified quotes — enabling rapid implementation and measurable outcomes.",
+      "We scope precisely and deliver verified quotes, enabling rapid implementation and measurable outcomes.",
   },
 ]
 
@@ -27,7 +27,7 @@ export function Differentiators() {
     <section className="border-t border-black/10 bg-white py-20 dark:border-white/10 dark:bg-neutral-950">
       <div className="mx-auto max-w-7xl px-4">
         <Reveal>
-          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Our Differentiator: Speed, Precision, Results</h2>
+          <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Our Differentiators: Speed, Precision, Results</h2>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">

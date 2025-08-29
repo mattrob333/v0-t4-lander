@@ -511,7 +511,7 @@ export const CATEGORIES: Category[] = [
       {
         title: "Appointment Scheduling Bot",
         slug: "appointment-bot",
-        summary: "Book, reschedule, remind—calendar integrated.",
+        summary: "Book, reschedule, remind with calendar integration.",
         category: "customer-self-service",
         tags: ["Scheduling", "Calendar", "Appointments"],
         icon: "Calendar",
@@ -973,7 +973,7 @@ export const SOLUTIONS_CONFIG: SolutionsConfig = {
   landingPage: {
     hero: {
       title: "AI-Powered Solutions to Transform Your Business",
-      subtitle: "We design and implement AI that removes bottlenecks and proves ROI—fast.",
+      subtitle: "We design and implement AI that removes bottlenecks and proves ROI fast.",
       backgroundImage: "/images/solutions-hero-bg.jpg"
     },
     cardsLayout: "2x3"

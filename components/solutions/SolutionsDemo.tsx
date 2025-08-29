@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import {
   SolutionCard,
   SolutionsTileGrid,
@@ -159,25 +160,27 @@ const mockFeaturedProducts: FeaturedProduct[] = [
 ];
 
 export const SolutionsDemo: React.FC = () => {
+  const router = useRouter();
+  
   const handleSolutionClick = (solution: Solution) => {
     console.log('Solution clicked:', solution.title);
     // Navigate to solution page
     if (solution.ctaUrl) {
-      window.location.href = solution.ctaUrl;
+      router.push(solution.ctaUrl);
     }
   };
 
   const handleCategoryClick = (category: SolutionCategory) => {
     console.log('Category clicked:', category.name);
     // Navigate to category page
-    window.location.href = `/solutions/${category.slug}`;
+    router.push(`/solutions/${category.slug}`);
   };
 
   const handleProductClick = (product: FeaturedProduct) => {
     console.log('Product clicked:', product.title);
     // Navigate to product page
     if (product.ctaUrl) {
-      window.location.href = product.ctaUrl;
+      router.push(product.ctaUrl);
     }
   };
 

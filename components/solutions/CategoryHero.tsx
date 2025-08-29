@@ -1,21 +1,27 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { CategoryHeroProps } from '@/types/solutions';
 
-export const CategoryHero: React.FC<CategoryHeroProps> = ({
+export const CategoryHero: React.FC<CategoryHeroProps & { onCtaClick?: () => void }> = ({
   category,
   showBreadcrumb = true,
   ctaText,
   ctaUrl,
+  onCtaClick,
   className
 }) => {
+  const router = useRouter();
+  
   const handleCtaClick = () => {
-    if (ctaUrl) {
-      window.location.href = ctaUrl;
+    if (onCtaClick) {
+      onCtaClick();
+    } else if (ctaUrl) {
+      router.push(ctaUrl);
     }
   };
 

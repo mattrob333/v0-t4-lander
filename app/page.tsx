@@ -1,5 +1,4 @@
 import { Suspense } from "react"
-import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { TrustBar } from "@/components/trust-bar"
 import { ProblemSection } from "@/components/problem-section"
@@ -128,7 +127,6 @@ export default function Page() {
       <WebSiteSchema />
       <ServiceSchema />
       <FAQSchema />
-      <Header />
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-24 -top-24 h-[520px] w-[520px] rounded-full bg-[#00A878]/10 blur-3xl" />
         <div className="absolute right-[-200px] top-32 h-[420px] w-[420px] rounded-full bg-black/5 blur-3xl dark:bg-white/5" />
