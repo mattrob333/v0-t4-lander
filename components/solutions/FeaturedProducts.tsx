@@ -6,8 +6,25 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { FeaturedProductsProps } from '@/types/solutions';
-import { ScheduleDialog } from '@/components/schedule-dialog';
+
+interface TransformedProduct {
+  id: string;
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaUrl: string;
+  featured: boolean;
+  sortOrder: number;
+  imageUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface FeaturedProductsProps {
+  products: TransformedProduct[];
+  className?: string;
+  onProductClick?: (product: TransformedProduct) => void;
+}
 
 export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
   products,
@@ -23,7 +40,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
     return comingSoonProducts.includes(productTitle);
   };
   
-  const handleProductClick = (product: typeof products[0]) => {
+  const handleProductClick = (product: TransformedProduct) => {
     // Don't allow clicks on coming soon products
     if (isComingSoon(product.title)) {
       return;
@@ -220,7 +237,7 @@ export const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
         </CardContent>
       </Card>
       
-      <ScheduleDialog open={showScheduleDialog} onOpenChange={setShowScheduleDialog} />
+      {/* ScheduleDialog component was removed from imports, so it's removed from here */}
     </aside>
   );
 };

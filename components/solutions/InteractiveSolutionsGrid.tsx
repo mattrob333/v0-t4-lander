@@ -1,6 +1,7 @@
 'use client';
 
 import { SolutionCard } from './SolutionCard';
+import Link from 'next/link';
 
 interface InteractiveSolutionsGridProps {
   category: any;
@@ -28,24 +29,27 @@ export function InteractiveSolutionsGrid({ category }: InteractiveSolutionsGridP
     featured: sol.flags.featured,
     iconName: sol.icon,
     ctaText: "Learn More",
-    ctaUrl: `/solutions/${category.slug}/${sol.slug}`,
     createdAt: '',
     updatedAt: ''
   }))
 
   return (
     <div className="grid gap-6 md:grid-cols-2">
-      {solutions.map((solution: any) => (
-        <SolutionCard
-          key={solution.id}
-          solution={solution}
-          onClick={(sol) => {
-            // Make Learn More buttons non-functional to prevent 404s
-            // They now do nothing when clicked
-            console.log('Learn more clicked for:', sol.title)
-          }}
-        />
-      ))}
+      {solutions.map((solution: any) => {
+        const solutionUrl = `/solutions/${category.slug}/${solution.id}`;
+        return (
+          <Link 
+            key={solution.id}
+            href={solutionUrl}
+            className="block"
+          >
+            <SolutionCard
+              solution={solution}
+              className="h-full cursor-pointer hover:shadow-lg transition-all duration-300"
+            />
+          </Link>
+        );
+      })}
     </div>
   )
 }

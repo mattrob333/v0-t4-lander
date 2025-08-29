@@ -164,10 +164,9 @@ export const SolutionsDemo: React.FC = () => {
   
   const handleSolutionClick = (solution: Solution) => {
     console.log('Solution clicked:', solution.title);
-    // Navigate to solution page
-    if (solution.ctaUrl) {
-      router.push(solution.ctaUrl);
-    }
+    // Navigate to solution page - construct URL from solution data
+    const solutionUrl = `/solutions/${solution.category.slug}/${solution.slug}`;
+    router.push(solutionUrl);
   };
 
   const handleCategoryClick = (category: SolutionCategory) => {
@@ -178,9 +177,9 @@ export const SolutionsDemo: React.FC = () => {
 
   const handleProductClick = (product: FeaturedProduct) => {
     console.log('Product clicked:', product.title);
-    // Navigate to product page
-    if (product.ctaUrl) {
-      router.push(product.ctaUrl);
+    // Navigate to product page using the href property
+    if (product.href) {
+      router.push(product.href);
     }
   };
 

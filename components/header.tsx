@@ -5,7 +5,7 @@ import { SimpleImage } from "@/components/ui/simple-image"
 import { InteractiveSolutionsMegaMenu } from "@/components/solutions/InteractiveSolutionsMegaMenu"
 import { CATEGORIES, getFeaturedSolutions } from "@/content/solutions"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ScheduleDialog } from "./schedule-dialog"
@@ -20,8 +20,8 @@ export function Header() {
   const [active, setActive] = useState<(typeof SECTIONS)[number] | null>(null)
   const [mounted, setMounted] = useState(false)
 
-  // Prepare solutions data for mega menu
-  const solutionCategories = CATEGORIES.map(cat => ({
+  // Prepare solutions data for mega menu with useMemo to prevent hydration issues
+  const solutionCategories = useMemo(() => CATEGORIES.map(cat => ({
     id: cat.slug,
     name: cat.title,
     slug: cat.slug,
@@ -54,9 +54,9 @@ export function Header() {
     })) || [],
     createdAt: '',
     updatedAt: ''
-  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder)
+  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder), [])
 
-  const featuredSolutions = CATEGORIES.flatMap(cat => 
+  const featuredSolutions = useMemo(() => CATEGORIES.flatMap(cat => 
     getFeaturedSolutions(cat, 2).map(sol => ({
       id: sol.slug,
       title: sol.title,
@@ -79,7 +79,7 @@ export function Header() {
       createdAt: '',
       updatedAt: ''
     }))
-  ).slice(0, 4)
+  ).slice(0, 4), [])
 
   useEffect(() => setMounted(true), [])
 
@@ -157,10 +157,12 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
-          <InteractiveSolutionsMegaMenu
-            categories={solutionCategories}
-            featuredSolutions={featuredSolutions}
-          />
+          {mounted && (
+            <InteractiveSolutionsMegaMenu
+              categories={solutionCategories}
+              featuredSolutions={featuredSolutions}
+            />
+          )}
           <a href={getHref("process")} className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
             Process
           </a>

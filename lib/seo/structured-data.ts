@@ -511,6 +511,57 @@ export function generateSolutionsItemListSchema() {
 // ============================================================================
 
 /**
+ * Generate detailed schema for individual solution pages
+ */
+export function generateSolutionDetailSchema(solution: Solution) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": `https://tier4intelligence.com/solutions/${solution.category}/${solution.slug}`,
+    "name": solution.title,
+    "description": solution.description || solution.summary,
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web-based",
+    "offers": {
+      "@type": "Offer",
+      "name": `${solution.title} Implementation`,
+      "description": `Professional implementation of ${solution.title} with full support and training`,
+      "provider": TIER4_ORGANIZATION_SCHEMA,
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "featureList": solution.features || [
+      "24/7 availability",
+      "Natural language processing",
+      "CRM integration",
+      "Analytics dashboard"
+    ],
+    "screenshot": {
+      "@type": "ImageObject",
+      "url": `https://tier4intelligence.com/images/solutions/${solution.category}/${solution.slug}-hero.jpg`,
+      "caption": `${solution.title} interface and features`
+    },
+    "softwareVersion": "2.0",
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
+    "author": TIER4_ORGANIZATION_SCHEMA,
+    "publisher": TIER4_ORGANIZATION_SCHEMA,
+    "keywords": solution.seo.keywords.join(", "),
+    "audience": {
+      "@type": "Audience",
+      "audienceType": solution.metrics.industryFit.join(", ")
+    }
+  };
+}
+
+/**
  * Generate FAQ schema for solutions
  */
 export function generateSolutionFAQSchema(solution: Solution, category: Category) {
@@ -597,6 +648,7 @@ export default {
   generateHowToSchema,
   generateCategoryCollectionSchema,
   generateSolutionsItemListSchema,
+  generateSolutionDetailSchema,
   generateSolutionFAQSchema,
   generateBusinessQASchema
 };

@@ -18,6 +18,7 @@ import { WebSiteSchema } from "@/components/schema/website-schema"
 import { ServiceSchema } from "@/components/schema/service-schema"
 import { FAQSchema } from "@/components/schema/faq-schema"
 import { CATEGORIES, SOLUTIONS_CONFIG } from "@/content/solutions"
+import { DebugHydration } from "@/components/debug-hydration"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
@@ -95,11 +96,13 @@ function ExpertiseSection() {
           )}
         </div>
 
-        <InteractiveSolutionsTileGrid
-          categories={solutionCategories}
-          variant="home"
-          className="mb-12"
-        />
+        <DebugHydration name="SolutionsGrid">
+          <InteractiveSolutionsTileGrid
+            categories={solutionCategories}
+            variant="home"
+            className="mb-12"
+          />
+        </DebugHydration>
 
         <div className="text-center">
           <Button
@@ -179,7 +182,9 @@ export default function Page() {
         <FinalCta />
       </Suspense>
 
-      <ChatWidget />
+      <DebugHydration name="ChatWidget">
+        <ChatWidget />
+      </DebugHydration>
 
     </main>
   )

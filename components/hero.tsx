@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
 import { SimpleImage } from "@/components/ui/simple-image"
 import { ScheduleDialog } from "./schedule-dialog"
+import { DebugHydration } from "@/components/debug-hydration"
 import { Montserrat } from "next/font/google"
 import { BarChart3, Clock3, Rocket } from "lucide-react"
 import { useState } from "react"
@@ -19,7 +20,8 @@ export function Hero() {
   const [showScheduleDialog, setShowScheduleDialog] = useState(false)
 
   return (
-    <section className="relative">
+    <DebugHydration name="Hero">
+      <section className="relative">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
         <div>
           <Reveal>
@@ -109,5 +111,6 @@ export function Hero() {
       </div>
       <ScheduleDialog open={showScheduleDialog} onOpenChange={setShowScheduleDialog} />
     </section>
+    </DebugHydration>
   )
 }

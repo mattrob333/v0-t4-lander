@@ -2,6 +2,12 @@
 (function() {
   'use strict';
 
+  // Skip analytics in development to avoid console noise
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+    console.log('📊 Analytics disabled in development mode');
+    return;
+  }
+
   // Web Vitals tracking with Core Web Vitals
   function initWebVitals() {
     if (typeof window !== 'undefined' && 'PerformanceObserver' in window) {

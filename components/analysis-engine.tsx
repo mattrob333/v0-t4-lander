@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { SimpleImage } from "@/components/ui/simple-image"
 import { Reveal } from "./reveal"
+import { DebugHydration } from "@/components/debug-hydration"
 
 export function AnalysisEngine() {
   return (
-    <section id="analysis" className="bg-neutral-900 py-20 text-white">
+    <DebugHydration name="AnalysisEngine">
+      <section id="analysis" className="bg-neutral-900 py-20 text-white">
       <div className="mx-auto max-w-7xl px-4">
         <div className="text-center">
           <Reveal>
@@ -35,7 +37,6 @@ export function AnalysisEngine() {
                   width={400}
                   height={400}
                   className="h-auto w-full rounded border border-white/10"
-                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <p className="mt-4 text-sm text-white/70">
@@ -54,11 +55,10 @@ export function AnalysisEngine() {
                   width={400}
                   height={400}
                   className="h-auto w-full rounded border border-white/10"
-                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <p className="mt-4 text-sm text-white/70">
-                A clear AI roadmap, ROI model, and execution plan delivered in days, not months.
+                A clear AI roadmap, ROI model, and execution plan delivered in days — not months.
               </p>
             </div>
           </Reveal>
@@ -103,5 +103,6 @@ export function AnalysisEngine() {
         </Reveal>
       </div>
     </section>
+    </DebugHydration>
   )
 }

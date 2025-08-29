@@ -1,4 +1,11 @@
 // Service Worker for Tier 4 Intelligence - Advanced Caching Strategy
+
+// Skip service worker in development
+if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+  console.log('🛑 Service Worker disabled in development mode');
+  // Don't register any event listeners in development
+} else {
+
 const CACHE_VERSION = 'v1.0.0';
 const STATIC_CACHE = `tier4-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `tier4-dynamic-${CACHE_VERSION}`;
@@ -301,3 +308,5 @@ self.addEventListener('notificationclick', (event) => {
 });
 
 console.log('🛡️ Tier 4 Intelligence Service Worker loaded');
+
+} // End of else block for production environment

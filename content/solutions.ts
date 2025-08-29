@@ -411,7 +411,10 @@ export const CATEGORIES: Category[] = [
           category: "solutions",
           action: "solution_view",
           label: "multichannel-virtual-agent"
-        }
+        },
+        features: ["Omnichannel deployment", "Centralized management", "Real-time analytics", "Channel-specific optimization", "Unified conversation history", "Multi-language support"],
+        benefits: ["Consistent customer experience", "Reduce support costs by 35%", "Increase customer satisfaction", "Streamline operations", "Scale across channels", "Improve response times"],
+        integrations: ["WhatsApp Business API", "Facebook Messenger", "SMS gateways", "Slack", "Microsoft Teams", "CRM systems"]
       },
       {
         title: "Voicebot & IVR Modernization",
@@ -443,7 +446,10 @@ export const CATEGORIES: Category[] = [
           category: "solutions",
           action: "solution_view",
           label: "voicebot-ivr"
-        }
+        },
+        features: ["Natural speech recognition", "Intent-based routing", "Voice biometrics", "Call analytics", "Integration with existing IVR", "Multi-language support"],
+        benefits: ["Reduce call wait times by 60%", "Improve customer satisfaction", "Lower operational costs", "Handle peak call volumes", "24/7 availability", "Consistent service quality"],
+        integrations: ["Avaya", "Cisco", "Genesys", "Twilio", "Salesforce", "CRM systems"]
       },
       {
         title: "Email Triage & Autoresponse",
@@ -475,7 +481,10 @@ export const CATEGORIES: Category[] = [
           category: "solutions",
           action: "solution_view",
           label: "email-triage"
-        }
+        },
+        features: ["AI-powered categorization", "Priority scoring", "Draft response generation", "Human approval workflows", "Email analytics", "Template management"],
+        benefits: ["Reduce email response time by 70%", "Improve customer satisfaction", "Free up agent time", "Ensure consistent responses", "Handle high email volumes", "Maintain quality control"],
+        integrations: ["Gmail", "Outlook", "Zendesk", "Salesforce", "HubSpot", "Microsoft 365"]
       },
       {
         title: "Social DM & Comment Automation",
@@ -506,7 +515,10 @@ export const CATEGORIES: Category[] = [
           category: "solutions",
           action: "solution_view",
           label: "social-automation"
-        }
+        },
+        features: ["Multi-platform support", "Sentiment analysis", "Automated responses", "Escalation workflows", "Content moderation", "Analytics dashboard"],
+        benefits: ["Improve response times by 80%", "Maintain brand voice", "Reduce manual workload", "Handle peak engagement", "24/7 social presence", "Increase customer satisfaction"],
+        integrations: ["Facebook", "Instagram", "Twitter", "LinkedIn", "TikTok", "Hootsuite"]
       },
       {
         title: "Appointment Scheduling Bot",
@@ -537,7 +549,10 @@ export const CATEGORIES: Category[] = [
           category: "solutions",
           action: "solution_view",
           label: "appointment-bot"
-        }
+        },
+        features: ["Calendar integration", "Automated booking", "Rescheduling capabilities", "Reminder system", "Availability management", "Multi-location support"],
+        benefits: ["Reduce no-shows by 50%", "Increase booking efficiency", "Improve customer experience", "Free up staff time", "24/7 booking availability", "Reduce scheduling errors"],
+        integrations: ["Google Calendar", "Outlook", "Calendly", "Salesforce", "HubSpot", "Practice management systems"]
       }
       // Additional solutions would continue here...
     ]

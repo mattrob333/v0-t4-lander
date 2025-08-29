@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { Header } from "@/components/header"
+// import { DebugEnvironment } from "@/components/debug-environment"
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -87,20 +88,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         
         {/* Font Preload - Critical for LCP optimization */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Removed specific font file preloading to avoid 404 errors */}
         
         {/* Prefetch critical pages */}
         
@@ -220,11 +208,11 @@ export default function RootLayout({
         {/* Load non-critical scripts deferred */}
         <script defer src="/scripts/analytics.js"></script>
         
-        {/* Service Worker Registration */}
+        {/* Service Worker Registration - Only in production */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if ('serviceWorker' in navigator) {
+              if ('serviceWorker' in navigator && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
                 window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js').then(function(registration) {
                     console.log('🛡️ Service Worker registered:', registration);

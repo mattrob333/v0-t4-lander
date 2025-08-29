@@ -116,6 +116,12 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
                 'hover:text-[var(--t4i-green)] hover:bg-transparent',
                 'group-hover:underline transition-all duration-300'
               )}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (onClick) {
+                  onClick(solution);
+                }
+              }}
             >
               {solution.ctaText}
               <ChevronRight className="ml-1 h-4 w-4" />
