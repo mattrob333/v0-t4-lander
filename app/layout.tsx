@@ -208,11 +208,33 @@ export default function RootLayout({
         {/* Load non-critical scripts deferred */}
         <script defer src="/scripts/analytics.js"></script>
         
+        {/* Temporary: Clear existing service workers */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Clear any existing service workers in development
+              if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    for(let registration of registrations) {
+                      registration.unregister();
+                      console.log('🗑️ Cleared existing service worker:', registration);
+                    }
+                  });
+                }
+              }
+            `
+          }}
+        />
+        
         {/* Service Worker Registration - Only in production */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              if ('serviceWorker' in navigator && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+              // Completely skip service worker in development
+              if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                console.log('🛑 Service Worker registration skipped in development mode');
+              } else if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                   navigator.serviceWorker.register('/sw.js').then(function(registration) {
                     console.log('🛡️ Service Worker registered:', registration);

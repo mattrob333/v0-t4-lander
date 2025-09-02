@@ -4,8 +4,10 @@
 if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
   console.log('🛑 Service Worker disabled in development mode');
   // Don't register any event listeners in development
-} else {
+  return; // Exit early to prevent any service worker functionality
+}
 
+// Production service worker code
 const CACHE_VERSION = 'v1.0.0';
 const STATIC_CACHE = `tier4-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `tier4-dynamic-${CACHE_VERSION}`;
@@ -286,7 +288,7 @@ self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New update available!',
     icon: '/images/optimized/tier4-logo-horizontal.webp',
-    badge: '/images/optimized/tier4-logo-horizontal.webp',
+    badge: '/images/optimized/tier4-logo-horizontal-dark.webp',
     vibrate: [200, 100, 200],
     data: {
       url: '/'
@@ -308,5 +310,3 @@ self.addEventListener('notificationclick', (event) => {
 });
 
 console.log('🛡️ Tier 4 Intelligence Service Worker loaded');
-
-} // End of else block for production environment
