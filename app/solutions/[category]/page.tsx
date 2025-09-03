@@ -3,8 +3,6 @@ import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { CATEGORIES, FEATURED_PRODUCTS, findCategoryBySlug, generateBreadcrumbs } from "@/content/solutions"
 import { StructuredData } from "@/components/schema/structured-data"
-import { generateComprehensiveMeta } from "@/lib/seo/programmatic-seo"
-import { generateContextualLinks } from "@/lib/seo/internal-linking-strategy"
 import { generateCategoryCollectionSchema, generateSolutionFAQSchema } from "@/lib/seo/structured-data"
 import { CategoryPageClient } from "@/components/solutions/CategoryPageClient"
 
@@ -31,8 +29,13 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     }
   }
 
-  // Generate optimized SEO metadata
-  const seoMetadata = generateComprehensiveMeta('category', { category });
+  // Generate simple SEO metadata
+  const seoMetadata = {
+    title: `${category.title} AI Solutions | Tier 4 Intelligence - San Francisco`,
+    description: category.description || category.tagline,
+    keywords: category.seo?.keywords || [],
+    canonical: `https://tier4intelligence.com/solutions/${category.slug}`
+  };
 
   return {
     title: seoMetadata.title,
@@ -72,12 +75,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound()
   }
 
-  // Generate contextual internal links
-  const contextualLinks = generateContextualLinks('category', {
-    category: category.slug,
-    primaryKeywords: category.seo.keywords,
-    relatedCategories: CATEGORIES.filter(cat => cat.slug !== category.slug).slice(0, 3)
-  });
 
   // Prepare featured products
   const featuredProducts = FEATURED_PRODUCTS.map(product => ({
@@ -113,16 +110,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         />
       )}
 
-      {/* Internal linking enhancement */}
-      {contextualLinks.length > 0 && (
-        <div style={{ display: 'none' }}>
-          {contextualLinks.map((link, index) => (
-            <a key={index} href={link.url} aria-hidden="true">
-              {link.anchor}
-            </a>
-          ))}
-        </div>
-      )}
     </>
   )
 }

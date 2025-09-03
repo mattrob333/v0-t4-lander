@@ -44,7 +44,9 @@
       "Bash(git fetch:*)",
       "Bash(mv:*)",
       "Bash(claude auth login)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm list:*)"
     ],
     "deny": [],
     "ask": [],

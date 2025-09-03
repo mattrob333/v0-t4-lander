@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { CategoryHero } from "@/components/solutions/CategoryHero"
-import { InteractiveSolutionsGrid } from "@/components/solutions/InteractiveSolutionsGrid"
-import { InteractiveFeaturedProducts } from "@/components/solutions/InteractiveFeaturedProducts"
+import { SolutionCard } from "@/components/solutions/SolutionCard"
+import { FeaturedProducts } from "@/components/solutions/FeaturedProducts"
 import { Button } from "@/components/ui/button"
 import { ScheduleDialog } from "@/components/schedule-dialog"
 import Link from "next/link"
@@ -43,20 +43,8 @@ function Breadcrumbs({ categorySlug }: { categorySlug: string }) {
 export function CategoryPageClient({ category, featuredProducts }: CategoryPageClientProps) {
   const [showScheduleDialog, setShowScheduleDialog] = useState(false)
   
-  // Convert category to component-expected format
-  const categoryData = {
-    id: category.slug,
-    name: category.title,
-    slug: category.slug,
-    tagline: category.tagline,
-    description: category.description || category.tagline,
-    iconName: category.icon,
-    featured: category.displayConfig.showInNav,
-    sortOrder: category.displayConfig.sortOrder,
-    solutions: category.solutions,
-    createdAt: '',
-    updatedAt: ''
-  }
+  // Use category directly to avoid hydration mismatch
+  const categoryData = category
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -73,14 +61,27 @@ export function CategoryPageClient({ category, featuredProducts }: CategoryPageC
         <div className="lg:col-span-3">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
-              Available Solutions
+              {category.title} Solutions
             </h2>
             <p className="text-black/70 dark:text-white/70">
               {category.solutions.length} solution{category.solutions.length !== 1 ? 's' : ''} available in this category
             </p>
           </div>
           
-          <InteractiveSolutionsGrid category={category} />
+          <div className="grid gap-6 md:grid-cols-2">
+            {category.solutions.map((solution: any) => (
+              <Link 
+                key={solution.slug}
+                href={`/solutions/${category.slug}/${solution.slug}`}
+                className="block"
+              >
+                <SolutionCard
+                  solution={solution}
+                  className="h-full cursor-pointer hover:shadow-lg transition-all duration-300"
+                />
+              </Link>
+            ))}
+          </div>
           
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -111,7 +112,12 @@ export function CategoryPageClient({ category, featuredProducts }: CategoryPageC
             <h3 className="text-xl font-semibold text-black dark:text-white mb-6">
               Featured Solutions
             </h3>
-            <InteractiveFeaturedProducts featuredProducts={featuredProducts} />
+            <FeaturedProducts
+              products={featuredProducts}
+              onProductClick={() => {
+                // Do nothing for product clicks
+              }}
+            />
           </div>
         </div>
       </div>

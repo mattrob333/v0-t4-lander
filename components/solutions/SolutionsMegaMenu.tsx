@@ -16,7 +16,17 @@ import {
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { SolutionsMegaMenuProps, IconName } from '@/types/solutions';
+// import { SolutionsMegaMenuProps, IconName } from '@/types/solutions';
+
+interface SolutionsMegaMenuProps {
+  categories: any[];
+  featuredSolutions: any[];
+  className?: string;
+  onSolutionClick?: (solution: any) => void;
+  onCategoryClick?: (category: any) => void;
+}
+
+type IconName = 'Bot' | 'UserRoundCog' | 'LineChart' | 'Workflow' | 'Boxes' | 'GraduationCap';
 
 // Icon mapping
 const iconMap: Record<IconName, LucideIcon> = {
@@ -188,15 +198,15 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                   
                   return (
                     <Card
-                      key={category.id}
+                      key={category.slug}
                       className={cn(
                         'group cursor-pointer transition-all duration-200',
                         'border border-gray-200 dark:border-white/20 hover:border-[var(--t4i-green)] dark:hover:border-[var(--t4i-green)]',
                         'hover:shadow-md hover:shadow-[var(--t4i-green)]/10',
                         isFocused && 'border-[var(--t4i-green)] ring-1 ring-[var(--t4i-green)]',
-                        hoveredCategory === category.id && 'border-[var(--t4i-green)] bg-[var(--t4i-green)]/5'
+                        hoveredCategory === category.slug && 'border-[var(--t4i-green)] bg-[var(--t4i-green)]/5'
                       )}
-                      onMouseEnter={() => setHoveredCategory(category.id)}
+                      onMouseEnter={() => setHoveredCategory(category.slug)}
                       onClick={() => {
                         onCategoryClick?.(category);
                         setIsOpen(false);
@@ -226,12 +236,12 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                               'transition-colors duration-200',
                               'text-sm leading-tight'
                             )}>
-                              {category.name === 'Customer Self-Service' ? (
+                              {category.title === 'Customer Self-Service' ? (
                                 <>
                                   Customer<br />Self-Service
                                 </>
                               ) : (
-                                category.name
+                                category.title
                               )}
                             </h4>
                             <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
@@ -278,7 +288,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
               <div className="space-y-3">
                 {filteredSolutions.map((solution) => (
                   <div
-                    key={solution.id}
+                    key={solution.slug}
                     className={cn(
                       'group cursor-pointer p-3 rounded-lg',
                       'hover:bg-white dark:hover:bg-gray-800',

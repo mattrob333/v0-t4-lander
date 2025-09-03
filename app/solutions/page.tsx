@@ -1,69 +1,28 @@
-import { Suspense } from "react"
 import { Metadata } from "next"
-import { InteractiveSolutionsTileGrid } from "@/components/solutions/InteractiveSolutionsTileGrid"
-import { InteractiveFeaturedProducts } from "@/components/solutions/InteractiveFeaturedProducts"
 import { Button } from "@/components/ui/button"
-import { SimpleImage } from "@/components/ui/simple-image"
-import { CATEGORIES, FEATURED_PRODUCTS, SOLUTIONS_CONFIG } from "@/content/solutions"
-import { StructuredData } from "@/components/schema/structured-data"
-import { generateComprehensiveMeta } from "@/lib/seo/programmatic-seo"
-import { generateAdvancedMetaTags } from "@/lib/seo/meta-generation"
-import { generateContextualLinks } from "@/lib/seo/internal-linking-strategy"
-import { generateSolutionsItemListSchema } from "@/lib/seo/structured-data"
+import { CATEGORIES, SOLUTIONS_CONFIG } from "@/content/solutions"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowRight, CheckCircle, Bot, UserRoundCog, LineChart, Workflow, Boxes, GraduationCap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
-// Convert solutions data to component-expected format
-const solutionCategories = CATEGORIES.map(cat => ({
-  id: cat.slug,
-  name: cat.title,
-  slug: cat.slug,
-  tagline: cat.tagline,
-  description: cat.description || cat.tagline,
-  iconName: cat.icon,
-  featured: cat.displayConfig.showInNav,
-  sortOrder: cat.displayConfig.sortOrder,
-  solutions: cat.solutions?.map(sol => ({
-    id: sol.slug,
-    title: sol.title,
-    summary: sol.summary,
-    description: sol.description,
-    category: {
-      id: cat.slug,
-      name: cat.title,
-      slug: cat.slug,
-      tagline: cat.tagline,
-      iconName: cat.icon,
-      featured: cat.displayConfig.showInNav,
-      sortOrder: cat.displayConfig.sortOrder,
-      createdAt: '',
-      updatedAt: ''
-    },
-    tags: sol.tags,
-    featured: sol.flags.featured,
-    iconName: sol.icon,
-    createdAt: '',
-    updatedAt: ''
-  })) || [],
-  createdAt: '',
-  updatedAt: ''
-}))
-
-const featuredProducts = FEATURED_PRODUCTS.map(product => ({
-  id: product.slug,
-  title: product.title,
-  description: product.blurb,
-  ctaText: "Learn More",
-  ctaUrl: product.href,
-  featured: true,
-  sortOrder: 1,
-  createdAt: '',
-  updatedAt: ''
-}))
+// Icon mapping
+const iconMap = {
+  Bot,
+  UserRoundCog,
+  LineChart,
+  Workflow,
+  Boxes,
+  GraduationCap,
+};
 
 // Generate optimized SEO metadata
-const seoMetadata = generateComprehensiveMeta('landing', {});
+const seoMetadata = {
+  title: "AI Solutions & Services | Tier 4 Intelligence",
+  description: "Transform your business with AI-powered solutions designed to remove bottlenecks and prove ROI fast. Expert AI consulting for rapid implementation.",
+  keywords: ["AI solutions", "AI consulting", "business automation", "AI implementation"],
+  canonical: "https://tier4intelligence.com/solutions"
+};
 
 export const metadata: Metadata = {
   title: seoMetadata.title,
@@ -153,22 +112,37 @@ function SolutionsOverview() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-4">
-          <div className="lg:col-span-3">
-            <InteractiveSolutionsTileGrid
-              categories={solutionCategories}
-              variant="landing"
-            />
-          </div>
-          
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-6">
-                Featured Solutions
-              </h3>
-              <InteractiveFeaturedProducts featuredProducts={featuredProducts} />
-            </div>
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {CATEGORIES.map((category) => {
+            const Icon = iconMap[category.icon as keyof typeof iconMap] || Bot;
+            return (
+              <Card
+                key={category.slug}
+                className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-gray-200 hover:border-[#00A878] hover:shadow-[#00A878]/20 bg-white dark:bg-neutral-900 dark:border-neutral-700 dark:hover:border-[#00A878]"
+              >
+                <Link href={`/solutions/${category.slug}`}>
+                  <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                    <div className="relative p-4 rounded-xl bg-gray-50 dark:bg-neutral-800/50 group-hover:bg-[#00A878]/10 transition-all duration-300">
+                      <Icon className="h-8 w-8 text-gray-600 dark:text-neutral-400 group-hover:text-[#00A878] transition-colors duration-300" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-neutral-100 group-hover:text-[#00A878] transition-colors duration-300">
+                        {category.title}
+                      </h3>
+                      <p className="text-base text-gray-600 dark:text-neutral-300 leading-relaxed">
+                        {category.tagline}
+                      </p>
+                    </div>
+                    {category.solutions && category.solutions.length > 0 && (
+                      <div className="mt-auto pt-2 text-xs text-gray-500 dark:text-neutral-400 group-hover:text-[#00A878] transition-colors duration-300">
+                        {category.solutions.length} solution{category.solutions.length !== 1 ? 's' : ''}
+                      </div>
+                    )}
+                  </CardContent>
+                </Link>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -188,48 +162,34 @@ function WhyChooseUs() {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-              Why Choose Tier 4 Intelligence?
-            </h2>
-            <p className="mt-4 text-lg text-black/70 dark:text-white/70">
-              We deliver AI solutions that work. No buzzwords, no vendor lock-in, just results that transform your business operations.
-            </p>
-            
-            <ul className="mt-8 space-y-4">
-              {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#00A878] flex-shrink-0 mt-0.5" />
-                  <span className="text-black/80 dark:text-white/80">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full bg-[#00A878] px-8 py-3 text-white hover:bg-[#00936B]"
-              >
-                <Link href="/contact">
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
+            Why Choose Tier 4 Intelligence?
+          </h2>
+          <p className="mt-4 text-lg text-black/70 dark:text-white/70 max-w-3xl mx-auto">
+            We deliver AI solutions that work. No buzzwords, no vendor lock-in, just results that transform your business operations.
+          </p>
+          
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-12">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="flex items-start gap-3 p-4 bg-white dark:bg-neutral-800 rounded-lg">
+                <CheckCircle className="h-5 w-5 text-[#00A878] flex-shrink-0 mt-0.5" />
+                <span className="text-black/80 dark:text-white/80 text-sm">{benefit}</span>
+              </div>
+            ))}
           </div>
 
-          <div className="relative">
-            <SimpleImage
-              src="tier4-hero-dna-circuit"
-              alt="AI Solutions Architecture"
-              width={600}
-              height={400}
-              className="rounded-2xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[#00A878]/20 to-transparent blur-xl" />
+          <div className="mt-8">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[#00A878] px-8 py-3 text-white hover:bg-[#00936B]"
+            >
+              <Link href="/contact">
+                Get Started Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -238,36 +198,19 @@ function WhyChooseUs() {
 }
 
 export default function SolutionsPage() {
-  // Generate contextual links for this page
-  const contextualLinks = generateContextualLinks(
-    'https://tier4intelligence.com/solutions',
-    'landing'
-  );
-
-  // Generate enhanced structured data
-  const enhancedStructuredData = generateSolutionsItemListSchema();
+  // Simplified structured data
+  const enhancedStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "AI Solutions by Tier 4 Intelligence",
+    "description": "Comprehensive AI solutions for business automation and digital transformation"
+  };
 
   return (
     <main className="min-h-dvh bg-white text-black dark:bg-neutral-950 dark:text-white">
-      {/* Enhanced Structured Data */}
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(enhancedStructuredData, null, 0)
-        }}
-      />
-      
-      <Suspense>
-        <SolutionsHero />
-      </Suspense>
-
-      <Suspense>
-        <SolutionsOverview />
-      </Suspense>
-
-      <Suspense>
-        <WhyChooseUs />
-      </Suspense>
+      <SolutionsHero />
+      <SolutionsOverview />
+      <WhyChooseUs />
     </main>
   )
 }

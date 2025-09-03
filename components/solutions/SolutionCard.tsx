@@ -6,7 +6,14 @@ import { cn } from '@/lib/utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { SolutionCardProps } from '@/types/solutions';
+// import { SolutionCardProps } from '@/types/solutions';
+
+interface SolutionCardProps {
+  solution: any;
+  variant?: 'compact' | 'default';
+  onClick?: (solution: any) => void;
+  className?: string;
+}
 
 export const SolutionCard: React.FC<SolutionCardProps> = ({
   solution,
@@ -106,28 +113,26 @@ export const SolutionCard: React.FC<SolutionCardProps> = ({
           </div>
         )}
         
-        {solution.ctaText && (
-          <div className="pt-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className={cn(
-                'p-0 h-auto font-medium text-[var(--t4i-green)]',
-                'hover:text-[var(--t4i-green)] hover:bg-transparent',
-                'group-hover:underline transition-all duration-300'
-              )}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (onClick) {
-                  onClick(solution);
-                }
-              }}
-            >
-              {solution.ctaText}
-              <ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
-          </div>
-        )}
+        <div className="pt-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            className={cn(
+              'p-0 h-auto font-medium text-[var(--t4i-green)]',
+              'hover:text-[var(--t4i-green)] hover:bg-transparent',
+              'group-hover:underline transition-all duration-300'
+            )}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onClick) {
+                onClick(solution);
+              }
+            }}
+          >
+            Learn More
+            <ChevronRight className="ml-1 h-4 w-4" />
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

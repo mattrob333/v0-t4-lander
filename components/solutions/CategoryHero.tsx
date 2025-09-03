@@ -5,7 +5,15 @@ import { useRouter } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { CategoryHeroProps } from '@/types/solutions';
+// import { CategoryHeroProps } from '@/types/solutions';
+
+interface CategoryHeroProps {
+  category: any;
+  showBreadcrumb?: boolean;
+  ctaText?: string;
+  ctaUrl?: string;
+  className?: string;
+}
 
 export const CategoryHero: React.FC<CategoryHeroProps & { onCtaClick?: () => void }> = ({
   category,
@@ -84,7 +92,7 @@ export const CategoryHero: React.FC<CategoryHeroProps & { onCtaClick?: () => voi
               <ChevronRight className="h-4 w-4 text-gray-400" aria-hidden="true" />
               
               <span className="text-gray-900 dark:text-neutral-100 font-medium">
-                {category.name}
+                {category.title}
               </span>
             </nav>
           )}
@@ -97,7 +105,7 @@ export const CategoryHero: React.FC<CategoryHeroProps & { onCtaClick?: () => voi
               'leading-tight mb-6'
             )}>
               <span className="block">
-                {category.name}
+                {category.title}
               </span>
               <span className={cn(
                 'block text-3xl sm:text-4xl lg:text-5xl',

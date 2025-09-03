@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { SimpleImage } from "@/components/ui/simple-image"
-import { InteractiveSolutionsMegaMenu } from "@/components/solutions/InteractiveSolutionsMegaMenu"
+import { SolutionsMegaMenu } from "@/components/solutions/SolutionsMegaMenu"
 import { CATEGORIES, getFeaturedSolutions } from "@/content/solutions"
 import Link from "next/link"
 import { useEffect, useState, useMemo } from "react"
@@ -20,66 +20,13 @@ export function Header() {
   const [active, setActive] = useState<(typeof SECTIONS)[number] | null>(null)
   const [mounted, setMounted] = useState(false)
 
-  // Prepare solutions data for mega menu with useMemo to prevent hydration issues
-  const solutionCategories = useMemo(() => CATEGORIES.map(cat => ({
-    id: cat.slug,
-    name: cat.title,
-    slug: cat.slug,
-    tagline: cat.tagline,
-    description: cat.description || cat.tagline,
-    iconName: cat.icon,
-    featured: cat.displayConfig.showInNav,
-    sortOrder: cat.displayConfig.sortOrder,
-    solutions: cat.solutions?.map(sol => ({
-      id: sol.slug,
-      title: sol.title,
-      summary: sol.summary,
-      description: sol.description,
-      category: {
-        id: cat.slug,
-        name: cat.title,
-        slug: cat.slug,
-        tagline: cat.tagline,
-        iconName: cat.icon,
-        featured: cat.displayConfig.showInNav,
-        sortOrder: cat.displayConfig.sortOrder,
-        createdAt: '',
-        updatedAt: ''
-      },
-      tags: sol.tags,
-      featured: sol.flags.featured,
-      iconName: sol.icon,
-      createdAt: '',
-      updatedAt: ''
-    })) || [],
-    createdAt: '',
-    updatedAt: ''
-  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder), [])
+  // Use categories directly to prevent hydration issues
+  const solutionCategories = useMemo(() => 
+    CATEGORIES.filter(cat => cat.displayConfig.showInNav)
+              .sort((a, b) => a.displayConfig.sortOrder - b.displayConfig.sortOrder), [])
 
-  const featuredSolutions = useMemo(() => CATEGORIES.flatMap(cat => 
-    getFeaturedSolutions(cat, 2).map(sol => ({
-      id: sol.slug,
-      title: sol.title,
-      summary: sol.summary,
-      description: sol.description,
-      category: {
-        id: cat.slug,
-        name: cat.title,
-        slug: cat.slug,
-        tagline: cat.tagline,
-        iconName: cat.icon,
-        featured: cat.displayConfig.showInNav,
-        sortOrder: cat.displayConfig.sortOrder,
-        createdAt: '',
-        updatedAt: ''
-      },
-      tags: sol.tags,
-      featured: sol.flags.featured,
-      iconName: sol.icon,
-      createdAt: '',
-      updatedAt: ''
-    }))
-  ).slice(0, 4), [])
+  const featuredSolutions = useMemo(() => 
+    CATEGORIES.flatMap(cat => getFeaturedSolutions(cat, 2)).slice(0, 4), [])
 
   useEffect(() => setMounted(true), [])
 
@@ -158,9 +105,15 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {mounted && (
-            <InteractiveSolutionsMegaMenu
+            <SolutionsMegaMenu
               categories={solutionCategories}
               featuredSolutions={featuredSolutions}
+              onCategoryClick={(category) => {
+                window.location.href = `/solutions/${category.slug}`
+              }}
+              onSolutionClick={() => {
+                // Do nothing for solution clicks
+              }}
             />
           )}
           <a href={getHref("process")} className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>

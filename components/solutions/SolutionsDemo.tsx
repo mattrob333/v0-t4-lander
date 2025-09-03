@@ -170,7 +170,7 @@ export const SolutionsDemo: React.FC = () => {
   };
 
   const handleCategoryClick = (category: SolutionCategory) => {
-    console.log('Category clicked:', category.name);
+    console.log('Category clicked:', category.title);
     // Navigate to category page
     router.push(`/solutions/${category.slug}`);
   };

@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero"
 import { TrustBar } from "@/components/trust-bar"
 import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
-import { InteractiveSolutionsTileGrid } from "@/components/solutions/InteractiveSolutionsTileGrid"
 import { Button } from "@/components/ui/button"
 import { ProcessTimeline } from "@/components/process-timeline"
 import { AnalysisEngine } from "@/components/analysis-engine"
@@ -20,7 +19,8 @@ import { FAQSchema } from "@/components/schema/faq-schema"
 import { CATEGORIES, SOLUTIONS_CONFIG } from "@/content/solutions"
 import { DebugHydration } from "@/components/debug-hydration"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Bot, UserRoundCog, LineChart, Workflow, Boxes, GraduationCap } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 export const metadata = {
   title: "5-Day AI POC | 3-4x ROI Validation | Tier 4 Intelligence",
@@ -67,20 +67,7 @@ export const metadata = {
 }
 
 function ExpertiseSection() {
-  // Convert solutions data to component-expected format
-  const solutionCategories = CATEGORIES.map(cat => ({
-    id: cat.slug,
-    name: cat.title,
-    slug: cat.slug,
-    tagline: cat.tagline,
-    description: cat.description || cat.tagline,
-    iconName: cat.icon,
-    featured: cat.displayConfig.showInNav,
-    sortOrder: cat.displayConfig.sortOrder,
-    solutions: cat.solutions || [],
-    createdAt: '',
-    updatedAt: ''
-  })).filter(cat => cat.featured).sort((a, b) => a.sortOrder - b.sortOrder)
+  // Use categories directly
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-neutral-900" id="expertise">
@@ -97,11 +84,36 @@ function ExpertiseSection() {
         </div>
 
         <DebugHydration name="SolutionsGrid">
-          <InteractiveSolutionsTileGrid
-            categories={solutionCategories}
-            variant="home"
-            className="mb-12"
-          />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-12">
+            {CATEGORIES.filter(cat => cat.displayConfig.showInNav)
+                       .sort((a, b) => a.displayConfig.sortOrder - b.displayConfig.sortOrder)
+                       .map((category) => {
+              const iconMap = { Bot, UserRoundCog, LineChart, Workflow, Boxes, GraduationCap };
+              const Icon = iconMap[category.icon as keyof typeof iconMap] || Bot;
+              return (
+                <Card key={category.slug} className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                  <Link href={`/solutions/${category.slug}`}>
+                    <CardContent className="p-4 flex flex-col items-center text-center space-y-3">
+                      <div className="relative p-3 rounded-xl bg-gray-50 dark:bg-neutral-800/50 group-hover:bg-[#00A878]/10 transition-all duration-300">
+                        <Icon className="h-6 w-6 text-gray-600 dark:text-neutral-400 group-hover:text-[#00A878] transition-colors duration-300" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-neutral-100 group-hover:text-[#00A878] transition-colors duration-300">
+                          {category.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-neutral-300 leading-relaxed">
+                          {category.tagline}
+                        </p>
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-neutral-400 group-hover:text-[#00A878] transition-colors duration-300">
+                        {category.solutions.length} solution{category.solutions.length !== 1 ? 's' : ''}
+                      </div>
+                    </CardContent>
+                  </Link>
+                </Card>
+              );
+            })}
+          </div>
         </DebugHydration>
 
         <div className="text-center">
