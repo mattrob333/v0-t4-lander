@@ -62,7 +62,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
     if (!hoveredCategory) {
       return featuredSolutions.slice(0, 4);
     }
-    const category = categories.find(cat => cat.id === hoveredCategory);
+    const category = categories.find(cat => cat.slug === hoveredCategory);
     return category?.solutions?.slice(0, 4) || featuredSolutions.slice(0, 4);
   };
 
@@ -261,7 +261,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   {hoveredCategory 
-                    ? `${categories.find(cat => cat.id === hoveredCategory)?.name} Solutions`
+                    ? `${categories.find(cat => cat.slug === hoveredCategory)?.title} Solutions`
                     : 'Featured Solutions'
                   }
                 </h3>
@@ -272,7 +272,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                   className="text-[var(--t4i-green)] hover:text-[var(--t4i-green)] hover:bg-[var(--t4i-green)]/10 p-1 h-auto"
                   onClick={() => {
                     const category = hoveredCategory 
-                      ? categories.find(cat => cat.id === hoveredCategory)
+                      ? categories.find(cat => cat.slug === hoveredCategory)
                       : null;
                     if (category) {
                       onCategoryClick?.(category);

@@ -111,8 +111,14 @@ export function Header() {
               onCategoryClick={(category) => {
                 window.location.href = `/solutions/${category.slug}`
               }}
-              onSolutionClick={() => {
-                // Do nothing for solution clicks
+              onSolutionClick={(solution) => {
+                // Find the category this solution belongs to
+                const parentCategory = solutionCategories.find(cat => 
+                  cat.solutions.some(sol => sol.slug === solution.slug)
+                );
+                if (parentCategory) {
+                  window.location.href = `/solutions/${parentCategory.slug}/${solution.slug}`;
+                }
               }}
             />
           )}

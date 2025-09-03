@@ -46,7 +46,8 @@
       "Bash(claude auth login)",
       "Bash(cat:*)",
       "Bash(pnpm install:*)",
-      "Bash(pnpm list:*)"
+      "Bash(pnpm list:*)",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": [],
