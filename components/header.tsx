@@ -122,9 +122,9 @@ export function Header() {
           <a href={getHref("analysis")} className={linkCls("analysis")} aria-current={active === "analysis" ? "page" : undefined}>
             Analysis Engine
           </a>
-          <a href={getHref("contact")} className={linkCls("contact")} aria-current={active === "contact" ? "page" : undefined}>
+          <Link href="/contact" className={linkCls("contact")} aria-current={active === "contact" ? "page" : undefined}>
             Contact
-          </a>
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -162,9 +162,9 @@ export function Header() {
             <a href={getHref("analysis")} className="py-1 text-sm text-black/80 dark:text-white/80">
               Analysis Engine
             </a>
-            <a href={getHref("contact")} className="py-1 text-sm text-black/80 dark:text-white/80">
+            <Link href="/contact" className="py-1 text-sm text-black/80 dark:text-white/80 hover:text-[#00A878]">
               Contact
-            </a>
+            </Link>
             <Button
               onClick={() => setShowDialog(true)}
               className="mt-2 w-full rounded-full bg-[#00A878] text-white hover:bg-[#00936B]"
