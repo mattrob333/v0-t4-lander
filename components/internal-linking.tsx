@@ -97,18 +97,18 @@ export function IndustryNavigation({ currentIndustry }: { currentIndustry?: stri
   const industries = Object.keys(internalLinkingData.industryLinks);
 
   return (
-    <nav className="bg-white border-b border-gray-200 py-4">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap gap-2">
-          <span className="text-sm font-medium text-gray-500 mr-4">Industries:</span>
+    <nav className="bg-white dark:bg-neutral-950 border-b border-gray-200 dark:border-neutral-700 py-4">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap gap-3">
+          <span className="text-sm font-medium text-black/60 dark:text-white/60 mr-4">Industries:</span>
           {industries.map((industry) => (
             <Link
               key={industry}
               href={`/ai-solutions/${industry}`}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 currentIndustry === industry
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-[#00A878] text-white shadow-md'
+                  : 'bg-gray-100 dark:bg-neutral-800 text-black dark:text-white hover:bg-[#00A878]/10 dark:hover:bg-[#00A878]/20 hover:text-[#00A878]'
               }`}
             >
               {industry.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -121,22 +121,22 @@ export function IndustryNavigation({ currentIndustry }: { currentIndustry?: stri
 }
 
 // Component for use case navigation
-export function UseCaseNavigation({ currentUseCase }: { currentUseCase?: string }) {
+export function UseCaseNavigation({ currentUseCase, currentIndustry }: { currentUseCase?: string; currentIndustry?: string }) {
   const useCases = Object.keys(internalLinkingData.useCaseLinks);
 
   return (
-    <nav className="bg-gray-50 border-b border-gray-200 py-4">
+    <nav className="bg-gray-50 dark:bg-neutral-900 border-b border-gray-200 dark:border-neutral-700 py-4">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap gap-2">
-          <span className="text-sm font-medium text-gray-500 mr-4">Use Cases:</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-white/60 mr-4">Use Cases:</span>
           {useCases.map((usecase) => (
             <Link
               key={usecase}
-              href={`/ai-solutions/healthcare/${usecase}`} // Default to healthcare for demo
+              href={`/ai-solutions/${currentIndustry || 'healthcare'}/${usecase}`}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 currentUseCase === usecase
-                  ? 'bg-green-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                  ? 'bg-[#00A878] text-white'
+                  : 'bg-white dark:bg-neutral-800 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-neutral-700 border border-gray-300 dark:border-neutral-600'
               }`}
             >
               {usecase.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -187,7 +187,7 @@ export function InternalLinkingSystem({ industry, usecase }: InternalLinkingProp
         <ProgrammaticBreadcrumb industry={industry} usecase={usecase} />
       )}
       <IndustryNavigation currentIndustry={industry} />
-      <UseCaseNavigation currentUseCase={usecase} />
+      <UseCaseNavigation currentUseCase={usecase} currentIndustry={industry} />
       <RelatedPages industry={industry} usecase={usecase} />
     </>
   );

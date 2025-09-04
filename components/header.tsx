@@ -104,24 +104,22 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
-          {mounted && (
-            <SolutionsMegaMenu
-              categories={solutionCategories}
-              featuredSolutions={featuredSolutions}
-              onCategoryClick={(category) => {
-                window.location.href = `/solutions/${category.slug}`
-              }}
-              onSolutionClick={(solution) => {
-                // Find the category this solution belongs to
-                const parentCategory = solutionCategories.find(cat => 
-                  cat.solutions.some(sol => sol.slug === solution.slug)
-                );
-                if (parentCategory) {
-                  window.location.href = `/solutions/${parentCategory.slug}/${solution.slug}`;
-                }
-              }}
-            />
-          )}
+          <SolutionsMegaMenu
+            categories={solutionCategories}
+            featuredSolutions={featuredSolutions}
+            onCategoryClick={(category) => {
+              window.location.href = `/solutions/${category.slug}`
+            }}
+            onSolutionClick={(solution) => {
+              // Find the category this solution belongs to
+              const parentCategory = solutionCategories.find(cat => 
+                cat.solutions.some(sol => sol.slug === solution.slug)
+              );
+              if (parentCategory) {
+                window.location.href = `/solutions/${parentCategory.slug}/${solution.slug}`;
+              }
+            }}
+          />
           <a href={getHref("process")} className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
             Process
           </a>

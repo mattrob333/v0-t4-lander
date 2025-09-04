@@ -1,11 +1,9 @@
-'use client';
-
 interface ProgrammaticSchemaProps {
   industry: string;
   usecase: string;
   industryInfo: any;
   useCaseInfo: any;
-  content: any;
+  content?: any;
 }
 
 export function ProgrammaticSchema({ 
@@ -212,50 +210,6 @@ export function ProgrammaticSchema({
           "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
         }
       },
-      // How-To Schema for Implementation Process
-      {
-        "@type": "HowTo",
-        "@id": `${canonicalUrl}#howto`,
-        "name": `How to Implement ${useCaseInfo.name} AI in ${industryInfo.name}`,
-        "description": `Step-by-step guide to implementing ${useCaseInfo.name.toLowerCase()} AI solutions in ${industryInfo.name.toLowerCase()} organizations`,
-        "image": `https://tier4intelligence.com/images/process/${industry}-${usecase}.jpg`,
-        "totalTime": "P5D",
-        "supply": [
-          {
-            "@type": "HowToSupply",
-            "name": "Existing Data Infrastructure"
-          },
-          {
-            "@type": "HowToSupply",
-            "name": "Stakeholder Access"
-          },
-          {
-            "@type": "HowToSupply",
-            "name": "Compliance Documentation"
-          }
-        ],
-        "tool": [
-          {
-            "@type": "HowToTool",
-            "name": "AI Development Platform"
-          },
-          {
-            "@type": "HowToTool",
-            "name": "Data Analysis Tools"
-          },
-          {
-            "@type": "HowToTool",
-            "name": "Testing Framework"
-          }
-        ],
-        "step": content.process.map((step: any, index: number) => ({
-          "@type": "HowToStep",
-          "position": index + 1,
-          "name": step.title,
-          "text": step.description,
-          "url": `${canonicalUrl}#step-${index + 1}`
-        }))
-      },
       // FAQ Schema
       {
         "@type": "FAQPage",
@@ -274,7 +228,7 @@ export function ProgrammaticSchema({
             "name": `What ROI can I expect from ${useCaseInfo.name} AI implementation?`,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": `Our clients typically see 3-4x ROI within the first year, with ${content.roi.costSavings} and ${content.roi.efficiencyGains}. All ROI metrics are validated during the 5-day POC phase.`
+              "text": `Our clients typically see 3-4x ROI within the first year, with ${content?.roi?.costSavings || '25-40% cost reduction'} and ${content?.roi?.efficiencyGains || '35-50% efficiency improvement'}. All ROI metrics are validated during the 5-day POC phase.`
             }
           },
           {

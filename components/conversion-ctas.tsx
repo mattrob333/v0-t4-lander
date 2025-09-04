@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { ScheduleDialog } from '@/components/schedule-dialog';
 import Link from 'next/link';
 
 interface ConversionCTAProps {
@@ -176,39 +178,44 @@ const useCaseValueProps = {
 };
 
 export function ConversionCTA({ industry, usecase, industryInfo, useCaseInfo }: ConversionCTAProps) {
+  const [showScheduleDialog, setShowScheduleDialog] = useState(false);
   const ctaConfig = industryCtaConfigs[industry as keyof typeof industryCtaConfigs];
   const valueProps = useCaseValueProps[usecase as keyof typeof useCaseValueProps];
 
   if (!ctaConfig || !valueProps) return null;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-r from-black to-gray-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0">
+        <div className="absolute -right-32 -top-32 h-[400px] w-[400px] rounded-full bg-white/5 blur-3xl" />
+        <div className="absolute -left-32 -bottom-32 h-[300px] w-[300px] rounded-full bg-white/3 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Urgency Banner */}
-          <div className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-pulse">
-            🚨 {ctaConfig.urgency}
+          <div className="inline-block bg-white text-black px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg">
+            ✨ {ctaConfig.urgency}
           </div>
           
           {/* Main Headline */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-6 text-white">
             Ready to Transform {industryInfo.name} with {useCaseInfo.name} AI?
           </h2>
           
           {/* Value Proposition */}
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-10 leading-relaxed max-w-3xl mx-auto text-white/90">
             Join leading {industryInfo.name.toLowerCase()} companies achieving{' '}
-            <span className="font-bold text-yellow-300">{valueProps.outcome}</span> with our{' '}
-            <span className="font-bold text-yellow-300">{valueProps.timeframe}</span> implementation.
+            <span className="font-bold text-white underline decoration-white/50">{valueProps.outcome}</span> with our{' '}
+            <span className="font-bold text-white underline decoration-white/50">{valueProps.timeframe}</span> implementation.
           </p>
           
           {/* Social Proof */}
-          <div className="mb-8">
-            <p className="text-lg font-medium mb-2">{ctaConfig.socialProof}</p>
-            <div className="flex justify-center space-x-6 text-sm">
+          <div className="mb-10">
+            <p className="text-lg font-medium mb-4 text-white/90">{ctaConfig.socialProof}</p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
               {ctaConfig.trustSignals.map((signal, index) => (
-                <span key={index} className="flex items-center">
-                  <svg className="w-4 h-4 mr-1 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <span key={index} className="flex items-center bg-white/10 px-3 py-1 rounded-full text-white">
+                  <svg className="w-4 h-4 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   {signal}
@@ -218,56 +225,63 @@ export function ConversionCTA({ industry, usecase, industryInfo, useCaseInfo }: 
           </div>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button 
               size="lg" 
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold px-8 py-4 text-lg transform hover:scale-105 transition-all duration-200"
+              className="rounded-full bg-white text-black px-8 py-3 hover:bg-gray-200 font-semibold shadow-lg text-lg"
+              onClick={() => setShowScheduleDialog(true)}
             >
-              <Link href="/schedule-assessment" className="flex items-center">
+              <span className="flex items-center">
                 {ctaConfig.primaryCta}
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
-              </Link>
+              </span>
             </Button>
             
             <Button 
+              asChild
               variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-blue-700 px-8 py-4 text-lg"
+              className="rounded-full border-white/50 text-white hover:bg-white/10 px-8 py-3 border-2 text-lg"
             >
-              <Link href={`/resources/${industry}-${usecase}-guide`} className="flex items-center">
-                {ctaConfig.secondaryCta}
+              <Link href="/contact" className="flex items-center">
+                Contact Our Experts
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </Link>
             </Button>
           </div>
           
           {/* Risk Reduction */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-semibold mb-3">Zero Risk Guarantee</h3>
-            <p className="text-lg">{ctaConfig.riskReduction}</p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-10 border border-white/30">
+            <h3 className="text-xl font-semibold mb-3 text-white">Zero Risk Guarantee</h3>
+            <p className="text-lg text-white/90">{ctaConfig.riskReduction}</p>
           </div>
           
           {/* Metrics Cards */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6">
-              <div className="text-3xl font-bold text-yellow-300 mb-2">5 Days</div>
-              <div className="text-sm">To Working Prototype</div>
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 text-white">
+              <div className="text-3xl font-bold text-white mb-2">5 Days</div>
+              <div className="text-sm opacity-90">To Working Prototype</div>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6">
-              <div className="text-3xl font-bold text-green-400 mb-2">3-4x</div>
-              <div className="text-sm">Validated ROI</div>
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 text-white">
+              <div className="text-3xl font-bold text-white mb-2">3-4x</div>
+              <div className="text-sm opacity-90">Validated ROI</div>
             </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6">
-              <div className="text-3xl font-bold text-blue-300 mb-2">100%</div>
-              <div className="text-sm">{industryInfo.compliance} Compliant</div>
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-6 text-white">
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-sm opacity-90">{industryInfo.compliance} Compliant</div>
             </Card>
           </div>
         </div>
       </div>
+
+      <ScheduleDialog
+        open={showScheduleDialog}
+        onOpenChange={setShowScheduleDialog}
+      />
     </section>
   );
 }
