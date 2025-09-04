@@ -52,7 +52,7 @@ export function Footer() {
     <footer className="bg-neutral-900 text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="py-16">
-          <div className="grid gap-12 lg:grid-cols-5">
+          <div className="grid gap-12 lg:grid-cols-6">
             {/* Logo and Company Info */}
             <div className="lg:col-span-2">
               <Link href="/" className="inline-block mb-6">
@@ -112,7 +112,7 @@ export function Footer() {
               </nav>
             </div>
 
-            {/* Solution Categories */}
+            {/* Solutions */}
             <div>
               <h3 className="text-lg font-semibold mb-6">Solutions</h3>
               <nav className="flex flex-col gap-3">
@@ -126,6 +126,48 @@ export function Footer() {
                     <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
                 ))}
+              </nav>
+            </div>
+
+            {/* Industries */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Industries</h3>
+              <nav className="flex flex-col gap-3">
+                <Link
+                  href="/ai-solutions/healthcare"
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 duration-200 flex items-center gap-2 group text-sm"
+                >
+                  Healthcare
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  href="/ai-solutions/finance"
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 duration-200 flex items-center gap-2 group text-sm"
+                >
+                  Financial Services
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  href="/ai-solutions/manufacturing"
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 duration-200 flex items-center gap-2 group text-sm"
+                >
+                  Manufacturing
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  href="/ai-solutions/retail"
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 duration-200 flex items-center gap-2 group text-sm"
+                >
+                  Retail
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  href="/ai-solutions"
+                  className="text-white/70 hover:text-white transition-colors hover:translate-x-1 duration-200 flex items-center gap-2 group text-sm font-medium"
+                >
+                  View All Industries
+                  <ArrowRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
               </nav>
             </div>
 

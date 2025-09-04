@@ -28,7 +28,7 @@ export default function AISolutionsOverview() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-5xl lg:text-6xl">
-              AI Solutions for Every Industry
+              Industries We Serve
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-black/70 dark:text-white/70">
               144+ proven AI implementations across 12 industries and 12 use cases. 
@@ -88,7 +88,7 @@ export default function AISolutionsOverview() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-              AI Solutions by Industry
+              Industries We Specialize In
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-black/70 dark:text-white/70">
               Industry-specific AI implementations with compliance and domain expertise built-in
@@ -135,7 +135,7 @@ export default function AISolutionsOverview() {
                   </div>
                   
                   <Button className="w-full rounded-full bg-[#00A878] hover:bg-[#00936B] text-white">
-                    View {industryInfo.name} AI Solutions
+                    Explore {industryInfo.name} Solutions
                   </Button>
                 </Link>
               </Card>
@@ -153,7 +153,6 @@ export default function AISolutionsOverview() {
               Complete AI Solution Matrix
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-black/70 dark:text-white/70 mb-8">
-              Every combination represents a proven implementation with industry-specific expertise
             </p>
           </div>
           

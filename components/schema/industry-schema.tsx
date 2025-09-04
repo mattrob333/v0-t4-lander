@@ -31,7 +31,7 @@ export function IndustrySchema({ industry, industryInfo }: IndustrySchemaProps) 
         "@type": "WebPage",
         "@id": `https://tier4intelligence.com/ai-solutions/${industry}#webpage`,
         "url": `https://tier4intelligence.com/ai-solutions/${industry}`,
-        "name": `${industryInfo.name} AI Solutions | 5-Day POC | Tier 4 Intelligence`,
+        "name": `${industryInfo.name} Industry Solutions | 5-Day POC | Tier 4 Intelligence`,
         "description": `Comprehensive AI solutions for ${industryInfo.name.toLowerCase()}. 12 proven use cases with ${industryInfo.compliance} compliance. 5-day proof of concept with validated 3-4x ROI.`,
         "inLanguage": "en-US",
         "isPartOf": {
@@ -50,13 +50,13 @@ export function IndustrySchema({ industry, industryInfo }: IndustrySchemaProps) 
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "AI Solutions",
+              "name": "Industries",
               "item": "https://tier4intelligence.com/ai-solutions"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": `${industryInfo.name} AI Solutions`,
+              "name": `${industryInfo.name} Industry Solutions`,
               "item": `https://tier4intelligence.com/ai-solutions/${industry}`
             }
           ]

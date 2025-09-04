@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { SimpleImage } from "@/components/ui/simple-image"
+import { IndustriesMegaMenu } from "@/components/industries/IndustriesMegaMenu"
 import { SolutionsMegaMenu } from "@/components/solutions/SolutionsMegaMenu"
 import { CATEGORIES, getFeaturedSolutions } from "@/content/solutions"
 import Link from "next/link"
@@ -120,6 +121,11 @@ export function Header() {
               }
             }}
           />
+          <IndustriesMegaMenu
+            onIndustryClick={(industry) => {
+              window.location.href = `/ai-solutions/${industry.key}`;
+            }}
+          />
           <a href={getHref("process")} className={linkCls("process")} aria-current={active === "process" ? "page" : undefined}>
             Process
           </a>
@@ -157,8 +163,8 @@ export function Header() {
       {open && (
         <div className="border-t border-black/10 bg-white dark:border-white/10 dark:bg-neutral-950 md:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3">
-            <Link href="/solutions" className="py-1 text-sm text-black/80 dark:text-white/80 hover:text-[#00A878]">
-              Solutions
+            <Link href="/ai-solutions" className="py-1 text-sm text-black/80 dark:text-white/80 hover:text-[#00A878]">
+              Industries
             </Link>
             <a href={getHref("process")} className="py-1 text-sm text-black/80 dark:text-white/80">
               Process

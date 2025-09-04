@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ScheduleDialog } from '@/components/schedule-dialog';
-import { IndustryNavigation } from '@/components/internal-linking';
 import { ConversionCTA } from '@/components/conversion-ctas';
 import { IndustrySchema } from '@/components/schema/industry-schema';
 import useCaseData from '@/lib/seo-data/use-cases.json';
@@ -30,9 +29,30 @@ export function IndustryCategoryClient({ industry, industryInfo }: IndustryCateg
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumbs */}
+          <nav className="mb-8" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-sm text-black/60 dark:text-white/60">
+              <li>
+                <Link href="/" className="hover:text-[#00A878] transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>/</li>
+              <li>
+                <Link href="/ai-solutions" className="hover:text-[#00A878] transition-colors">
+                  Industries
+                </Link>
+              </li>
+              <li>/</li>
+              <li className="text-black dark:text-white font-medium">
+                {industryInfo.name}
+              </li>
+            </ol>
+          </nav>
+          
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-5xl lg:text-6xl">
-              AI Solutions for {industryInfo.name}
+              {industryInfo.name} Solutions
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-black/70 dark:text-white/70">
               12 proven AI use cases specifically designed for {industryInfo.name.toLowerCase()} with {industryInfo.compliance} compliance built-in. 
@@ -52,7 +72,6 @@ export function IndustryCategoryClient({ industry, industryInfo }: IndustryCateg
         </div>
       </section>
 
-      <IndustryNavigation currentIndustry={industry} />
 
       {/* Industry Overview */}
       <section className="py-20 bg-gray-50 dark:bg-neutral-900 relative">
@@ -103,7 +122,7 @@ export function IndustryCategoryClient({ industry, industryInfo }: IndustryCateg
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl">
-              AI Use Cases for {industryInfo.name}
+              Solutions for {industryInfo.name}
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-black/70 dark:text-white/70">
               Each solution is tailored for {industryInfo.name.toLowerCase()} with industry-specific compliance and expertise
@@ -112,41 +131,37 @@ export function IndustryCategoryClient({ industry, industryInfo }: IndustryCateg
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {useCases.map(([useCaseKey, useCaseInfo]) => (
-              <Card key={useCaseKey} className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-gray-200 hover:border-[#00A878] hover:shadow-[#00A878]/20 bg-white dark:bg-neutral-900 dark:border-neutral-700 dark:hover:border-[#00A878] p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold mb-2 text-[#00A878] group-hover:text-[#00936B] transition-colors duration-300">
-                    {useCaseInfo.name}
-                  </h3>
-                  <p className="text-black/70 dark:text-white/70 text-sm mb-3 leading-relaxed">
-                    {useCaseInfo.description}
-                  </p>
-                </div>
-                
-                <div className="mb-4">
-                  <h4 className="font-semibold text-sm mb-2 text-black dark:text-white">Key Benefits:</h4>
-                  <ul className="text-xs text-black/70 dark:text-white/70 space-y-1">
-                    {useCaseInfo.benefits.slice(0, 3).map((benefit: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                        <span className="text-[#00A878] mr-2">✓</span>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-sm mb-2 text-black dark:text-white">{industryInfo.name} Applications:</h4>
-                  <div className="text-xs text-black/60 dark:text-white/60">
-                    Optimized for {industryInfo.terminology.slice(0, 2).join(', ')} with {industryInfo.compliance} compliance
+              <Link key={useCaseKey} href={`/ai-solutions/${industry}/${useCaseKey}`}>
+                <Card className="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-gray-200 hover:border-[#00A878] hover:shadow-[#00A878]/20 bg-white dark:bg-neutral-900 dark:border-neutral-700 dark:hover:border-[#00A878] p-6 h-full">
+                  <div className="mb-4">
+                    <h3 className="text-xl font-semibold mb-2 text-[#00A878] group-hover:text-[#00936B] transition-colors duration-300">
+                      {useCaseInfo.name}
+                    </h3>
+                    <p className="text-black/70 dark:text-white/70 text-sm mb-3 leading-relaxed">
+                      {useCaseInfo.description}
+                    </p>
                   </div>
-                </div>
-                
-                <Link href={`/ai-solutions/${industry}/${useCaseKey}`}>
-                  <Button className="w-full rounded-full bg-[#00A878] hover:bg-[#00936B] text-white">
-                    Learn More
-                  </Button>
-                </Link>
-              </Card>
+                  
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-sm mb-2 text-black dark:text-white">Key Benefits:</h4>
+                    <ul className="text-xs text-black/70 dark:text-white/70 space-y-1">
+                      {useCaseInfo.benefits.slice(0, 3).map((benefit: string, index: number) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-[#00A878] mr-2">✓</span>
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-sm mb-2 text-black dark:text-white">{industryInfo.name} Applications:</h4>
+                    <div className="text-xs text-black/60 dark:text-white/60">
+                      Optimized for {industryInfo.terminology.slice(0, 2).join(', ')} with {industryInfo.compliance} compliance
+                    </div>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -157,7 +172,7 @@ export function IndustryCategoryClient({ industry, industryInfo }: IndustryCateg
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl mb-12">
-              {industryInfo.name} AI Trends & Innovations
+              {industryInfo.name} Industry Trends & Innovations
             </h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {industryInfo.trends.map((trend: string, index: number) => (

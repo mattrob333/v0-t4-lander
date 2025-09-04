@@ -51,10 +51,19 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   const [isMounted, setIsMounted] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout>();
   const router = useRouter();
   
   useEffect(() => {
     setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   // Get filtered solutions for hovered category
@@ -137,15 +146,30 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
   const filteredSolutions = getFilteredSolutions();
 
   return (
-    <div className={cn('relative', className)} ref={menuRef}>
+    <div 
+      className={cn('relative', className)} 
+      ref={menuRef}
+      onMouseEnter={() => {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+        setIsOpen(true);
+      }}
+      onMouseLeave={() => {
+        timeoutRef.current = setTimeout(() => {
+          setIsOpen(false);
+          setHoveredCategory(null);
+        }, 150);
+      }}
+    >
       {/* Trigger Button */}
       <Button
         ref={triggerRef}
         variant="ghost"
         className={cn(
-          'px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[var(--t4i-green)]',
-          'hover:bg-[var(--t4i-green)]/10 transition-colors duration-200',
-          isOpen && 'text-[var(--t4i-green)] bg-[var(--t4i-green)]/10'
+          "flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors",
+          "text-black/80 hover:text-[#00A878] dark:text-white/80 dark:hover:text-[#00A878]",
+          isOpen && "text-[#00A878]"
         )}
         onMouseEnter={() => setIsOpen(true)}
         onFocus={() => setIsOpen(true)}
@@ -162,8 +186,8 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
         Solutions
         <ChevronRight 
           className={cn(
-            'ml-1 h-4 w-4 transition-transform duration-200',
-            isOpen && 'rotate-90'
+            "h-4 w-4 transition-transform duration-200",
+            isOpen && "rotate-90"
           )} 
         />
       </Button>
@@ -171,22 +195,25 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
       {/* Mega Menu Dropdown */}
       {isOpen && (
         <div
-          className={cn(
-            'absolute top-full left-0 z-50 mt-2',
-            'w-screen max-w-4xl min-w-[800px]',
-            'bg-white dark:bg-gray-900',
-            'border border-gray-200 dark:border-white/20',
-            'shadow-xl rounded-lg overflow-hidden',
-            // Position adjustments
-            '-translate-x-1/4'
-          )}
-          style={{ borderRadius: '12px' }}
+          className="overflow-hidden border-gray-200 bg-white shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
+          style={{ 
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            zIndex: 50,
+            marginTop: '0.5rem',
+            width: '100vw',
+            maxWidth: '64rem',
+            minWidth: '50rem',
+            transform: 'translateX(-25%)',
+            borderRadius: '12px'
+          }}
           role="menu"
           aria-label="Solutions categories and featured items"
         >
           <div className="flex">
             {/* Left Panel - Categories Grid */}
-            <div className="flex-1 p-6 border-r border-gray-200 dark:border-white/20 dark:bg-gray-900">
+            <div className="flex-1 p-6 border-r border-gray-200 dark:border-neutral-700">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-4 uppercase tracking-wide">
                 Browse by Category
               </h3>
@@ -201,10 +228,10 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                       key={category.slug}
                       className={cn(
                         'group cursor-pointer transition-all duration-200',
-                        'border border-gray-200 dark:border-white/20 hover:border-[var(--t4i-green)] dark:hover:border-[var(--t4i-green)]',
-                        'hover:shadow-md hover:shadow-[var(--t4i-green)]/10',
-                        isFocused && 'border-[var(--t4i-green)] ring-1 ring-[var(--t4i-green)]',
-                        hoveredCategory === category.slug && 'border-[var(--t4i-green)] bg-[var(--t4i-green)]/5'
+                        'border border-gray-200 dark:border-neutral-700 hover:border-[#00A878] dark:hover:border-[#00A878]',
+                        'hover:shadow-md hover:-translate-y-1',
+                        'bg-white dark:bg-neutral-900',
+                        isFocused && 'ring-2 ring-[#00A878] border-[#00A878]'
                       )}
                       onMouseEnter={() => setHoveredCategory(category.slug)}
                       onClick={() => {
@@ -215,26 +242,20 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                       tabIndex={isFocused ? 0 : -1}
                     >
                       <CardContent className="p-4">
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-start gap-3">
                           <div className={cn(
-                            'p-2 rounded-lg',
-                            'bg-gray-50 dark:bg-gray-900',
-                            'group-hover:bg-[var(--t4i-green)]/10',
-                            'transition-colors duration-200'
+                            'flex h-10 w-10 items-center justify-center rounded-lg transition-colors',
+                            'bg-gray-100 dark:bg-neutral-800 group-hover:bg-[#00A878]/20 dark:group-hover:bg-[#00A878]/20'
                           )}>
                             <Icon className={cn(
-                              'h-5 w-5 text-gray-600 dark:text-gray-400',
-                              'group-hover:text-[var(--t4i-green)]',
-                              'transition-colors duration-200'
+                              'h-5 w-5 transition-colors',
+                              'text-gray-600 dark:text-gray-400 group-hover:text-[#00A878] dark:group-hover:text-[#00A878]'
                             )} />
                           </div>
-                          
                           <div className="flex-1 min-w-0">
                             <h4 className={cn(
-                              'font-medium text-gray-900 dark:text-white',
-                              'group-hover:text-[var(--t4i-green)] dark:group-hover:text-[var(--t4i-green)]',
-                              'transition-colors duration-200',
-                              'text-sm leading-tight'
+                              'font-medium text-sm transition-colors',
+                              'text-gray-900 dark:text-white group-hover:text-[#00A878] dark:group-hover:text-[#00A878]'
                             )}>
                               {category.title === 'Customer Self-Service' ? (
                                 <>
@@ -257,7 +278,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
             </div>
 
             {/* Right Panel - Featured Solutions */}
-            <div className="w-80 p-6 bg-gray-50 dark:bg-gray-800">
+            <div className="w-80 p-6 bg-gray-50 dark:bg-neutral-800">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
                   {hoveredCategory 
@@ -269,7 +290,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-[var(--t4i-green)] hover:text-[var(--t4i-green)] hover:bg-[var(--t4i-green)]/10 p-1 h-auto"
+                  className="text-[#00A878] hover:text-[#00A878] hover:bg-[#00A878]/10 p-1 h-auto"
                   onClick={() => {
                     const category = hoveredCategory 
                       ? categories.find(cat => cat.slug === hoveredCategory)
@@ -316,7 +337,7 @@ export const SolutionsMegaMenu: React.FC<SolutionsMegaMenuProps> = ({
                       </div>
                       
                       <ChevronRight className={cn(
-                        'h-4 w-4 text-gray-400 group-hover:text-[var(--t4i-green)]',
+                        'h-4 w-4 text-gray-400 group-hover:text-[#00A878]',
                         'transition-all duration-200 group-hover:translate-x-0.5',
                         'flex-shrink-0 ml-2'
                       )} />

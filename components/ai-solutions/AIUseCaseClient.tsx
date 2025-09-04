@@ -40,7 +40,7 @@ export function AIUseCaseClient({ industry, usecase, industryInfo, useCaseInfo }
               <li>/</li>
               <li>
                 <Link href="/ai-solutions" className="hover:text-[#00A878] transition-colors">
-                  AI Solutions
+                  Industries
                 </Link>
               </li>
               <li>/</li>
@@ -60,7 +60,7 @@ export function AIUseCaseClient({ industry, usecase, industryInfo, useCaseInfo }
           <div className="text-center mb-20">
             <div className="mb-6">
               <Badge variant="secondary" className="mb-4 bg-[#00A878]/10 text-[#00A878] border-[#00A878]/20">
-                {industryInfo.name} AI Solution
+                {industryInfo.name} Industry Solution
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-6 leading-tight">
                 {useCaseInfo.name} AI for {industryInfo.name}

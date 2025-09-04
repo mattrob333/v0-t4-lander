@@ -87,7 +87,7 @@ export function ProgrammaticSchema({
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "AI Solutions",
+              "name": "Industries",
               "item": "https://tier4intelligence.com/ai-solutions"
             },
             {
@@ -112,8 +112,8 @@ export function ProgrammaticSchema({
         "headline": title,
         "description": description,
         "url": canonicalUrl,
-        "datePublished": new Date().toISOString(),
-        "dateModified": new Date().toISOString(),
+        "datePublished": "2024-01-01T00:00:00.000Z",
+        "dateModified": "2024-01-01T00:00:00.000Z",
         "author": {
           "@type": "Organization",
           "@id": "https://tier4intelligence.com/#organization"
@@ -207,7 +207,7 @@ export function ProgrammaticSchema({
           "@type": "Offer",
           "availability": "https://schema.org/InStock",
           "itemCondition": "https://schema.org/NewCondition",
-          "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString()
+          "priceValidUntil": "2025-12-31T23:59:59.000Z"
         }
       },
       // FAQ Schema

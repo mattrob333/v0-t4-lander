@@ -68,7 +68,7 @@ export function AISolutionsSchema() {
         "@type": "WebPage",
         "@id": "https://tier4intelligence.com/ai-solutions#webpage",
         "url": "https://tier4intelligence.com/ai-solutions",
-        "name": "AI Solutions by Industry | Tier 4 Intelligence",
+        "name": "Industries We Serve | Tier 4 Intelligence",
         "description": "Comprehensive AI solutions across 12 industries and 12 use cases. 5-day proof of concepts with validated 3-4x ROI. 144+ proven AI implementations.",
         "inLanguage": "en-US",
         "isPartOf": {
@@ -87,7 +87,7 @@ export function AISolutionsSchema() {
             {
               "@type": "ListItem", 
               "position": 2,
-              "name": "AI Solutions",
+              "name": "Industries",
               "item": "https://tier4intelligence.com/ai-solutions"
             }
           ]
@@ -97,7 +97,7 @@ export function AISolutionsSchema() {
       {
         "@type": "CollectionPage",
         "@id": "https://tier4intelligence.com/ai-solutions#collection",
-        "name": "AI Solutions by Industry",
+        "name": "Industries We Serve",
         "description": "Complete matrix of AI solutions across 12 industries and 12 use cases with 5-day proof of concept delivery.",
         "url": "https://tier4intelligence.com/ai-solutions",
         "mainEntity": {
@@ -107,12 +107,12 @@ export function AISolutionsSchema() {
           "itemListElement": industries.map(([industryKey, industryInfo], index) => ({
             "@type": "ListItem",
             "position": index + 1,
-            "name": `${industryInfo.name} AI Solutions`,
+            "name": `${industryInfo.name} Industry Solutions`,
             "description": `AI solutions for ${industryInfo.name.toLowerCase()} with ${industryInfo.compliance} compliance`,
             "url": `https://tier4intelligence.com/ai-solutions/${industryKey}`,
             "item": {
               "@type": "Service",
-              "name": `AI Solutions for ${industryInfo.name}`,
+              "name": `${industryInfo.name} Industry Solutions`,
               "provider": {
                 "@id": "https://tier4intelligence.com/#organization"
               },
@@ -126,11 +126,11 @@ export function AISolutionsSchema() {
         },
         "about": solutions.slice(0, 10) // Featured solutions for schema
       },
-      // Service for AI Solutions
+      // Service for Industries
       {
         "@type": "Service",
         "@id": "https://tier4intelligence.com/ai-solutions#service",
-        "name": "AI Solutions by Industry",
+        "name": "Industries We Serve",
         "serviceType": "AI Consulting and Implementation", 
         "description": "Comprehensive AI solutions across 12 industries including healthcare, finance, manufacturing, retail, and more. 144+ proven combinations with 5-day proof of concept delivery.",
         "provider": {
@@ -140,12 +140,12 @@ export function AISolutionsSchema() {
         "category": "AI Consulting",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "AI Solutions by Industry",
+          "name": "Industries We Serve",
           "itemListElement": industries.map(([industryKey, industryInfo]) => ({
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": `AI Solutions for ${industryInfo.name}`,
+              "name": `${industryInfo.name} Industry Solutions`,
               "serviceType": `${industryInfo.name} AI Consulting`,
               "description": `Specialized AI implementations for ${industryInfo.name.toLowerCase()} with ${industryInfo.compliance} compliance and industry expertise.`
             },
