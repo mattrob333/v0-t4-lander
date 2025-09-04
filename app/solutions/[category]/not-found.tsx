@@ -1,12 +1,10 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Header } from '@/components/header'
 import { ArrowLeft, Search } from 'lucide-react'
 
 export default function CategoryNotFound() {
   return (
     <main className="min-h-dvh bg-white text-black dark:bg-neutral-950 dark:text-white">
-      <Header />
       
       <div className="flex min-h-[80vh] items-center justify-center px-4">
         <div className="text-center">

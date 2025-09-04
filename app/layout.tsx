@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 // import { DebugEnvironment } from "@/components/debug-environment"
 
 const inter = Inter({ 
@@ -202,6 +203,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Header />
           {children}
+          <Footer />
           <Toaster />
         </ThemeProvider>
         

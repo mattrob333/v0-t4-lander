@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Reveal } from "./reveal"
 import { ScheduleDialog } from "./schedule-dialog"
 import { useState } from "react"
+import Link from "next/link"
 
 export function FinalCta() {
   const [showForm, setShowForm] = useState(false)
@@ -41,9 +42,11 @@ export function FinalCta() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Button
               variant="outline"
-              onClick={() => setShowScheduleDialog(true)}
+              asChild
             >
-              Prefer email? Open request form
+              <Link href="/contact">
+                Prefer email? Open request form
+              </Link>
             </Button>
             <Button variant="ghost" className="underline underline-offset-4" onClick={() => setShowForm((s) => !s)}>
               {showForm ? "Hide details we collect" : "What information will we ask for?"}
