@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ArrowRight, Mail, Phone, MapPin, Clock, CheckCircle } from "lucide-react"
+import { ContactFormWrapper } from "@/components/contact-form-wrapper"
 
 // Generate optimized SEO metadata
 const seoMetadata = {
@@ -70,104 +71,6 @@ function ContactHero() {
   )
 }
 
-function ContactForm() {
-  return (
-    <Card className="bg-white dark:bg-neutral-900 border-gray-200 dark:border-neutral-700">
-      <CardContent className="p-8">
-        <h3 className="text-2xl font-bold text-black dark:text-white mb-6">
-          Send Us a Message
-        </h3>
-        <form className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-2">
-              <Label htmlFor="firstName" className="text-black dark:text-white">
-                First Name *
-              </Label>
-              <Input
-                id="firstName"
-                type="text"
-                required
-                className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                placeholder="Your first name"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="lastName" className="text-black dark:text-white">
-                Last Name *
-              </Label>
-              <Input
-                id="lastName"
-                type="text"
-                required
-                className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white"
-                placeholder="Your last name"
-              />
-            </div>
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-black dark:text-white">
-              Email Address *
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              required
-              className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              placeholder="your.email@company.com"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="company" className="text-black dark:text-white">
-              Company
-            </Label>
-            <Input
-              id="company"
-              type="text"
-              className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              placeholder="Your company name"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="phone" className="text-black dark:text-white">
-              Phone Number
-            </Label>
-            <Input
-              id="phone"
-              type="tel"
-              className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white"
-              placeholder="(555) 123-4567"
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="message" className="text-black dark:text-white">
-              Message *
-            </Label>
-            <Textarea
-              id="message"
-              required
-              rows={5}
-              className="border-gray-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-black dark:text-white resize-none"
-              placeholder="Tell us about your AI goals, challenges, or questions. What business processes would you like to automate?"
-            />
-          </div>
-          
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full rounded-full bg-[#00A878] px-8 py-3 text-white hover:bg-[#00936B]"
-          >
-            Send Message
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
-  )
-}
 
 function ContactInfo() {
   const contactDetails = [
@@ -292,7 +195,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <ContactForm />
+              <ContactFormWrapper />
             </div>
             <div>
               <ContactInfo />
