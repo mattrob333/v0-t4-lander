@@ -2,38 +2,51 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
----
-
 ## Commands
 
 ```bash
 # Development
-pnpm dev                # Start development server
-pnpm dev:turbo          # Start with Turbo mode
-pnpm build              # Build for production
-pnpm start              # Run production server
-pnpm lint               # Run ESLint
+npm run dev             # Start development server (port 3000)
+npm run dev:turbo       # Start with Turbo mode
+npm run build           # Build for production
+npm run start           # Run production server
+npm run lint            # Run ESLint
+
+# Testing
+npm test                # Run Jest tests
+npm run test:watch      # Run tests in watch mode
+npm run test:coverage   # Run tests with coverage report
+npm run test:ci         # Run tests for CI environments
 
 # Performance & Optimization
-pnpm optimize:images           # Optimize images in public/images
-pnpm performance:check        # Run performance monitoring
-pnpm performance:lighthouse   # Run Lighthouse audit
-pnpm bundle:analyze          # Analyze bundle with webpack-bundle-analyzer
-pnpm sitemap:generate        # Generate sitemap files
-pnpm validate:schema         # Validate structured data schemas
+npm run optimize:images         # Optimize images in public/images
+npm run performance:check       # Run performance monitoring
+npm run performance:lighthouse  # Run Lighthouse audit
+npm run bundle:analyze          # Analyze bundle with webpack-bundle-analyzer
+npm run bundle:report           # Generate bundle report
+npm run sitemap:generate        # Generate sitemap files
+npm run validate:schema         # Validate structured data schemas
+npm run preload:fonts          # Preload font optimization
 
 # Lighthouse CI
-pnpm lighthouse:ci           # Run Lighthouse CI
-pnpm lighthouse:ci:mobile    # Run mobile-specific Lighthouse CI
-pnpm lighthouse:ci:full      # Run full site Lighthouse CI audit
+npm run lighthouse:ci           # Run Lighthouse CI
+npm run lighthouse:ci:mobile    # Run mobile-specific Lighthouse CI
+npm run lighthouse:ci:full      # Run full site Lighthouse CI audit
+npm run lighthouse:generate-config  # Generate Lighthouse configuration
 ```
-
----
 
 ## Architecture
 
-This is a high-performance Next.js 15 landing page for **Tier 4 Intelligence**, focused on AI consulting services with a 5-day POC offering.
-The site emphasizes **conversion optimization, SEO, and performance**.
+This is a high-performance Next.js 15 landing page for **Tier 4 Intelligence**, focused on AI consulting services with a 5-day POC offering. The site emphasizes **conversion optimization, SEO, and performance**.
+
+### Route Structure
+
+- `/` - Main landing page with hero, services, testimonials
+- `/ai-solutions/[industry]/[usecase]` - Programmatic pages for industry-specific AI solutions
+- `/solutions/[category]/[solution]` - Solution-specific pages
+- `/contact` - Contact form page
+- `/api/chatbot` - Chatbot API endpoint
+- `/api/airtable` - Airtable integration for lead management
 
 ### Core Systems
 
@@ -62,78 +75,29 @@ The site emphasizes **conversion optimization, SEO, and performance**.
 * Real-time performance monitoring
 * Automated reporting system
 
----
 
-## Front-End Modification Workflow (with Playwright MCP)
 
-When Claude Code needs to make **adjustments to the website front-end**, it must use the **Playwright MCP server**.
+## Technical Implementation Details
 
-Playwright MCP enables:
+**Build Configuration** (`next.config.mjs`)
+* ESLint/TypeScript errors ignored in builds for rapid iteration
+* Standalone output mode for optimized Docker deployments
+* Image optimization pipeline with WebP/AVIF conversion
+* Aggressive bundle splitting for vendors, UI components, and common chunks
+* Immutable cache headers for static assets (1 year TTL)
+* Security headers configured in `_headers` file
 
-* Taking **screenshots** of the site during modifications
-* Inspecting **DOM elements** for accurate CSS/HTML changes
-* Validating UI/UX fixes in real time
-* Running end-to-end tests on the updated front-end
+## Testing Strategy
 
-**Configuration:**
+* Jest configured with React Testing Library
+* Test files: `**/__tests__/**/*.(ts|tsx)` or `**/*.(test|spec).(ts|tsx)`
+* Coverage thresholds: 80% lines, 70% branches/functions
+* Run single test: `npm test -- path/to/test.spec.tsx`
 
-```bash
-claude mcp add playwright -s project -- cmd /c npx -y @modelcontextprotocol/server-playwright
-```
+## Key Components and Patterns
 
-When modifying UI components, Claude should:
-
-1. Use Playwright MCP to open the local dev server.
-2. Capture screenshots of affected components.
-3. Apply changes in `.tsx` or `.css` files.
-4. Verify adjustments visually with updated screenshots before finalizing.
-
----
-
-## Backend: Chatbot & Contact Form Integration
-
-The repository will also include a **chatbot backend** and **database integration**:
-
-* **Chatbot Backend** (`app/api/chatbot/route.ts`)
-
-  * Provides an API endpoint for website chatbot messages.
-  * Connects to LLM (Claude via API) for conversation handling.
-  * Can be extended with memory (session storage, DB, Redis).
-
-* **Contact Form Integration** (`app/actions/submit-contact.ts`)
-
-  * Captures `name`, `email`, `message`.
-  * Writes submissions into the database (`prisma/lead.ts` or Supabase).
-  * Connects chatbot and contact form into the same **leads table** for unified CRM.
-
-**Database Table: `leads`**
-
-| Column       | Type      | Description                 |
-| ------------ | --------- | --------------------------- |
-| `id`         | UUID/PK   | Unique identifier           |
-| `name`       | String    | Name from contact form      |
-| `email`      | String    | Email address               |
-| `message`    | Text      | Contact form message        |
-| `source`     | Enum      | `contact_form` or `chatbot` |
-| `created_at` | Timestamp | Auto-generated              |
-
-This ensures all inbound leads (manual form + chatbot interactions) are centralized for follow-up.
-
----
-
-## Key Technical Decisions
-
-* **ESLint/TypeScript errors ignored in builds** – set in `next.config.mjs` for rapid iteration
-* **Image optimization** – custom pipeline with multiple formats and responsive sizes
-* **Bundle splitting** – aggressive code splitting for vendors, UI components, and common chunks
-* **Caching strategy** – immutable cache headers for static assets (1 year TTL)
-* **Security headers** – CSP, X-Frame-Options, and other security headers configured
-
----
-
-## Component Patterns
-
-* **OptimizedImage** (`components/ui/optimized-image.tsx`) – use for all images with responsive srcsets
-* **LazyLoader** (`components/ui/lazy-loader.tsx`) – wrap non-critical components for lazy loading
-* **Server Actions** – all form submissions use server actions (see `app/actions/submit-lead.ts`)
-* **Theme-aware components** – use CSS variables for dark/light mode compatibility
+* **OptimizedImage** (`components/ui/optimized-image.tsx`) - Responsive image component with srcset
+* **LazyLoader** (`components/ui/lazy-loader.tsx`) - Component lazy loading wrapper
+* **ConversionOptimizationSuite** (`components/conversion-optimization-suite.tsx`) - Core CRO components
+* **Server Actions** (`app/actions/`) - Form submissions and data mutations
+* **Schema Components** (`components/schema/`) - Structured data for SEO

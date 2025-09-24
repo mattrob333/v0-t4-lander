@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://tier4intelligence.com',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: "5-Day AI POC with 3-4x ROI | Tier 4 Intelligence",
     description: "Rapid AI implementation without the buzzwords. Get a working proof-of-concept in 5 days with validated ROI for your enterprise.",
