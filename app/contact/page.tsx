@@ -81,15 +81,9 @@ function ContactInfo() {
       description: "We'll respond within 24 hours"
     },
     {
-      icon: Phone,
-      title: "Call Us",
-      content: "(415) 555-0123",
-      description: "Mon-Fri 9am-6pm PST"
-    },
-    {
       icon: MapPin,
-      title: "San Francisco Office",
-      content: "123 Market Street, Suite 456\nSan Francisco, CA 94102",
+      title: "Tech Alpharetta Office",
+      content: "925 North Point Parkway\nAlpharetta, GA 30005",
       description: "By appointment only"
     },
     {
