@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { SimpleImage } from "@/components/ui/simple-image"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { Mail, MapPin, ArrowRight } from "lucide-react"
 import { useState } from "react"
 import { ScheduleDialog } from "./schedule-dialog"
 
@@ -31,19 +31,13 @@ export function Footer() {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@tier4intelligence.com",
-      href: "mailto:hello@tier4intelligence.com"
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "(415) 555-0123",
-      href: "tel:+14155550123"
+      value: "info@tier4intelligence.com",
+      href: "mailto:info@tier4intelligence.com"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
+      value: "925 North Point Parkway, Alpharetta, GA 30005",
       href: null
     }
   ]
