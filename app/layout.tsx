@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     apple: '/favicon.png',
   },
   openGraph: {
-    title: "5-Day AI POC with 3-4x ROI | Tier 4 Intelligence",
+    title: "Tier 4 Intelligence",
     description: "Rapid AI implementation without the buzzwords. Get a working proof-of-concept in 5 days with validated ROI for your enterprise.",
     url: "https://tier4intelligence.com",
     siteName: "Tier 4 Intelligence",
