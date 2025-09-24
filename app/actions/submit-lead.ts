@@ -54,7 +54,6 @@ export async function submitLead(
   const name = String(formData.get("name") ?? "").trim()
   const email = String(formData.get("email") ?? "").trim()
   const company = String(formData.get("company") ?? "").trim()
-  const phone = String(formData.get("phone") ?? "").trim()
   const notes = String(formData.get("notes") ?? "").trim()
 
   if (!name || !email || !company) {
@@ -67,7 +66,6 @@ export async function submitLead(
       name,
       email,
       company,
-      phone: phone || undefined,
       notes,
       source: "Contact Form"
     })

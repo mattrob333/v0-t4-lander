@@ -8,14 +8,13 @@ export interface LeadData {
   name: string
   email: string
   company: string
-  phone?: string
   notes: string
   source: string
 }
 
 // This will be used by the server action to create records via MCP
 export function formatLeadForAirtable(leadData: LeadData) {
-  const formatted: any = {
+  return {
     'Full Name': leadData.name,
     'Work Email': leadData.email,
     'Company': leadData.company,
@@ -24,10 +23,4 @@ export function formatLeadForAirtable(leadData: LeadData) {
     'Submission Date': new Date().toISOString(),
     'Lead Status': 'New'
   }
-
-  if (leadData.phone) {
-    formatted['Phone'] = leadData.phone
-  }
-
-  return formatted
 }
