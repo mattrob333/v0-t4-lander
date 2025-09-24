@@ -77,7 +77,7 @@ function ContactInfo() {
     {
       icon: Mail,
       title: "Email Us",
-      content: "hello@tier4intelligence.com",
+      content: "info@tier4intelligence.com",
       description: "We'll respond within 24 hours"
     },
     {

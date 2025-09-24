@@ -18,6 +18,7 @@ export async function submitContact(
   leadFormData.append("name", fullName)
   leadFormData.append("email", String(formData.get("email") ?? "").trim())
   leadFormData.append("company", String(formData.get("company") ?? "").trim())
+  leadFormData.append("phone", String(formData.get("phone") ?? "").trim())
   leadFormData.append("notes", String(formData.get("notes") ?? "").trim())
   leadFormData.append("source", "Contact Form")
   
